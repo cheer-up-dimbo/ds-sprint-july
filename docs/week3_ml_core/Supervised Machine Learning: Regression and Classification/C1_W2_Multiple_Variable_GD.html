@@ -423,7 +423,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">copy</span><span class="o">,</span><span class="w"> </span><span class="nn">math</span> 
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;/Users/cheerupdimbo/Documents/ds-sprint-july/ds-sprint-july/week3_ml_core/deeplearning.mplstyle&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'/Users/cheerupdimbo/Documents/ds-sprint-july/ds-sprint-july/week3_ml_core/deeplearning.mplstyle'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -525,19 +525,19 @@
 <span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">460</span><span class="p">,</span> <span class="mi">232</span><span class="p">,</span> <span class="mi">178</span><span class="p">])</span>
 
 <span class="c1"># data is stored in numpy array/matrix</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X Shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, X Type:</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"X Shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, X Type:</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y Shape: </span><span class="si">{</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, y Type:</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"y Shape: </span><span class="si">{</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, y Type:</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X Shape: (3, 4), X Type:&lt;class &#39;numpy.ndarray&#39;&gt;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X Shape: (3, 4), X Type:&lt;class 'numpy.ndarray'&gt;)
 [[2104    5    1   45]
  [1416    3    2   40]
  [ 852    2    1   35]]
-y Shape: (3,), y Type:&lt;class &#39;numpy.ndarray&#39;&gt;)
+y Shape: (3,), y Type:&lt;class 'numpy.ndarray'&gt;)
 [460 232 178]
 </pre></div>
 </div>
@@ -547,12 +547,12 @@ y Shape: (3,), y Type:&lt;class &#39;numpy.ndarray&#39;&gt;)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_init</span> <span class="o">=</span> <span class="mf">785.1811367994083</span>
 <span class="n">w_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.39133535</span><span class="p">,</span> <span class="mf">18.75376741</span><span class="p">,</span> <span class="o">-</span><span class="mf">53.36032453</span><span class="p">,</span> <span class="o">-</span><span class="mf">26.42131618</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;w_init shape: </span><span class="si">{</span><span class="n">w_init</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, b_init type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">b_init</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"w_init shape: </span><span class="si">{</span><span class="n">w_init</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, b_init type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">b_init</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w_init shape: (4,), b_init type: &lt;class &#39;float&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w_init shape: (4,), b_init type: &lt;class 'float'&gt;
 </pre></div>
 </div>
 </div>
@@ -615,7 +615,7 @@ $<span class="math notranslate nohighlight">\(f_{\mathbf{w},b}(\mathbf{x}^{(i)})
     <span class="k">return</span> <span class="n">cost</span>
 
 <span class="n">cost</span> <span class="o">=</span> <span class="n">compute_cost</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">w_init</span><span class="p">,</span> <span class="n">b_init</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cost at optimal w: </span><span class="si">{</span><span class="n">cost</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Cost at optimal w: </span><span class="si">{</span><span class="n">cost</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -763,7 +763,7 @@ $<span class="math notranslate nohighlight">\(\begin{align*} \text{repeat}&amp;\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_in</span><span class="p">,</span> <span class="n">b_in</span><span class="p">,</span> <span class="n">cost_function</span><span class="p">,</span> <span class="n">gradient_function</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">num_iters</span><span class="p">):</span> 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Performs batch gradient descent to learn w and b. Updates w and b by taking </span>
 <span class="sd">    num_iters gradient steps with learning rate alpha</span>
 <span class="sd">    </span>
@@ -780,9 +780,9 @@ $<span class="math notranslate nohighlight">\(\begin{align*} \text{repeat}&amp;\
 <span class="sd">    Returns:</span>
 <span class="sd">      w (ndarray (n,)) : Updated values of parameters </span>
 <span class="sd">      b (scalar)       : Updated value of parameter </span>
-<span class="sd">      &quot;&quot;&quot;</span>
+<span class="sd">      """</span>
     
-    <span class="c1"># An array to store cost J and w&#39;s at each iteration primarily for graphing later</span>
+    <span class="c1"># An array to store cost J and w's at each iteration primarily for graphing later</span>
     <span class="n">J_history</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">w_in</span><span class="p">)</span>  <span class="c1">#avoid modifying global w within function</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">b_in</span>
@@ -813,7 +813,7 @@ $<span class="math notranslate nohighlight">\(\begin{align*} \text{repeat}&amp;\
 <span class="n">w_final</span><span class="p">,</span> <span class="n">b_final</span><span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">initial_w</span><span class="p">,</span> <span class="n">initial_b</span><span class="p">,</span>
                                                     <span class="n">compute_cost</span><span class="p">,</span> <span class="n">compute_gradient</span><span class="p">,</span> 
                                                     <span class="n">alpha</span><span class="p">,</span> <span class="n">iterations</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;b,w found by gradient descent: </span><span class="si">{</span><span class="n">b_final</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">w_final</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"b,w found by gradient descent: </span><span class="si">{</span><span class="n">b_final</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">w_final</span><span class="si">}</span><span class="s2"> "</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

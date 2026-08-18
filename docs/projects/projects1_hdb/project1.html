@@ -418,12 +418,12 @@
 
 <span class="c1"># ---- Config -----------------------------------------------------------------</span>
 <span class="n">RANDOM_STATE</span> <span class="o">=</span> <span class="mi">42</span>          <span class="c1"># set everywhere so results are reproducible</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.max_columns"</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">"whitegrid"</span><span class="p">)</span>
 
 <span class="c1"># ---- Paths (edit to match your repo) ----------------------------------------</span>
-<span class="n">HDB_PATH</span>   <span class="o">=</span> <span class="s2">&quot;/Users/cheerupdimbo/Documents/ds-sprint-july/ds-sprint-july/projects/projects1_hdb/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv&quot;</span>
-<span class="n">SECOM_PATH</span> <span class="o">=</span> <span class="s2">&quot;/Users/cheerupdimbo/Documents/ds-sprint-july/ds-sprint-july/projects/projects2_secom/uci-secom.csv&quot;</span>
+<span class="n">HDB_PATH</span>   <span class="o">=</span> <span class="s2">"/Users/cheerupdimbo/Documents/ds-sprint-july/ds-sprint-july/projects/projects1_hdb/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv"</span>
+<span class="n">SECOM_PATH</span> <span class="o">=</span> <span class="s2">"/Users/cheerupdimbo/Documents/ds-sprint-july/ds-sprint-july/projects/projects2_secom/uci-secom.csv"</span>
 </pre></div>
 </div>
 </div>
@@ -432,7 +432,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HDB_PATH</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -577,7 +577,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.DataFrame&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'pandas.DataFrame'&gt;
 RangeIndex: 234672 entries, 0 to 234671
 Data columns (total 11 columns):
  #   Column               Non-Null Count   Dtype  
@@ -626,10 +626,10 @@ dtype: int64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;resale_price&#39;</span><span class="p">],</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'resale_price'</span><span class="p">],</span>
     <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Resale Prices&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Distribution of Resale Prices'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -640,10 +640,10 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span> <span class="s1">&#39;town&#39;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span> <span class="s1">&#39;flat_type&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;resale_price&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Flat Type&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s1">&#39;Resale Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span> <span class="s1">'town'</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span> <span class="s1">'flat_type'</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">'resale_price'</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Flat Type'</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s1">'Resale Price'</span><span class="p">,</span> <span class="s1">'Count'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -654,11 +654,11 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;sale_year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;flat_age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;sale_year&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;lease_commence_date&quot;</span><span class="p">]</span>
-<span class="n">storey_bounds</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;storey_range&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)\s+TO\s+(\d+)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;storey_mid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">storey_bounds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"month"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"month"</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"sale_year"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"month"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"flat_age"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"sale_year"</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">"lease_commence_date"</span><span class="p">]</span>
+<span class="n">storey_bounds</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"storey_range"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\d+)\s+TO\s+(\d+)"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"storey_mid"</span><span class="p">]</span> <span class="o">=</span> <span class="n">storey_bounds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -791,9 +791,9 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TARGET</span> <span class="o">=</span> <span class="s1">&#39;resale_price&#39;</span>
-<span class="n">num_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">,</span> <span class="s2">&quot;flat_age&quot;</span><span class="p">,</span> <span class="s2">&quot;storey_mid&quot;</span><span class="p">,</span> <span class="s2">&quot;sale_year&quot;</span><span class="p">]</span>
-<span class="n">cat_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;town&quot;</span><span class="p">,</span> <span class="s2">&quot;flat_type&quot;</span><span class="p">,</span> <span class="s2">&quot;flat_model&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TARGET</span> <span class="o">=</span> <span class="s1">'resale_price'</span>
+<span class="n">num_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"floor_area_sqm"</span><span class="p">,</span> <span class="s2">"flat_age"</span><span class="p">,</span> <span class="s2">"storey_mid"</span><span class="p">,</span> <span class="s2">"sale_year"</span><span class="p">]</span>
+<span class="n">cat_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"town"</span><span class="p">,</span> <span class="s2">"flat_type"</span><span class="p">,</span> <span class="s2">"flat_model"</span><span class="p">]</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">num_features</span> <span class="o">+</span> <span class="n">cat_features</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">TARGET</span><span class="p">]</span>
@@ -802,7 +802,7 @@ dtype: int64
    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span>
 <span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;train=</span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">test=</span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'train=</span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">test=</span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -816,21 +816,21 @@ test=(46935, 7)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+    <span class="p">(</span><span class="s2">"scale"</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
 <span class="p">])</span>
 
 <span class="n">categorial_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s2">&quot;onehot&quot;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">())</span>
+    <span class="p">(</span><span class="s2">"onehot"</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">())</span>
 <span class="p">])</span>
 
 <span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="n">numeric_pipe</span><span class="p">,</span> <span class="n">num_features</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">categorial_pipe</span><span class="p">,</span> <span class="n">cat_features</span><span class="p">)</span>
+    <span class="p">(</span><span class="s1">'num'</span><span class="p">,</span> <span class="n">numeric_pipe</span><span class="p">,</span> <span class="n">num_features</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'cat'</span><span class="p">,</span> <span class="n">categorial_pipe</span><span class="p">,</span> <span class="n">cat_features</span><span class="p">)</span>
 <span class="p">])</span>
 
 <span class="n">baseline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s2">&quot;prep&quot;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+    <span class="p">(</span><span class="s2">"prep"</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
 <span class="p">])</span>
 
 <span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span>
@@ -845,10 +845,10 @@ test=(46935, 7)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmse_cv</span><span class="o">=-</span><span class="n">cross_val_score</span><span class="p">(</span>
-    <span class="n">baseline</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_root_mean_squared_error&quot;</span>
+    <span class="n">baseline</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">"neg_root_mean_squared_error"</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ridge baseline RMSE: </span><span class="si">{</span><span class="n">rmse_cv</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">(+/-</span><span class="si">{</span><span class="n">rmse_cv</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ridge baseline RMSE: </span><span class="si">{</span><span class="n">rmse_cv</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">(a/-</span><span class="si">{</span><span class="n">rmse_cv</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ridge baseline RMSE: </span><span class="si">{</span><span class="n">rmse_cv</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">(+/-</span><span class="si">{</span><span class="n">rmse_cv</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ridge baseline RMSE: </span><span class="si">{</span><span class="n">rmse_cv</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">(a/-</span><span class="si">{</span><span class="n">rmse_cv</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -862,15 +862,15 @@ Ridge baseline RMSE: 69305.13180343318(a/-309.6739998982135)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">candidates</span><span class="o">=</span><span class="p">{</span>
-    <span class="s2">&quot;Ridge&quot;</span><span class="p">:</span> <span class="n">Ridge</span><span class="p">(</span>
+    <span class="s2">"Ridge"</span><span class="p">:</span> <span class="n">Ridge</span><span class="p">(</span>
         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span>
         <span class="p">),</span>
-    <span class="s2">&quot;rf&quot;</span><span class="p">:</span> <span class="n">RandomForestRegressor</span><span class="p">(</span>
+    <span class="s2">"rf"</span><span class="p">:</span> <span class="n">RandomForestRegressor</span><span class="p">(</span>
         <span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
         <span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span><span class="p">,</span>
         <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>
         <span class="p">),</span>
-    <span class="s2">&quot;xgb&quot;</span><span class="p">:</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">(</span>
+    <span class="s2">"xgb"</span><span class="p">:</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">(</span>
         <span class="n">n_estimators</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
         <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
         <span class="n">max_depth</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
@@ -881,15 +881,15 @@ Ridge baseline RMSE: 69305.13180343318(a/-309.6739998982135)
 
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">candidates</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">pipe</span><span class="o">=</span><span class="n">Pipeline</span><span class="p">([</span>
-        <span class="p">(</span><span class="s2">&quot;prep&quot;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">"prep"</span><span class="p">,</span>
         <span class="n">preprocessor</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">"model"</span><span class="p">,</span>
          <span class="n">model</span><span class="p">)</span>
     <span class="p">])</span>
     <span class="n">scores</span> <span class="o">=</span> <span class="o">-</span><span class="n">cross_val_score</span><span class="p">(</span>
-        <span class="n">pipe</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_root_mean_squared_error&quot;</span>
+        <span class="n">pipe</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">"neg_root_mean_squared_error"</span>
     <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">6s</span><span class="si">}</span><span class="se">\n</span><span class="s2">RMSE </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">&gt;10,.0f</span><span class="si">}</span><span class="s2"> (+/- </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">6s</span><span class="si">}</span><span class="se">\n</span><span class="s2">RMSE </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">&gt;10,.0f</span><span class="si">}</span><span class="s2"> (+/- </span><span class="si">{</span><span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -907,19 +907,19 @@ RMSE     39,900 (+/- 212)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grids</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Ridge&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;model__alpha&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
+    <span class="s2">"Ridge"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"model__alpha"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
     <span class="p">},</span>
-    <span class="s2">&quot;rf&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;model__n_estimators&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
-        <span class="s2">&quot;model__max_depth&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+    <span class="s2">"rf"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"model__n_estimators"</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
+        <span class="s2">"model__max_depth"</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
     <span class="p">},</span>
-    <span class="s2">&quot;xgb&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;model__max_depth&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-        <span class="s2">&quot;model__learning_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
-        <span class="s2">&quot;model__n_estimators&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span>
-        <span class="s2">&quot;model__subsample&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-        <span class="s2">&quot;model__colsample_bytree&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+    <span class="s2">"xgb"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"model__max_depth"</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+        <span class="s2">"model__learning_rate"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+        <span class="s2">"model__n_estimators"</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span>
+        <span class="s2">"model__subsample"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="s2">"model__colsample_bytree"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -928,22 +928,22 @@ RMSE     39,900 (+/- 212)
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">candidates</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
         <span class="n">Pipeline</span><span class="p">([</span>
-            <span class="p">(</span><span class="s2">&quot;prep&quot;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+            <span class="p">(</span><span class="s2">"prep"</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
         <span class="p">]),</span>
         <span class="n">param_grids</span><span class="p">[</span><span class="n">name</span><span class="p">],</span>
         <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
-        <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_root_mean_squared_error&quot;</span><span class="p">,</span>
+        <span class="n">scoring</span><span class="o">=</span><span class="s2">"neg_root_mean_squared_error"</span><span class="p">,</span>
         <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">refit</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span>
     <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> CV RMSE: </span><span class="si">{</span><span class="o">-</span><span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> CV RMSE: </span><span class="si">{</span><span class="o">-</span><span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="n">results</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;search&quot;</span> <span class="p">:</span> <span class="n">search</span><span class="p">,</span>
-        <span class="s2">&quot;best_model&quot;</span> <span class="p">:</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">,</span>
-        <span class="s2">&quot;best_params&quot;</span> <span class="p">:</span> <span class="n">search</span><span class="o">.</span><span class="n">best_params_</span>
+        <span class="s2">"search"</span> <span class="p">:</span> <span class="n">search</span><span class="p">,</span>
+        <span class="s2">"best_model"</span> <span class="p">:</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">,</span>
+        <span class="s2">"best_params"</span> <span class="p">:</span> <span class="n">search</span><span class="o">.</span><span class="n">best_params_</span>
         <span class="p">}</span>
 </pre></div>
 </div>
@@ -967,7 +967,7 @@ Fitting 5 folds for each of 48 candidates, totalling 240 fits
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_model</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;xgb&quot;</span><span class="p">][</span><span class="s2">&quot;best_model&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_model</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">"xgb"</span><span class="p">][</span><span class="s2">"best_model"</span><span class="p">]</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">final_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -975,9 +975,9 @@ Fitting 5 folds for each of 48 candidates, totalling 240 fits
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">))</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAE. : </span><span class="si">{</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAE. : </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RMSE : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">))</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MAE. : </span><span class="si">{</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MAE. : </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -995,13 +995,13 @@ MAE. : 1
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">lims</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lims</span><span class="p">,</span> <span class="n">lims</span><span class="p">,</span> <span class="s2">&quot;r--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Actual&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Predicted&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Predicted vs Actual&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lims</span><span class="p">,</span> <span class="n">lims</span><span class="p">,</span> <span class="s2">"r--"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"Actual"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Predicted"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Predicted vs Actual"</span><span class="p">)</span>
 
 <span class="n">residuals</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">-</span><span class="n">y_pred</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Predicted&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual plot&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"Predicted"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Residual"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Residual plot"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span>
 </pre></div>
 </div>
@@ -1016,20 +1016,20 @@ MAE. : 1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;town&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ANG MO KIO&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;flat_type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;4 ROOM&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;storey_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;10 TO 12&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">95.0</span><span class="p">],</span>
-    <span class="s2">&quot;flat_model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Improved&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;lease_commence_date&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1990</span><span class="p">],</span>
+    <span class="s2">"town"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ANG MO KIO"</span><span class="p">],</span>
+    <span class="s2">"flat_type"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"4 ROOM"</span><span class="p">],</span>
+    <span class="s2">"storey_range"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"10 TO 12"</span><span class="p">],</span>
+    <span class="s2">"floor_area_sqm"</span><span class="p">:</span> <span class="p">[</span><span class="mf">95.0</span><span class="p">],</span>
+    <span class="s2">"flat_model"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Improved"</span><span class="p">],</span>
+    <span class="s2">"lease_commence_date"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1990</span><span class="p">],</span>
 <span class="p">})</span>
 
 <span class="c1"># Recreate the same engineered features used during training</span>
-<span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;sale_year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2026</span>  <span class="c1"># or pd.to_datetime(&quot;2026-06&quot;).year, whatever your &quot;current&quot; sale year is</span>
-<span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;flat_age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;sale_year&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;lease_commence_date&quot;</span><span class="p">]</span>
+<span class="n">new_data</span><span class="p">[</span><span class="s2">"sale_year"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2026</span>  <span class="c1"># or pd.to_datetime("2026-06").year, whatever your "current" sale year is</span>
+<span class="n">new_data</span><span class="p">[</span><span class="s2">"flat_age"</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_data</span><span class="p">[</span><span class="s2">"sale_year"</span><span class="p">]</span> <span class="o">-</span> <span class="n">new_data</span><span class="p">[</span><span class="s2">"lease_commence_date"</span><span class="p">]</span>
 
-<span class="n">storey_bounds</span> <span class="o">=</span> <span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;storey_range&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)\s+TO\s+(\d+)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;storey_mid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">storey_bounds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">storey_bounds</span> <span class="o">=</span> <span class="n">new_data</span><span class="p">[</span><span class="s2">"storey_range"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\d+)\s+TO\s+(\d+)"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">new_data</span><span class="p">[</span><span class="s2">"storey_mid"</span><span class="p">]</span> <span class="o">=</span> <span class="n">storey_bounds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">predicted_price</span> <span class="o">=</span> <span class="n">final_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">predicted_price</span><span class="p">)</span>
@@ -1050,7 +1050,7 @@ MAE. : 1
     <span class="n">y_test</span><span class="p">,</span> 
     <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span><span class="p">,</span>
-    <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_root_mean_squared_error&quot;</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s2">"neg_root_mean_squared_error"</span><span class="p">,</span>
     <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>
 <span class="p">)</span>
 
@@ -1072,8 +1072,8 @@ MAE. : 1
         <span class="p">)</span>
 <span class="p">)</span>
 
-<span class="n">imp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Permutation importance (RMSE increase when shuffled)&quot;</span><span class="p">)</span>
+<span class="n">imp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">"barh"</span><span class="p">)</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Permutation importance (RMSE increase when shuffled)"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1089,30 +1089,30 @@ MAE. : 1
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># --- Input widgets (adjust choices to match your actual categories) ---</span>
-<span class="n">town_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;town&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Town:&quot;</span><span class="p">)</span>
-<span class="n">flat_type_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;flat_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Flat type:&quot;</span><span class="p">)</span>
-<span class="n">storey_range_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;10 TO 12&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Storey range:&quot;</span><span class="p">)</span>
-<span class="n">floor_area_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">95.0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Floor area:&quot;</span><span class="p">)</span>
-<span class="n">flat_model_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;flat_model&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Flat model:&quot;</span><span class="p">)</span>
-<span class="n">lease_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1990</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Lease start:&quot;</span><span class="p">)</span>
-<span class="n">sale_year_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">2026</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Sale year:&quot;</span><span class="p">)</span>
+<span class="n">town_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"town"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Town:"</span><span class="p">)</span>
+<span class="n">flat_type_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"flat_type"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Flat type:"</span><span class="p">)</span>
+<span class="n">storey_range_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"10 TO 12"</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Storey range:"</span><span class="p">)</span>
+<span class="n">floor_area_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">95.0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Floor area:"</span><span class="p">)</span>
+<span class="n">flat_model_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"flat_model"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Flat model:"</span><span class="p">)</span>
+<span class="n">lease_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1990</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Lease start:"</span><span class="p">)</span>
+<span class="n">sale_year_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">2026</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Sale year:"</span><span class="p">)</span>
 
-<span class="n">predict_btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Predict price&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">)</span>
+<span class="n">predict_btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Predict price"</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">"success"</span><span class="p">)</span>
 <span class="n">predict_out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">build_row</span><span class="p">():</span>
     <span class="n">row</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s2">&quot;town&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">town_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
-        <span class="s2">&quot;flat_type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">flat_type_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
-        <span class="s2">&quot;storey_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">storey_range_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
-        <span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">floor_area_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
-        <span class="s2">&quot;flat_model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">flat_model_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
-        <span class="s2">&quot;lease_commence_date&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">lease_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
-        <span class="s2">&quot;sale_year&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">sale_year_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
+        <span class="s2">"town"</span><span class="p">:</span> <span class="p">[</span><span class="n">town_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
+        <span class="s2">"flat_type"</span><span class="p">:</span> <span class="p">[</span><span class="n">flat_type_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
+        <span class="s2">"storey_range"</span><span class="p">:</span> <span class="p">[</span><span class="n">storey_range_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
+        <span class="s2">"floor_area_sqm"</span><span class="p">:</span> <span class="p">[</span><span class="n">floor_area_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
+        <span class="s2">"flat_model"</span><span class="p">:</span> <span class="p">[</span><span class="n">flat_model_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
+        <span class="s2">"lease_commence_date"</span><span class="p">:</span> <span class="p">[</span><span class="n">lease_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
+        <span class="s2">"sale_year"</span><span class="p">:</span> <span class="p">[</span><span class="n">sale_year_w</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
     <span class="p">})</span>
-    <span class="n">row</span><span class="p">[</span><span class="s2">&quot;flat_age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;sale_year&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;lease_commence_date&quot;</span><span class="p">]</span>
-    <span class="n">bounds</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;storey_range&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)\s+TO\s+(\d+)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-    <span class="n">row</span><span class="p">[</span><span class="s2">&quot;storey_mid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bounds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">row</span><span class="p">[</span><span class="s2">"flat_age"</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">"sale_year"</span><span class="p">]</span> <span class="o">-</span> <span class="n">row</span><span class="p">[</span><span class="s2">"lease_commence_date"</span><span class="p">]</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">"storey_range"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\d+)\s+TO\s+(\d+)"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">row</span><span class="p">[</span><span class="s2">"storey_mid"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bounds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">row</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_predict_click</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
@@ -1120,7 +1120,7 @@ MAE. : 1
         <span class="n">clear_output</span><span class="p">()</span>
         <span class="n">row</span> <span class="o">=</span> <span class="n">build_row</span><span class="p">()</span>
         <span class="n">pred</span> <span class="o">=</span> <span class="n">final_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">row</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predicted resale price: $</span><span class="si">{</span><span class="n">pred</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Predicted resale price: $</span><span class="si">{</span><span class="n">pred</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="n">predict_btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_predict_click</span><span class="p">)</span>
 
@@ -1133,37 +1133,37 @@ MAE. : 1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Holds new entries in memory until you click &quot;Retrain&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Holds new entries in memory until you click "Retrain"</span>
 <span class="n">new_entries</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">price_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">500000.0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Actual price:&quot;</span><span class="p">)</span>
-<span class="n">add_btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Add entry&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">)</span>
-<span class="n">retrain_btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Retrain on combined data&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;warning&quot;</span><span class="p">)</span>
+<span class="n">price_w</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">500000.0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"Actual price:"</span><span class="p">)</span>
+<span class="n">add_btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Add entry"</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">"info"</span><span class="p">)</span>
+<span class="n">retrain_btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Retrain on combined data"</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">"warning"</span><span class="p">)</span>
 <span class="n">add_out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_add_click</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">add_out</span><span class="p">:</span>
         <span class="n">row</span> <span class="o">=</span> <span class="n">build_row</span><span class="p">()</span>
-        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">price_w</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">"resale_price"</span><span class="p">]</span> <span class="o">=</span> <span class="n">price_w</span><span class="o">.</span><span class="n">value</span>
         <span class="n">new_entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added. Total new entries pending: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">new_entries</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Added. Total new entries pending: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">new_entries</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_retrain_click</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">add_out</span><span class="p">:</span>
         <span class="n">clear_output</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">new_entries</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No new entries to retrain on yet.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"No new entries to retrain on yet."</span><span class="p">)</span>
             <span class="k">return</span>
 
         <span class="n">new_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">new_entries</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">X_new</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">])</span>
-        <span class="n">y_new</span> <span class="o">=</span> <span class="n">new_df</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">]</span>
+        <span class="n">X_new</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"resale_price"</span><span class="p">])</span>
+        <span class="n">y_new</span> <span class="o">=</span> <span class="n">new_df</span><span class="p">[</span><span class="s2">"resale_price"</span><span class="p">]</span>
 
         <span class="n">X_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_new</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">y_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_new</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">final_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_combined</span><span class="p">,</span> <span class="n">y_combined</span><span class="p">)</span>  <span class="c1"># refits same pipeline (same tuned hyperparams)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retrained on </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">X_combined</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">new_entries</span><span class="p">)</span><span class="si">}</span><span class="s2"> new).&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Retrained on </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">X_combined</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">new_entries</span><span class="p">)</span><span class="si">}</span><span class="s2"> new)."</span><span class="p">)</span>
 
 <span class="n">add_btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_add_click</span><span class="p">)</span>
 <span class="n">retrain_btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_retrain_click</span><span class="p">)</span>

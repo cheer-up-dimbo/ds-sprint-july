@@ -470,7 +470,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># --- CORRECT: module-level function to create something from scratch ---</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ds-sprint-july/projects/projects1_hdb/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"ds-sprint-july/projects/projects1_hdb/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv"</span><span class="p">)</span>
 <span class="c1"># No DataFrame existed yet — pd.read_csv() is the library-level function that builds one from a file path.</span>
 
 <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -482,23 +482,23 @@
 
 <span class="n">sorted_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 <span class="c1"># NOTE: sorting is actually a case where NumPy offers BOTH — np.sort(arr) (module-level, returns a new sorted array)</span>
-<span class="c1"># and arr.sort() (method, sorts in place, returns None). Both are &quot;correct&quot;, they just do different things.</span>
+<span class="c1"># and arr.sort() (method, sorts in place, returns None). Both are "correct", they just do different things.</span>
 
 
 <span class="c1"># --- WRONG: calling a module-level function as if it were a method ---</span>
-<span class="c1"># df.read_csv(&quot;some_file.csv&quot;)</span>
-<span class="c1"># AttributeError: &#39;DataFrame&#39; object has no attribute &#39;read_csv&#39;</span>
-<span class="c1"># read_csv&#39;s whole job is to CREATE a DataFrame — it doesn&#39;t make sense to call it &quot;on&quot; one that already exists.</span>
+<span class="c1"># df.read_csv("some_file.csv")</span>
+<span class="c1"># AttributeError: 'DataFrame' object has no attribute 'read_csv'</span>
+<span class="c1"># read_csv's whole job is to CREATE a DataFrame — it doesn't make sense to call it "on" one that already exists.</span>
 
 <span class="c1"># --- WRONG: calling a method as if it were a module-level function ---</span>
 <span class="c1"># pd.corr(df)</span>
-<span class="c1"># AttributeError: module &#39;pandas&#39; has no attribute &#39;corr&#39;</span>
+<span class="c1"># AttributeError: module 'pandas' has no attribute 'corr'</span>
 <span class="c1"># corr() only exists as something a DataFrame does to itself (df.corr()) — pandas has no free-floating pd.corr().</span>
 
 <span class="c1"># --- WRONG: forgetting an object needs to exist first ---</span>
-<span class="c1"># pd.dropna(subset=[&quot;resale_price&quot;])</span>
-<span class="c1"># TypeError: dropna() missing 1 required positional argument: &#39;self&#39;</span>
-<span class="c1"># dropna is a DataFrame method — it needs a DataFrame to drop rows FROM. There&#39;s no &quot;dropna in general&quot;, only &quot;drop NaNs from this specific df&quot;.</span>
+<span class="c1"># pd.dropna(subset=["resale_price"])</span>
+<span class="c1"># TypeError: dropna() missing 1 required positional argument: 'self'</span>
+<span class="c1"># dropna is a DataFrame method — it needs a DataFrame to drop rows FROM. There's no "dropna in general", only "drop NaNs from this specific df".</span>
 </pre></div>
 </div>
 </div>
@@ -506,7 +506,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can specify a value for sep to put some special string in between our printed arguments:</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &lt; &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">' &lt; '</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -519,13 +519,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
-<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">who</span><span class="o">=</span><span class="s2">&quot;Colin&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello,&quot;</span><span class="p">,</span> <span class="n">who</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">who</span><span class="o">=</span><span class="s2">"Colin"</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello,"</span><span class="p">,</span> <span class="n">who</span><span class="p">)</span>
     
 <span class="n">greet</span><span class="p">()</span>
-<span class="n">greet</span><span class="p">(</span><span class="n">who</span><span class="o">=</span><span class="s2">&quot;Kaggle&quot;</span><span class="p">)</span>
-<span class="c1"># (In this case, we don&#39;t need to specify the name of the argument, because it&#39;s unambiguous.)</span>
-<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+<span class="n">greet</span><span class="p">(</span><span class="n">who</span><span class="o">=</span><span class="s2">"Kaggle"</span><span class="p">)</span>
+<span class="c1"># (In this case, we don't need to specify the name of the argument, because it's unambiguous.)</span>
+<span class="n">greet</span><span class="p">(</span><span class="s2">"world"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -586,8 +586,8 @@ Hello, world
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of dimensions:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of dimensions:"</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape:"</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -651,23 +651,23 @@ Shape: (3, 3)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty array with 2 elements</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.empty(2): An empty array with 2 elements: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="c1"># may vary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"np.empty(2): An empty array with 2 elements: </span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="c1"># may vary</span>
 
 <span class="c1"># To create an array with 3 rows, 2 elements using .ones and .zeros, we can specify the shape as a tuple:</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.ones((3, 2)): An array of ones with 3 rows and 2 columns:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"np.ones((3, 2)): An array of ones with 3 rows and 2 columns:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.zeros((3, 2)): An array of zeros with 3 rows and 2 columns:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"np.zeros((3, 2)): An array of zeros with 3 rows and 2 columns:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 
 <span class="c1"># Using arrange for its two separate arguments, start and stop, we can create an array of evenly spaced values:</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.arange(3, 7): An array of evenly spaced values from 3 to 7:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"np.arange(3, 7): An array of evenly spaced values from 3 to 7:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.arange(3, 7, 2): An array of evenly spaced values from 3 to 7 with a step of 2:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"np.arange(3, 7, 2): An array of evenly spaced values from 3 to 7 with a step of 2:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 
 <span class="c1"># Using linspace, we can create an array of evenly spaced values over a specified interval:</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.linspace(3, 7, 2): An array of 5 evenly spaced values from 3 to 7:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"np.linspace(3, 7, 2): An array of 5 evenly spaced values from 3 to 7:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -746,20 +746,20 @@ axis — same logic as sort. Default -1 sorts indices along the last axis (each 
               <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
               <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array a:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array b:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Array a:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Array b:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1"># [[1, 2],</span>
 <span class="c1">#  [3, 4],</span>
 <span class="c1">#  [5, 6],</span>
 <span class="c1">#  [7, 8]]   -&gt; more rows added</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concatenating along axis 0:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Concatenating along axis 0:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># [[1, 2, 5, 6],</span>
 <span class="c1">#  [3, 4, 7, 8]]  -&gt; more columns added</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concatenating along axis 1:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Concatenating along axis 1:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -800,11 +800,11 @@ Concatenating along axis 1:
 <p>A table. It contains an array of individual entries, each of which has a certain value, Each entry corresponds to a row and a column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame a:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;.</span><span class="se">\n</span><span class="s2">Constructed from a list of lists (row-oriented). Each inner list is one row; columns= labels them separately. This is how you build a DataFrame when your data naturally comes as records — one row per observation, many columns of mixed types.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"DataFrame a:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">".</span><span class="se">\n</span><span class="s2">Constructed from a list of lists (row-oriented). Each inner list is one row; columns= labels them separately. This is how you build a DataFrame when your data naturally comes as records — one row per observation, many columns of mixed types."</span><span class="p">)</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Yes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">131</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame b:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Constructed from a dict of lists (column-oriented). Each key becomes a column, and the dict values are that column&#39;s data down all rows. This suits data that&#39;s already aggregated by category — e.g. a small summary table.&quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'Yes'</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="s1">'No'</span><span class="p">:</span> <span class="p">[</span><span class="mi">131</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"DataFrame b:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">Constructed from a dict of lists (column-oriented). Each key becomes a column, and the dict values are that column's data down all rows. This suits data that's already aggregated by category — e.g. a small summary table."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -818,7 +818,7 @@ DataFrame b:
     Yes   No
 0   50  131
 1   21    2 
-Constructed from a dict of lists (column-oriented). Each key becomes a column, and the dict values are that column&#39;s data down all rows. This suits data that&#39;s already aggregated by category — e.g. a small summary table.
+Constructed from a dict of lists (column-oriented). Each key becomes a column, and the dict values are that column's data down all rows. This suits data that's already aggregated by category — e.g. a small summary table.
 </pre></div>
 </div>
 </div>
@@ -830,18 +830,18 @@ Constructed from a dict of lists (column-oriented). Each key becomes a column, a
 <p>The list of row labels used in a DataFrame is known as an Index. We can assign values to it by using an index parameter in our constructor</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;I liked it.&#39;</span><span class="p">,</span> <span class="s1">&#39;It was awful.&#39;</span><span class="p">],</span> 
-              <span class="s1">&#39;Sue&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Pretty good.&#39;</span><span class="p">,</span> <span class="s1">&#39;Bland.&#39;</span><span class="p">]},</span>
-             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Product A&#39;</span><span class="p">,</span> <span class="s1">&#39;Product B&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'Bob'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'I liked it.'</span><span class="p">,</span> <span class="s1">'It was awful.'</span><span class="p">],</span> 
+              <span class="s1">'Sue'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Pretty good.'</span><span class="p">,</span> <span class="s1">'Bland.'</span><span class="p">]},</span>
+             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'Product A'</span><span class="p">,</span> <span class="s1">'Product B'</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame constructed from a dict of dicts:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Product A&#39;</span><span class="p">:</span> <span class="s1">&#39;I liked it.&#39;</span><span class="p">,</span> <span class="s1">&#39;Product B&#39;</span><span class="p">:</span> <span class="s1">&#39;It was awful.&#39;</span><span class="p">},</span>
-              <span class="s1">&#39;Sue&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Product A&#39;</span><span class="p">:</span> <span class="s1">&#39;Pretty good.&#39;</span><span class="p">,</span> <span class="s1">&#39;Product B&#39;</span><span class="p">:</span> <span class="s1">&#39;Bland.&#39;</span><span class="p">}}),</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">This is a dict of dicts. The outer dict keys are the column labels, and the inner dict keys are the row labels. This is a convenient way to construct a DataFrame when you have a small amount of data that you want to enter manually, and you want to specify both the row and column labels.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"DataFrame constructed from a dict of dicts:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'Bob'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Product A'</span><span class="p">:</span> <span class="s1">'I liked it.'</span><span class="p">,</span> <span class="s1">'Product B'</span><span class="p">:</span> <span class="s1">'It was awful.'</span><span class="p">},</span>
+              <span class="s1">'Sue'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Product A'</span><span class="p">:</span> <span class="s1">'Pretty good.'</span><span class="p">,</span> <span class="s1">'Product B'</span><span class="p">:</span> <span class="s1">'Bland.'</span><span class="p">}}),</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">This is a dict of dicts. The outer dict keys are the column labels, and the inner dict keys are the row labels. This is a convenient way to construct a DataFrame when you have a small amount of data that you want to enter manually, and you want to specify both the row and column labels."</span><span class="p">)</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> 
-             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cobra&#39;</span><span class="p">,</span> <span class="s1">&#39;viper&#39;</span><span class="p">],</span> 
-             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;max_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;shield&#39;</span><span class="p">,</span> <span class="s1">&#39;armor&#39;</span><span class="p">])</span>
+             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'cobra'</span><span class="p">,</span> <span class="s1">'viper'</span><span class="p">],</span> 
+             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'max_speed'</span><span class="p">,</span> <span class="s1">'shield'</span><span class="p">,</span> <span class="s1">'armor'</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DataFrame constructed from a list of lists with specified index and columns:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cobra&#39;</span><span class="p">,</span> <span class="s1">&#39;viper&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;max_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;shield&#39;</span><span class="p">,</span> <span class="s1">&#39;armor&#39;</span><span class="p">]),</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">This is a list of lists. The outer list contains the rows, and the inner lists contain the values for each column. The index parameter specifies the row labels, and the columns parameter specifies the column labels. This is a convenient way to construct a DataFrame when you have a small amount of data that you want to enter manually, and you want to specify both the row and column labels.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">DataFrame constructed from a list of lists with specified index and columns:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'cobra'</span><span class="p">,</span> <span class="s1">'viper'</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'max_speed'</span><span class="p">,</span> <span class="s1">'shield'</span><span class="p">,</span> <span class="s1">'armor'</span><span class="p">]),</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">This is a list of lists. The outer list contains the rows, and the inner lists contain the values for each column. The index parameter specifies the row labels, and the columns parameter specifies the column labels. This is a convenient way to construct a DataFrame when you have a small amount of data that you want to enter manually, and you want to specify both the row and column labels."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -873,8 +873,8 @@ This is a list of lists. The outer list contains the rows, and the inner lists c
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2015 Sales&#39;</span><span class="p">,</span> <span class="s1">&#39;2016 Sales&#39;</span><span class="p">,</span> <span class="s1">&#39;2017 Sales&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Series a:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">This is a Series. The first argument is the data, the second argument is the index (row labels), and the name parameter specifies the name of the Series. This is a convenient way to construct a Series when you have a small amount of data that you want to enter manually, and you want to specify both the index and the name of the Series.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'2015 Sales'</span><span class="p">,</span> <span class="s1">'2016 Sales'</span><span class="p">,</span> <span class="s1">'2017 Sales'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Series a:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">This is a Series. The first argument is the data, the second argument is the index (row labels), and the name parameter specifies the name of the Series. This is a convenient way to construct a Series when you have a small amount of data that you want to enter manually, and you want to specify both the index and the name of the Series."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -896,7 +896,7 @@ This is a Series. The first argument is the data, the second argument is the ind
 <p>pd.read_csv() function to read the data into a DataFrame</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resale</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ds-sprint-july/projects/projects1_hdb/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resale</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ds-sprint-july/projects/projects1_hdb/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -930,11 +930,11 @@ This is a Series. The first argument is the data, the second argument is the ind
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remaining_lease comes in as &quot;61 years 04 months&quot; — convert to numeric years</span>
-<span class="n">lease_parts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)\s*years?(?:\s*(\d+)\s*months?)?&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remaining_lease comes in as "61 years 04 months" — convert to numeric years</span>
+<span class="n">lease_parts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"remaining_lease"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\d+)\s*years?(?:\s*(\d+)\s*months?)?"</span><span class="p">)</span>
 <span class="n">years</span> <span class="o">=</span> <span class="n">lease_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 <span class="n">months</span> <span class="o">=</span> <span class="n">lease_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">years</span> <span class="o">+</span> <span class="n">months</span> <span class="o">/</span> <span class="mi">12</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"remaining_lease"</span><span class="p">]</span> <span class="o">=</span> <span class="n">years</span> <span class="o">+</span> <span class="n">months</span> <span class="o">/</span> <span class="mi">12</span>
 </pre></div>
 </div>
 </div>
@@ -967,7 +967,7 @@ This is a Series. The first argument is the data, the second argument is the ind
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.DataFrame&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'pandas.DataFrame'&gt;
 RangeIndex: 234672 entries, 0 to 234671
 Data columns (total 11 columns):
  #   Column               Non-Null Count   Dtype  
@@ -1001,16 +1001,16 @@ memory usage: 19.7 MB
 <span class="c1"># .isna() returns a same-shaped DataFrame of True/False (True = missing).</span>
 <span class="c1"># .sum() adds down each column (True counts as 1, False as 0), giving the count of missing values per column.</span>
 
-<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">,</span> <span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">])</span>
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"resale_price"</span><span class="p">,</span> <span class="s2">"floor_area_sqm"</span><span class="p">])</span>
 <span class="c1"># .dropna() removes any row that contains a NaN.</span>
-<span class="c1">#   subset=[...] restricts the check to just these columns — a NaN in some *other* column won&#39;t cause the row to be dropped.</span>
+<span class="c1">#   subset=[...] restricts the check to just these columns — a NaN in some *other* column won't cause the row to be dropped.</span>
 <span class="c1">#   Without subset, dropna() checks every column, which is usually too aggressive (one stray NaN anywhere wipes the row).</span>
-<span class="c1"># Use this for columns you can&#39;t sensibly guess a value for — dropping the row is safer than inventing a resale price.</span>
+<span class="c1"># Use this for columns you can't sensibly guess a value for — dropping the row is safer than inventing a resale price.</span>
 
-<span class="n">df_clean</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df_clean</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="n">df_clean</span><span class="p">[</span><span class="s2">"remaining_lease"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s2">"remaining_lease"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df_clean</span><span class="p">[</span><span class="s2">"remaining_lease"</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
 <span class="c1"># .fillna(value) replaces every NaN in the column with `value`.</span>
-<span class="c1"># Here `value` is the column&#39;s own median — a common default for numeric columns because, unlike the mean, the median isn&#39;t pulled around by outliers.</span>
-<span class="c1"># Use fillna (impute) instead of dropna when you don&#39;t want to lose an entire row just because one column is missing.</span>
+<span class="c1"># Here `value` is the column's own median — a common default for numeric columns because, unlike the mean, the median isn't pulled around by outliers.</span>
+<span class="c1"># Use fillna (impute) instead of dropna when you don't want to lose an entire row just because one column is missing.</span>
 </pre></div>
 </div>
 </div>
@@ -1038,14 +1038,14 @@ dtype: int64
 <p><strong>How <code class="docutils literal notranslate"><span class="pre">.loc</span></code> + boolean masks work:</strong> <code class="docutils literal notranslate"><span class="pre">df[&quot;col&quot;]</span> <span class="pre">==</span> <span class="pre">value</span></code> produces a Series of True/False, one per row (a “mask”). <code class="docutils literal notranslate"><span class="pre">df.loc[mask]</span></code> keeps only the rows where the mask is True. Combine conditions with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (and) / <code class="docutils literal notranslate"><span class="pre">|</span></code> (or) — each individual condition must be wrapped in parentheses, because <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>/<code class="docutils literal notranslate"><span class="pre">|</span></code> bind tighter than <code class="docutils literal notranslate"><span class="pre">==</span></code>/<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> in Python and the expression would otherwise parse incorrectly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tampines</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;town&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TAMPINES&quot;</span><span class="p">]</span>
-<span class="c1"># Keep only rows where the &quot;town&quot; column equals &quot;TAMPINES&quot;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tampines</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"town"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"TAMPINES"</span><span class="p">]</span>
+<span class="c1"># Keep only rows where the "town" column equals "TAMPINES".</span>
 
-<span class="n">df_recent</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s2">&quot;2023-01&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="s2">&quot;2024-12&quot;</span><span class="p">)]</span>
+<span class="n">df_recent</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">"month"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s2">"2023-01"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"month"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="s2">"2024-12"</span><span class="p">)]</span>
 <span class="c1"># Two conditions combined with &amp; (row kept only if BOTH are True). Parentheses around each condition are required.</span>
-<span class="c1"># This works because &quot;month&quot; is stored as a &quot;YYYY-MM&quot; string — string comparison sorts lexicographically, which happens to match chronological order for this fixed-width format.</span>
+<span class="c1"># This works because "month" is stored as a "YYYY-MM" string — string comparison sorts lexicographically, which happens to match chronological order for this fixed-width format.</span>
 
-<span class="n">df_4room</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;flat_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;4 ROOM&quot;</span><span class="p">]</span>
+<span class="n">df_4room</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"flat_type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"4 ROOM"</span><span class="p">]</span>
 <span class="c1"># Keep only 4-room flat rows.</span>
 </pre></div>
 </div>
@@ -1058,20 +1058,20 @@ dtype: int64
 <p><strong>Concept:</strong> aggregation collapses many rows into one summary value per group (e.g. “average price per town”). This is how you go from 100k+ individual transactions down to a handful of numbers you can actually compare.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_price_by_town</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;town&quot;</span><span class="p">)[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># .groupby(&quot;town&quot;) splits the DataFrame into one group per unique town value.</span>
-<span class="c1"># [&quot;resale_price&quot;] selects that column within each group.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_price_by_town</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"town"</span><span class="p">)[</span><span class="s2">"resale_price"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># .groupby("town") splits the DataFrame into one group per unique town value.</span>
+<span class="c1"># ["resale_price"] selects that column within each group.</span>
 <span class="c1"># .mean() computes the average resale_price per group, returning a Series indexed by town.</span>
 <span class="c1"># .sort_values(ascending=False) orders the result from highest to lowest average price.</span>
 
-<span class="n">avg_price_by_flat_type</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;flat_type&quot;</span><span class="p">)[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">])</span>
+<span class="n">avg_price_by_flat_type</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"flat_type"</span><span class="p">)[</span><span class="s2">"resale_price"</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">"mean"</span><span class="p">,</span> <span class="s2">"median"</span><span class="p">,</span> <span class="s2">"count"</span><span class="p">])</span>
 <span class="c1"># .agg([...]) computes several summary statistics per group at once, returning a DataFrame with one column per stat (instead of calling .mean(), .median(), .count() separately).</span>
-<span class="c1"># &quot;count&quot; matters alongside mean/median as a sanity check — a mean computed from 5 rows is far less trustworthy than one computed from 5,000.</span>
+<span class="c1"># "count" matters alongside mean/median as a sanity check — a mean computed from 5 rows is far less trustworthy than one computed from 5,000.</span>
 
-<span class="n">price_pivot</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s2">&quot;resale_price&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;town&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;flat_type&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<span class="n">price_pivot</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s2">"resale_price"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">"town"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">"flat_type"</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
 <span class="c1"># .pivot_table() reshapes long data into a wide grid: one row per `index` value (town), one column per `columns` value (flat_type),</span>
-<span class="c1"># with each cell holding `aggfunc` (&quot;mean&quot; here) applied to `values` (resale_price) for that town + flat_type combination.</span>
-<span class="c1"># Useful for spotting patterns across two categorical dimensions at once — e.g. &quot;is 4-room always pricier than 3-room, in every town?&quot;</span>
+<span class="c1"># with each cell holding `aggfunc` ("mean" here) applied to `values` (resale_price) for that town + flat_type combination.</span>
+<span class="c1"># Useful for spotting patterns across two categorical dimensions at once — e.g. "is 4-room always pricier than 3-room, in every town?"</span>
 </pre></div>
 </div>
 </div>
@@ -1096,7 +1096,7 @@ dtype: int64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">,</span> <span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">,</span> <span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"resale_price"</span><span class="p">,</span> <span class="s2">"floor_area_sqm"</span><span class="p">,</span> <span class="s2">"remaining_lease"</span><span class="p">]</span>
 <span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 <span class="c1"># .corr() computes the Pearson correlation coefficient (the default `method`) between every pair of columns, returning a square matrix.</span>
 <span class="c1"># It only makes sense on numeric columns — pre-selecting numeric_cols avoids errors/unwanted behavior from passing non-numeric (e.g. string) columns.</span>
@@ -1117,7 +1117,7 @@ remaining_lease      0.301489        0.104818         1.000000
 <section id="combining-data-only-if-using-multiple-data-gov-sg-tables">
 <h3>Combining Data (only if using multiple <a class="reference external" href="http://data.gov.sg">data.gov.sg</a> tables)<a class="headerlink" href="#combining-data-only-if-using-multiple-data-gov-sg-tables" title="Link to this heading">#</a></h3>
 <p>Merge in additional context like MRT proximity if using a second dataset. <em>(Skipped for now — no second dataset loaded; <code class="docutils literal notranslate"><span class="pre">mrt_distance_df</span></code> is not defined.)</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_merged</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mrt_distance_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;town&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_merged</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mrt_distance_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"town"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Parameters:</strong></p>
@@ -1137,12 +1137,12 @@ remaining_lease      0.301489        0.104818         1.000000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="c1"># Creates a new blank figure canvas; figsize=(width, height) in inches controls the plot&#39;s overall size.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="c1"># Creates a new blank figure canvas; figsize=(width, height) in inches controls the plot's overall size.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"resale_price"</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="c1"># bins=50 splits the value range into 50 equal-width buckets. More bins = finer detail but noisier; fewer bins = smoother but may hide real structure. 50 is a reasonable default for a dataset with tens of thousands of rows.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Resale Price&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of HDB Resale Prices&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Resale Price"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Frequency"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Distribution of HDB Resale Prices"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1"># Renders the figure. Harmless to omit in Jupyter (the last expression auto-displays), but good habit for portability to plain scripts.</span>
 </pre></div>
@@ -1161,11 +1161,11 @@ remaining_lease      0.301489        0.104818         1.000000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"floor_area_sqm"</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">"resale_price"</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="c1"># alpha=0.3 sets point transparency (0 = invisible, 1 = fully opaque). With tens of thousands of overlapping points, a low alpha lets you see density — darker regions are where more points stack on top of each other — instead of one solid blob.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Floor Area (sqm)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Resale Price&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Floor Area vs Resale Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Floor Area (sqm)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Resale Price"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Floor Area vs Resale Price"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1181,11 +1181,11 @@ remaining_lease      0.301489        0.104818         1.000000
 <p><strong>What a bar chart tells you:</strong> it compares a single summary value (here, average price) across discrete categories (flat types). Unlike a histogram, which shows the distribution of one continuous variable, a bar chart shows one number per category — use it once you’ve already aggregated (e.g. via <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code>), not on raw row-level data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_price_by_flat_type</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="c1"># .plot(kind=&quot;bar&quot;) is a pandas convenience wrapper around matplotlib — plots each row&#39;s value as a bar, using the Series&#39; index (flat_type) as the x-axis labels.</span>
-<span class="c1"># [&quot;mean&quot;] selects just the mean column from the earlier .agg([&quot;mean&quot;, &quot;median&quot;, &quot;count&quot;]) result, since we only want to plot this one stat.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Average Resale Price&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average Resale Price by Flat Type&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_price_by_flat_type</span><span class="p">[</span><span class="s2">"mean"</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">"bar"</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># .plot(kind="bar") is a pandas convenience wrapper around matplotlib — plots each row's value as a bar, using the Series' index (flat_type) as the x-axis labels.</span>
+<span class="c1"># ["mean"] selects just the mean column from the earlier .agg(["mean", "median", "count"]) result, since we only want to plot this one stat.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Average Resale Price"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Average Resale Price by Flat Type"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1205,10 +1205,10 @@ remaining_lease      0.301489        0.104818         1.000000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">)</span>
 <span class="c1"># annot=True prints the actual correlation value inside each cell on top of the color — useful for small matrices where exact values matter; set annot=False for very large matrices where the text would overlap and become unreadable.</span>
-<span class="c1"># cmap=&quot;coolwarm&quot; sets the color scale: blue for negative correlations, red for positive, and a neutral/white tone near 0 — makes direction (not just strength) visible at a glance.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Correlation Heatmap&quot;</span><span class="p">)</span>
+<span class="c1"># cmap="coolwarm" sets the color scale: blue for negative correlations, red for positive, and a neutral/white tone near 0 — makes direction (not just strength) visible at a glance.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Correlation Heatmap"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1232,11 +1232,11 @@ remaining_lease      0.301489        0.104818         1.000000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;town&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;resale_price&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"town"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"resale_price"</span><span class="p">)</span>
 <span class="c1"># Passing data=df with x/y column names (rather than raw arrays) lets seaborn automatically group resale_price by each unique value of town and draw one box per group.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 <span class="c1"># Rotates x-axis tick labels 90° — town names would otherwise overlap and be unreadable with this many categories.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Resale Price Distribution by Town&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Resale Price Distribution by Town"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1252,8 +1252,8 @@ remaining_lease      0.301489        0.104818         1.000000
 <p><strong>What a pairplot shows:</strong> a grid of scatter plots for every pair of the given numeric columns, plus a histogram (or density curve) on the diagonal for each column’s own distribution. It’s a fast way to eyeball every pairwise relationship and every individual distribution in one image, instead of building each scatter plot and histogram separately by hand — most useful early in EDA, or later with SECOM’s many features (in smaller batches, since an N×N grid gets unwieldy fast as N grows).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">,</span> <span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">,</span> <span class="s2">&quot;remaining_lease&quot;</span><span class="p">]])</span>
-<span class="c1"># Pass a DataFrame containing only the columns you want plotted — pairplot uses every numeric column it&#39;s given, so subsetting first (rather than passing the full df) keeps the grid readable and fast.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">"resale_price"</span><span class="p">,</span> <span class="s2">"floor_area_sqm"</span><span class="p">,</span> <span class="s2">"remaining_lease"</span><span class="p">]])</span>
+<span class="c1"># Pass a DataFrame containing only the columns you want plotted — pairplot uses every numeric column it's given, so subsetting first (rather than passing the full df) keeps the grid readable and fast.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
