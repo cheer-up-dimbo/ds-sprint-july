@@ -1,0 +1,40 @@
+name: Build and deploy Jupyter Book
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Jupyter Book
+        run: pip install "jupyter-book<2"
+
+      - name: Build book
+        run: jupyter-book build .
+
+      - name: Copy build output into docs/
+        run: |
+          rm -rf docs
+          cp -r _build/html docs
+          touch docs/.nojekyll
+
+      - name: Commit and push docs/
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git diff --cached --quiet && echo "No changes to docs/" && exit 0
+          git commit -m "docs: rebuild Jupyter Book site [skip ci]"
+          git push

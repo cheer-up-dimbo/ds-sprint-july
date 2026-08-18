@@ -1,0 +1,1422 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python Refresh &#8212; DS Sprint — July 2026</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=db28d5d2" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week1_python_pandas_viz/01_python_refresh';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/custom.js?v=56810fcd"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">DS Sprint — July 2026</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../projects/projects1_hdb/project1.html">Project 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/project3.html">Project 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference / Cheatsheets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml_cheatsheet.html">Classical ML Cheatsheet — GF Digital Manufacturing Prep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml_pipelines.html">End-to-End ML Pipelines — Reference Notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../dataviz_cheatsheet.html">Data Visualisation &amp; Diagnostics Cheatsheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Q&amp;A</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3_ml_core/QnA.html">My Stupid Questions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/week1_python_pandas_viz/01_python_refresh.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python Refresh</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python Refresh</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-level-functions-vs-methods-applies-to-any-library">Module-level functions vs. methods (applies to any library)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">NumPy</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-array">Creating an array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-attributes">Array attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndim">.ndim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#size">.size</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-basic-array">Creating a basic array</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros">.zeros()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ones">.ones()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empty">.empty()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrange">.arrange()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linspace">.linspace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-empty-vs-np-zeros">np.empty vs np.zeros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-arrange-vs-np-linspace">np.arrange vs np.linspace</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-removing-and-sorting-elements">Adding, removing, and sorting elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-sort-a-axis-1-kind-none-order-none-stable-none-descending">np.sort(a, axis=-1, kind=None, order=None, *, stable=None, descending=<no value="">)</no></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-argsort-a-axis-1-kind-none-order-none">np.argsort(a, axis=-1, kind=None, order=None)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-concatenate">np.concatenate()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-with-index">DataFrame with Index</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series">Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-files">Reading Data Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-remaining-lease">Cleaning <code class="docutils literal notranslate"><span class="pre">remaining_lease</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hdb-resale-eda-cheatsheet-pandas-matplotlib-seaborn">HDB Resale EDA Cheatsheet — Pandas, Matplotlib, Seaborn</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">PANDAS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-inspect">Load &amp; Inspect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-selection">Filtering / Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">Aggregation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-data-only-if-using-multiple-data-gov-sg-tables">Combining Data (only if using multiple data.gov.sg tables)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">MATPLOTLIB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution">Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship">Relationship</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">SEABORN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">Heatmap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot">Pairplot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-refresh">
+<h1>Python Refresh<a class="headerlink" href="#python-refresh" title="Link to this heading">#</a></h1>
+<p>Python fundamentals revisited: data structures, comprehensions, functions.</p>
+<section id="module-level-functions-vs-methods-applies-to-any-library">
+<h2>Module-level functions vs. methods (applies to any library)<a class="headerlink" href="#module-level-functions-vs-methods-applies-to-any-library" title="Link to this heading">#</a></h2>
+<p>Every library (pandas, numpy, etc.) splits its functionality into two kinds of callables — knowing which one you need tells you where to look for it.</p>
+<p><strong>Module-level functions</strong> — called as <code class="docutils literal notranslate"><span class="pre">library.function(...)</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">pd.read_csv(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">pd.DataFrame(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">np.array(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">pd.concat(...)</span></code>.</p>
+<ul class="simple">
+<li><p>Used when the object you want <strong>doesn’t exist yet</strong>. There’s nothing to call a method <em>on</em>, so the library exposes a plain function to build one from scratch (a file path, a list, several existing objects being combined).</p></li>
+</ul>
+<p><strong>Methods</strong> — called as <code class="docutils literal notranslate"><span class="pre">object.method(...)</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">df.corr()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.dropna()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.groupby()</span></code>, <code class="docutils literal notranslate"><span class="pre">arr.sort()</span></code>.</p>
+<ul class="simple">
+<li><p>Used when you <strong>already have an object</strong> (a DataFrame, Series, array, …) and want to act on the data already inside it. The method is attached to that object’s class, so it only exists once the object exists.</p></li>
+</ul>
+<p><strong>Rule of thumb:</strong> if the operation’s job is to <em>produce</em> an object in the first place, or combine several existing ones → <code class="docutils literal notranslate"><span class="pre">library.function()</span></code>. If the operation acts <em>on</em> an object you already have → <code class="docutils literal notranslate"><span class="pre">object.method()</span></code>.</p>
+<p>You’ll see this pattern everywhere: <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> creates a DataFrame (module-level, no DataFrame exists yet) → then everything after, like <code class="docutils literal notranslate"><span class="pre">df.head()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.corr()</span></code>, <code class="docutils literal notranslate"><span class="pre">df.dropna()</span></code>, is a method on that DataFrame (it already exists, you’re just asking it to do something with its own data).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># --- CORRECT: module-level function to create something from scratch ---</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ds-sprint-july/projects/projects1_hdb/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv&quot;</span><span class="p">)</span>
+<span class="c1"># No DataFrame existed yet — pd.read_csv() is the library-level function that builds one from a file path.</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="c1"># No array existed yet — np.array() builds one from a plain Python list.</span>
+
+<span class="c1"># --- CORRECT: method on an object that already exists ---</span>
+<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># df already exists — .corr() is a method on THIS DataFrame, acting on its own columns.</span>
+
+<span class="n">sorted_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="c1"># NOTE: sorting is actually a case where NumPy offers BOTH — np.sort(arr) (module-level, returns a new sorted array)</span>
+<span class="c1"># and arr.sort() (method, sorts in place, returns None). Both are &quot;correct&quot;, they just do different things.</span>
+
+
+<span class="c1"># --- WRONG: calling a module-level function as if it were a method ---</span>
+<span class="c1"># df.read_csv(&quot;some_file.csv&quot;)</span>
+<span class="c1"># AttributeError: &#39;DataFrame&#39; object has no attribute &#39;read_csv&#39;</span>
+<span class="c1"># read_csv&#39;s whole job is to CREATE a DataFrame — it doesn&#39;t make sense to call it &quot;on&quot; one that already exists.</span>
+
+<span class="c1"># --- WRONG: calling a method as if it were a module-level function ---</span>
+<span class="c1"># pd.corr(df)</span>
+<span class="c1"># AttributeError: module &#39;pandas&#39; has no attribute &#39;corr&#39;</span>
+<span class="c1"># corr() only exists as something a DataFrame does to itself (df.corr()) — pandas has no free-floating pd.corr().</span>
+
+<span class="c1"># --- WRONG: forgetting an object needs to exist first ---</span>
+<span class="c1"># pd.dropna(subset=[&quot;resale_price&quot;])</span>
+<span class="c1"># TypeError: dropna() missing 1 required positional argument: &#39;self&#39;</span>
+<span class="c1"># dropna is a DataFrame method — it needs a DataFrame to drop rows FROM. There&#39;s no &quot;dropna in general&quot;, only &quot;drop NaNs from this specific df&quot;.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can specify a value for sep to put some special string in between our printed arguments:</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &lt; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 &lt; 2 &lt; 3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">who</span><span class="o">=</span><span class="s2">&quot;Colin&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello,&quot;</span><span class="p">,</span> <span class="n">who</span><span class="p">)</span>
+    
+<span class="n">greet</span><span class="p">()</span>
+<span class="n">greet</span><span class="p">(</span><span class="n">who</span><span class="o">=</span><span class="s2">&quot;Kaggle&quot;</span><span class="p">)</span>
+<span class="c1"># (In this case, we don&#39;t need to specify the name of the argument, because it&#39;s unambiguous.)</span>
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Colin
+Hello, Kaggle
+Hello, world
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="numpy">
+<h1>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h1>
+<p>NumPy library contains multidimensional array data structures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="creating-an-array">
+<h2>Creating an array<a class="headerlink" href="#creating-an-array" title="Link to this heading">#</a></h2>
+<p>Two- and higher-dimensional arrays can be initialized from nested Python sequences</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put a square bracket outside the array. </span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="array-attributes">
+<h2>Array attributes<a class="headerlink" href="#array-attributes" title="Link to this heading">#</a></h2>
+<section id="ndim">
+<h3>.ndim<a class="headerlink" href="#ndim" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The number of dimensions of an array is contained in the ndim attribute.</p></li>
+</ul>
+</section>
+<section id="size">
+<h3>.size<a class="headerlink" href="#size" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The fixed, total number of elements in array is contained in the size attribute</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of dimensions:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+Number of dimensions: 2
+Shape: (3, 3)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="creating-a-basic-array">
+<h2>Creating a basic array<a class="headerlink" href="#creating-a-basic-array" title="Link to this heading">#</a></h2>
+<section id="zeros">
+<h3>.zeros()<a class="headerlink" href="#zeros" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>create an array filled with 0’s</p></li>
+</ul>
+</section>
+<section id="ones">
+<h3>.ones()<a class="headerlink" href="#ones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>array filled with 1’s</p></li>
+</ul>
+</section>
+<section id="empty">
+<h3>.empty()<a class="headerlink" href="#empty" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>creates an array whose initial content is random and depends on the state of the memory</p></li>
+</ul>
+</section>
+<section id="arrange">
+<h3>.arrange()<a class="headerlink" href="#arrange" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>create an array with a range of elements from 0 to x, or</p></li>
+<li><p>an array that contains a range of evenly spaced intervals. To do this, you will specify the first number, last number, and the step size.</p></li>
+</ul>
+</section>
+<section id="linspace">
+<h3>.linspace<a class="headerlink" href="#linspace" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>create an array with values that are spaced linearly in a specified interval</p></li>
+</ul>
+</section>
+<section id="np-empty-vs-np-zeros">
+<h3>np.empty vs np.zeros<a class="headerlink" href="#np-empty-vs-np-zeros" title="Link to this heading">#</a></h3>
+<p>The function empty creates an array whose initial content is random and depends on the state of the memory. The reason to use empty over zeros (or something similar) is speed - just make sure to fill every element afterwards!</p>
+</section>
+<section id="np-arrange-vs-np-linspace">
+<h3>np.arrange vs np.linspace<a class="headerlink" href="#np-arrange-vs-np-linspace" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>np.arange(start, stop, step) — you specify the step size, and it generates values until it hits (but doesn’t include) stop</p></li>
+<li><p>np.linspace(start, stop, num) — you specify the number of elements, and NumPy figures out the step size to fit num evenly-spaced points between start and stop (inclusive by default).</p></li>
+<li><p>Rule of thumb to internalize: ask yourself “do I care how many points I get, or do I care about the size of each step?” — count-driven → linspace; step-driven → arange.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty array with 2 elements</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.empty(2): An empty array with 2 elements: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="c1"># may vary</span>
+
+<span class="c1"># To create an array with 3 rows, 2 elements using .ones and .zeros, we can specify the shape as a tuple:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.ones((3, 2)): An array of ones with 3 rows and 2 columns:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> 
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.zeros((3, 2)): An array of zeros with 3 rows and 2 columns:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># Using arrange for its two separate arguments, start and stop, we can create an array of evenly spaced values:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.arange(3, 7): An array of evenly spaced values from 3 to 7:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.arange(3, 7, 2): An array of evenly spaced values from 3 to 7 with a step of 2:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># Using linspace, we can create an array of evenly spaced values over a specified interval:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.linspace(3, 7, 2): An array of 5 evenly spaced values from 3 to 7:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.empty(2): An empty array with 2 elements: 
+ [inf inf]
+np.ones((3, 2)): An array of ones with 3 rows and 2 columns:
+ [[1. 1.]
+ [1. 1.]
+ [1. 1.]]
+np.zeros((3, 2)): An array of zeros with 3 rows and 2 columns:
+ [[0. 0.]
+ [0. 0.]
+ [0. 0.]]
+np.arange(3, 7): An array of evenly spaced values from 3 to 7:
+ [3 4 5 6]
+np.arange(3, 7, 2): An array of evenly spaced values from 3 to 7 with a step of 2:
+ [3 5]
+np.linspace(3, 7, 2): An array of 5 evenly spaced values from 3 to 7:
+ [3. 7.]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="adding-removing-and-sorting-elements">
+<h2>Adding, removing, and sorting elements<a class="headerlink" href="#adding-removing-and-sorting-elements" title="Link to this heading">#</a></h2>
+<section id="np-sort-a-axis-1-kind-none-order-none-stable-none-descending">
+<h3>np.sort(a, axis=-1, kind=None, order=None, *, stable=None, descending=<no value>)<a class="headerlink" href="#np-sort-a-axis-1-kind-none-order-none-stable-none-descending" title="Link to this heading">#</a></h3>
+<p>Sorting an array is simple with np.sort(). You can specify the axis, kind, and order when you call the function.</p>
+<p>a: array_like</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Array to be sorted.
+</pre></div>
+</div>
+<p>axis: int or None, optional</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Axis along which to sort. If None, the array is flattened before sorting. The default is -1, which sorts along the last axis.
+</pre></div>
+</div>
+<p><strong>Ignore for now: kind, order, stable. These are for edge cases (structured arrays, guaranteeing tie-order) you won’t hit in tabular EDA work. Default behavior is fine.</strong></p>
+</section>
+<section id="np-argsort-a-axis-1-kind-none-order-none">
+<h3>np.argsort(a, axis=-1, kind=None, order=None)<a class="headerlink" href="#np-argsort-a-axis-1-kind-none-order-none" title="Link to this heading">#</a></h3>
+<p>Returns the indices that would sort the array, not the sorted values.
+axis — same logic as sort. Default -1 sorts indices along the last axis (each row independently for 2D). axis=0 would give you, for each column, the row-order that sorts that column.</p>
+</section>
+<section id="np-concatenate">
+<h3>np.concatenate()<a class="headerlink" href="#np-concatenate" title="Link to this heading">#</a></h3>
+<p>To concatenate two arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># sorts each row</span>
+<span class="c1"># [[1, 2, 3],</span>
+<span class="c1">#  [7, 8, 9]]</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># sorts each column</span>
+<span class="c1"># [[3, 1, 2],</span>
+<span class="c1">#  [9, 7, 8]]   -&gt; becomes column-wise sorted</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># flattens everything first, one sorted 1D array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 7, 8, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array a:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Array b:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># [[1, 2],</span>
+<span class="c1">#  [3, 4],</span>
+<span class="c1">#  [5, 6],</span>
+<span class="c1">#  [7, 8]]   -&gt; more rows added</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concatenating along axis 0:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># [[1, 2, 5, 6],</span>
+<span class="c1">#  [3, 4, 7, 8]]  -&gt; more columns added</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concatenating along axis 1:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array a:
+ [[1 2]
+ [3 4]]
+Array b:
+ [[5 6]
+ [7 8]]
+Concatenating along axis 0:
+ [[1 2]
+ [3 4]
+ [5 6]
+ [7 8]]
+Concatenating along axis 1:
+ [[1 2 5 6]
+ [3 4 7 8]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pandas">
+<h1>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
+<p>The most popular Python library for data analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="dataframe">
+<h2>DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h2>
+<p>A table. It contains an array of individual entries, each of which has a certain value, Each entry corresponds to a row and a column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame a:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;.</span><span class="se">\n</span><span class="s2">Constructed from a list of lists (row-oriented). Each inner list is one row; columns= labels them separately. This is how you build a DataFrame when your data naturally comes as records — one row per observation, many columns of mixed types.&quot;</span><span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Yes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">131</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame b:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Constructed from a dict of lists (column-oriented). Each key becomes a column, and the dict values are that column&#39;s data down all rows. This suits data that&#39;s already aggregated by category — e.g. a small summary table.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame a:
+    A  B
+0  1  2
+1  3  4 .
+Constructed from a list of lists (row-oriented). Each inner list is one row; columns= labels them separately. This is how you build a DataFrame when your data naturally comes as records — one row per observation, many columns of mixed types.
+DataFrame b:
+    Yes   No
+0   50  131
+1   21    2 
+Constructed from a dict of lists (column-oriented). Each key becomes a column, and the dict values are that column&#39;s data down all rows. This suits data that&#39;s already aggregated by category — e.g. a small summary table.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframe-with-index">
+<h2>DataFrame with Index<a class="headerlink" href="#dataframe-with-index" title="Link to this heading">#</a></h2>
+<p>The dictionary-list constructor assigns values to the column labels, but just uses an ascending count from 0 (0, 1, 2, 3, …) for the row labels. Sometimes this is OK, but oftentimes we will want to assign these labels ourselves.</p>
+<p>The list of row labels used in a DataFrame is known as an Index. We can assign values to it by using an index parameter in our constructor</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;I liked it.&#39;</span><span class="p">,</span> <span class="s1">&#39;It was awful.&#39;</span><span class="p">],</span> 
+              <span class="s1">&#39;Sue&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Pretty good.&#39;</span><span class="p">,</span> <span class="s1">&#39;Bland.&#39;</span><span class="p">]},</span>
+             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Product A&#39;</span><span class="p">,</span> <span class="s1">&#39;Product B&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame constructed from a dict of dicts:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Product A&#39;</span><span class="p">:</span> <span class="s1">&#39;I liked it.&#39;</span><span class="p">,</span> <span class="s1">&#39;Product B&#39;</span><span class="p">:</span> <span class="s1">&#39;It was awful.&#39;</span><span class="p">},</span>
+              <span class="s1">&#39;Sue&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Product A&#39;</span><span class="p">:</span> <span class="s1">&#39;Pretty good.&#39;</span><span class="p">,</span> <span class="s1">&#39;Product B&#39;</span><span class="p">:</span> <span class="s1">&#39;Bland.&#39;</span><span class="p">}}),</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">This is a dict of dicts. The outer dict keys are the column labels, and the inner dict keys are the row labels. This is a convenient way to construct a DataFrame when you have a small amount of data that you want to enter manually, and you want to specify both the row and column labels.&quot;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> 
+             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cobra&#39;</span><span class="p">,</span> <span class="s1">&#39;viper&#39;</span><span class="p">],</span> 
+             <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;max_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;shield&#39;</span><span class="p">,</span> <span class="s1">&#39;armor&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DataFrame constructed from a list of lists with specified index and columns:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cobra&#39;</span><span class="p">,</span> <span class="s1">&#39;viper&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;max_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;shield&#39;</span><span class="p">,</span> <span class="s1">&#39;armor&#39;</span><span class="p">]),</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">This is a list of lists. The outer list contains the rows, and the inner lists contain the values for each column. The index parameter specifies the row labels, and the columns parameter specifies the column labels. This is a convenient way to construct a DataFrame when you have a small amount of data that you want to enter manually, and you want to specify both the row and column labels.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame constructed from a dict of dicts:
+                      Bob           Sue
+Product A    I liked it.  Pretty good.
+Product B  It was awful.        Bland. 
+
+This is a dict of dicts. The outer dict keys are the column labels, and the inner dict keys are the row labels. This is a convenient way to construct a DataFrame when you have a small amount of data that you want to enter manually, and you want to specify both the row and column labels.
+
+DataFrame constructed from a list of lists with specified index and columns:
+        max_speed  shield  armor
+cobra          1       2      3
+viper          4       5      6 
+
+This is a list of lists. The outer list contains the rows, and the inner lists contain the values for each column. The index parameter specifies the row labels, and the columns parameter specifies the column labels. This is a convenient way to construct a DataFrame when you have a small amount of data that you want to enter manually, and you want to specify both the row and column labels.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="series">
+<h2>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A Series, by contrast, is a sequence of data values. If a DataFrame is a table, a Series is a list.</p></li>
+<li><p>A Series is, in essence, a single column of a DataFrame. So you can assign row labels to the Series the same way as before, using an index parameter.</p></li>
+<li><p>However, a Series does not have a column name</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2015 Sales&#39;</span><span class="p">,</span> <span class="s1">&#39;2016 Sales&#39;</span><span class="p">,</span> <span class="s1">&#39;2017 Sales&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Series a:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">This is a Series. The first argument is the data, the second argument is the index (row labels), and the name parameter specifies the name of the Series. This is a convenient way to construct a Series when you have a small amount of data that you want to enter manually, and you want to specify both the index and the name of the Series.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Series a:
+ 2015 Sales    30
+2016 Sales    35
+2017 Sales    40
+dtype: int64 
+
+This is a Series. The first argument is the data, the second argument is the index (row labels), and the name parameter specifies the name of the Series. This is a convenient way to construct a Series when you have a small amount of data that you want to enter manually, and you want to specify both the index and the name of the Series.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reading-data-files">
+<h2>Reading Data Files<a class="headerlink" href="#reading-data-files" title="Link to this heading">#</a></h2>
+<p>pd.read_csv() function to read the data into a DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resale</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ds-sprint-july/projects/projects1_hdb/ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">resale</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="cleaning-remaining-lease">
+<h3>Cleaning <code class="docutils literal notranslate"><span class="pre">remaining_lease</span></code><a class="headerlink" href="#cleaning-remaining-lease" title="Link to this heading">#</a></h3>
+<p>The raw column is a string like <code class="docutils literal notranslate"><span class="pre">&quot;61</span> <span class="pre">years</span> <span class="pre">04</span> <span class="pre">months&quot;</span></code> — not usable for math, plotting, or correlation as-is. We convert it to a single numeric value (years, as a float) so it behaves like <code class="docutils literal notranslate"><span class="pre">floor_area_sqm</span></code> or <code class="docutils literal notranslate"><span class="pre">resale_price</span></code>.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">.str.extract(pattern)</span></code></strong></p>
+<ul class="simple">
+<li><p>Runs a regex against every value in a string Series and pulls out the parts captured in <code class="docutils literal notranslate"><span class="pre">(...)</span></code> groups, returning a DataFrame — one column per group.</p></li>
+<li><p>Pattern used: <code class="docutils literal notranslate"><span class="pre">r&quot;(\d+)\s*years?(?:\s*(\d+)\s*months?)?&quot;</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">(\d+)\s*years?</span></code> — group 1: one or more digits followed by “year” or “years” (the <code class="docutils literal notranslate"><span class="pre">s?</span></code> makes the trailing <code class="docutils literal notranslate"><span class="pre">s</span></code> optional).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(?:\s*(\d+)\s*months?)?</span></code> — an optional, non-capturing block <code class="docutils literal notranslate"><span class="pre">(?:...)?</span></code> for the months part. Inside it, group 2 captures the digits before “month”/”months”. Optional because some entries are just <code class="docutils literal notranslate"><span class="pre">&quot;61</span> <span class="pre">years&quot;</span></code> with no month component.</p></li>
+<li><p>Result: <code class="docutils literal notranslate"><span class="pre">lease_parts[0]</span></code> = years captured, <code class="docutils literal notranslate"><span class="pre">lease_parts[1]</span></code> = months captured (or <code class="docutils literal notranslate"><span class="pre">NaN</span></code> if absent).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Why convert to <code class="docutils literal notranslate"><span class="pre">years</span> <span class="pre">+</span> <span class="pre">months</span> <span class="pre">/</span> <span class="pre">12</span></code></strong></p>
+<ul class="simple">
+<li><p>We need one continuous number, not two separate strings, so we can plot it, correlate it with <code class="docutils literal notranslate"><span class="pre">resale_price</span></code>, or feed it into a model.</p></li>
+<li><p>Months are a fraction of a year, so dividing by 12 puts them on the same scale as <code class="docutils literal notranslate"><span class="pre">years</span></code> before adding — e.g. “61 years 4 months” → <code class="docutils literal notranslate"><span class="pre">61</span> <span class="pre">+</span> <span class="pre">4/12</span> <span class="pre">≈</span> <span class="pre">61.33</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.fillna(0)</span></code> on months handles rows with no month part (so we don’t lose the year value to <code class="docutils literal notranslate"><span class="pre">NaN</span></code> during addition).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remaining_lease comes in as &quot;61 years 04 months&quot; — convert to numeric years</span>
+<span class="n">lease_parts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)\s*years?(?:\s*(\d+)\s*months?)?&quot;</span><span class="p">)</span>
+<span class="n">years</span> <span class="o">=</span> <span class="n">lease_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">months</span> <span class="o">=</span> <span class="n">lease_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">years</span> <span class="o">+</span> <span class="n">months</span> <span class="o">/</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hdb-resale-eda-cheatsheet-pandas-matplotlib-seaborn">
+<h1>HDB Resale EDA Cheatsheet — Pandas, Matplotlib, Seaborn<a class="headerlink" href="#hdb-resale-eda-cheatsheet-pandas-matplotlib-seaborn" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h2>PANDAS<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="load-inspect">
+<h3>Load &amp; Inspect<a class="headerlink" href="#load-inspect" title="Link to this heading">#</a></h3>
+<p>Get a first look at structure, types, and size before doing anything else — this tells you what you’re working with (column names/types, obvious missing data, row count) so later steps don’t break on surprises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>        <span class="c1"># Prints column names, dtypes, non-null counts, and memory usage — fastest way to spot missing data and wrong types (e.g. a numeric column stored as object/string).</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>    <span class="c1"># Summary stats (count, mean, std, min, 25/50/75th percentiles, max) for every numeric column — a quick sense of scale, spread, and possible outliers.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>        <span class="c1"># Prints the first 5 rows (pass an int, e.g. df.head(10), to change how many) — lets you eyeball the actual values and column layout.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (n_rows, n_columns) tuple — how big the dataset is.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.DataFrame&#39;&gt;
+RangeIndex: 234672 entries, 0 to 234671
+Data columns (total 11 columns):
+ #   Column               Non-Null Count   Dtype  
+---  ------               --------------   -----  
+ 0   month                234672 non-null  str    
+ 1   town                 234672 non-null  str    
+ 2   flat_type            234672 non-null  str    
+ 3   block                234672 non-null  str    
+ 4   street_name          234672 non-null  str    
+ 5   storey_range         234672 non-null  str    
+ 6   floor_area_sqm       234672 non-null  float64
+ 7   flat_model           234672 non-null  str    
+ 8   lease_commence_date  234672 non-null  int64  
+ 9   remaining_lease      234672 non-null  float64
+ 10  resale_price         234672 non-null  float64
+dtypes: float64(3), int64(1), str(7)
+memory usage: 19.7 MB
+(234672, 11)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-data">
+<h3>Missing Data<a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h3>
+<p>Check for gaps in key fields (resale price, floor area, lease remaining) and handle them.</p>
+<p><strong>Why this matters:</strong> missing values silently break math (<code class="docutils literal notranslate"><span class="pre">NaN</span></code> propagates through sums/means), plotting (points get dropped), and correlation (rows with any <code class="docutils literal notranslate"><span class="pre">NaN</span></code> are excluded, shrinking your effective sample). For each column, decide whether to drop the row or fill (“impute”) the gap — dropping loses data, filling assumes the missing value looks like the rest of the column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="c1"># .isna() returns a same-shaped DataFrame of True/False (True = missing).</span>
+<span class="c1"># .sum() adds down each column (True counts as 1, False as 0), giving the count of missing values per column.</span>
+
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">,</span> <span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">])</span>
+<span class="c1"># .dropna() removes any row that contains a NaN.</span>
+<span class="c1">#   subset=[...] restricts the check to just these columns — a NaN in some *other* column won&#39;t cause the row to be dropped.</span>
+<span class="c1">#   Without subset, dropna() checks every column, which is usually too aggressive (one stray NaN anywhere wipes the row).</span>
+<span class="c1"># Use this for columns you can&#39;t sensibly guess a value for — dropping the row is safer than inventing a resale price.</span>
+
+<span class="n">df_clean</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df_clean</span><span class="p">[</span><span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="c1"># .fillna(value) replaces every NaN in the column with `value`.</span>
+<span class="c1"># Here `value` is the column&#39;s own median — a common default for numeric columns because, unlike the mean, the median isn&#39;t pulled around by outliers.</span>
+<span class="c1"># Use fillna (impute) instead of dropna when you don&#39;t want to lose an entire row just because one column is missing.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>month                  0
+town                   0
+flat_type              0
+block                  0
+street_name            0
+storey_range           0
+floor_area_sqm         0
+flat_model             0
+lease_commence_date    0
+remaining_lease        0
+resale_price           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filtering-selection">
+<h3>Filtering / Selection<a class="headerlink" href="#filtering-selection" title="Link to this heading">#</a></h3>
+<p>Narrow the dataset by town, flat type, or year range using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> and boolean masks.</p>
+<p><strong>How <code class="docutils literal notranslate"><span class="pre">.loc</span></code> + boolean masks work:</strong> <code class="docutils literal notranslate"><span class="pre">df[&quot;col&quot;]</span> <span class="pre">==</span> <span class="pre">value</span></code> produces a Series of True/False, one per row (a “mask”). <code class="docutils literal notranslate"><span class="pre">df.loc[mask]</span></code> keeps only the rows where the mask is True. Combine conditions with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (and) / <code class="docutils literal notranslate"><span class="pre">|</span></code> (or) — each individual condition must be wrapped in parentheses, because <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>/<code class="docutils literal notranslate"><span class="pre">|</span></code> bind tighter than <code class="docutils literal notranslate"><span class="pre">==</span></code>/<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> in Python and the expression would otherwise parse incorrectly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tampines</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;town&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TAMPINES&quot;</span><span class="p">]</span>
+<span class="c1"># Keep only rows where the &quot;town&quot; column equals &quot;TAMPINES&quot;.</span>
+
+<span class="n">df_recent</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s2">&quot;2023-01&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="s2">&quot;2024-12&quot;</span><span class="p">)]</span>
+<span class="c1"># Two conditions combined with &amp; (row kept only if BOTH are True). Parentheses around each condition are required.</span>
+<span class="c1"># This works because &quot;month&quot; is stored as a &quot;YYYY-MM&quot; string — string comparison sorts lexicographically, which happens to match chronological order for this fixed-width format.</span>
+
+<span class="n">df_4room</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;flat_type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;4 ROOM&quot;</span><span class="p">]</span>
+<span class="c1"># Keep only 4-room flat rows.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="aggregation">
+<h3>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading">#</a></h3>
+<p>Summarize resale price by town, flat type, and year to spot patterns.</p>
+<p><strong>Concept:</strong> aggregation collapses many rows into one summary value per group (e.g. “average price per town”). This is how you go from 100k+ individual transactions down to a handful of numbers you can actually compare.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_price_by_town</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;town&quot;</span><span class="p">)[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># .groupby(&quot;town&quot;) splits the DataFrame into one group per unique town value.</span>
+<span class="c1"># [&quot;resale_price&quot;] selects that column within each group.</span>
+<span class="c1"># .mean() computes the average resale_price per group, returning a Series indexed by town.</span>
+<span class="c1"># .sort_values(ascending=False) orders the result from highest to lowest average price.</span>
+
+<span class="n">avg_price_by_flat_type</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;flat_type&quot;</span><span class="p">)[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">])</span>
+<span class="c1"># .agg([...]) computes several summary statistics per group at once, returning a DataFrame with one column per stat (instead of calling .mean(), .median(), .count() separately).</span>
+<span class="c1"># &quot;count&quot; matters alongside mean/median as a sanity check — a mean computed from 5 rows is far less trustworthy than one computed from 5,000.</span>
+
+<span class="n">price_pivot</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s2">&quot;resale_price&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;town&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;flat_type&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<span class="c1"># .pivot_table() reshapes long data into a wide grid: one row per `index` value (town), one column per `columns` value (flat_type),</span>
+<span class="c1"># with each cell holding `aggfunc` (&quot;mean&quot; here) applied to `values` (resale_price) for that town + flat_type combination.</span>
+<span class="c1"># Useful for spotting patterns across two categorical dimensions at once — e.g. &quot;is 4-room always pricier than 3-room, in every town?&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlation">
+<h3>Correlation<a class="headerlink" href="#correlation" title="Link to this heading">#</a></h3>
+<p>Check numeric relationships — floor area, lease remaining, storey range vs resale price.</p>
+<p><strong>What a correlation matrix is:</strong> a table showing the pairwise correlation coefficient between every pair of numeric columns. Each coefficient ranges from -1 to +1:</p>
+<ul class="simple">
+<li><p><strong>+1</strong> — perfect positive relationship: as one variable increases, the other increases proportionally.</p></li>
+<li><p><strong>0</strong> — no <em>linear</em> relationship: knowing one variable tells you nothing (linearly) about the other.</p></li>
+<li><p><strong>-1</strong> — perfect negative relationship: as one increases, the other decreases proportionally.</p></li>
+<li><p>Values in between (e.g. 0.7, -0.3) indicate the strength and direction of a linear trend — the closer to ±1, the stronger.</p></li>
+</ul>
+<p><strong>How to read the matrix:</strong></p>
+<ul class="simple">
+<li><p>The diagonal is always 1.0 (a variable is perfectly correlated with itself).</p></li>
+<li><p>The matrix is symmetric — corr(A, B) == corr(B, A) — so you only need to read one triangle (above or below the diagonal).</p></li>
+<li><p>Rough rule of thumb: |r| &lt; 0.3 weak, 0.3–0.7 moderate, &gt; 0.7 strong (not a fixed law — depends on the domain).</p></li>
+<li><p><strong>Caveat:</strong> correlation measures <em>linear</em> relationships only and does not imply causation. Two variables can be correlated because a third factor drives both, and a strong non-linear relationship (e.g. U-shaped) can still show a near-zero correlation despite being clearly related — always sanity-check with a scatter plot.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">,</span> <span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">,</span> <span class="s2">&quot;remaining_lease&quot;</span><span class="p">]</span>
+<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="c1"># .corr() computes the Pearson correlation coefficient (the default `method`) between every pair of columns, returning a square matrix.</span>
+<span class="c1"># It only makes sense on numeric columns — pre-selecting numeric_cols avoids errors/unwanted behavior from passing non-numeric (e.g. string) columns.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 resale_price  floor_area_sqm  remaining_lease
+resale_price         1.000000        0.565247         0.301489
+floor_area_sqm       0.565247        1.000000         0.104818
+remaining_lease      0.301489        0.104818         1.000000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="combining-data-only-if-using-multiple-data-gov-sg-tables">
+<h3>Combining Data (only if using multiple <a class="reference external" href="http://data.gov.sg">data.gov.sg</a> tables)<a class="headerlink" href="#combining-data-only-if-using-multiple-data-gov-sg-tables" title="Link to this heading">#</a></h3>
+<p>Merge in additional context like MRT proximity if using a second dataset. <em>(Skipped for now — no second dataset loaded; <code class="docutils literal notranslate"><span class="pre">mrt_distance_df</span></code> is not defined.)</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_merged</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mrt_distance_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;town&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">on=&quot;town&quot;</span></code> — the column present in both DataFrames used to match rows (must exist with matching values/name in both; use <code class="docutils literal notranslate"><span class="pre">left_on=</span></code>/<code class="docutils literal notranslate"><span class="pre">right_on=</span></code> instead if the column names differ between the two DataFrames).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">how=&quot;left&quot;</span></code> — keep every row from <code class="docutils literal notranslate"><span class="pre">df</span></code> (the “left” DataFrame), attaching matching data from <code class="docutils literal notranslate"><span class="pre">mrt_distance_df</span></code> where a match exists and filling with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> where it doesn’t. Other options: <code class="docutils literal notranslate"><span class="pre">&quot;inner&quot;</span></code> (only rows that match in both), <code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code> (keep all rows from the right DataFrame instead), <code class="docutils literal notranslate"><span class="pre">&quot;outer&quot;</span></code> (keep all rows from both, filling gaps with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> either side).</p></li>
+</ul>
+</section>
+</section>
+<section id="matplotlib">
+<h2>MATPLOTLIB<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
+<section id="distribution">
+<h3>Distribution<a class="headerlink" href="#distribution" title="Link to this heading">#</a></h3>
+<p>See how resale prices are spread out overall.</p>
+<p><strong>What a histogram tells you:</strong> it buckets a numeric column into equal-width ranges (“bins”) and plots the count of values falling in each bin as a bar. This reveals the <em>shape</em> of the distribution — where values cluster, whether it’s symmetric or skewed (a long tail to one side), whether there are multiple peaks (multimodal), and roughly where outliers sit.</p>
+<p><strong>When to use it:</strong> whenever you want to understand a single numeric column’s spread before deeper analysis — e.g. is <code class="docutils literal notranslate"><span class="pre">resale_price</span></code> roughly bell-shaped, or skewed toward cheaper flats with a long tail of expensive outliers? This shapes later decisions like whether to log-transform the variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Creates a new blank figure canvas; figsize=(width, height) in inches controls the plot&#39;s overall size.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="c1"># bins=50 splits the value range into 50 equal-width buckets. More bins = finer detail but noisier; fewer bins = smoother but may hide real structure. 50 is a reasonable default for a dataset with tens of thousands of rows.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Resale Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of HDB Resale Prices&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Renders the figure. Harmless to omit in Jupyter (the last expression auto-displays), but good habit for portability to plain scripts.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b218a00d395b85e924137934919b66eb189a5878bef7cdf54d6eb5b79edd91a5.png" src="../_images/b218a00d395b85e924137934919b66eb189a5878bef7cdf54d6eb5b79edd91a5.png" />
+</div>
+</div>
+</section>
+<section id="relationship">
+<h3>Relationship<a class="headerlink" href="#relationship" title="Link to this heading">#</a></h3>
+<p>Check how floor area relates to resale price.</p>
+<p><strong>What a scatter plot tells you:</strong> each point is one row, positioned by its value on the x-axis and y-axis variables. It reveals whether two numeric variables move together (a visible upward/downward trend = correlation), the <em>shape</em> of that relationship (straight line vs curve), and outliers that don’t fit the pattern. It’s the visual counterpart to a correlation coefficient — the number in <code class="docutils literal notranslate"><span class="pre">corr_matrix</span></code> is a single-value summary of what you’re looking at here.</p>
+<p><strong>When to use it:</strong> whenever you want to inspect the relationship between exactly two numeric variables, especially before trusting a correlation number — correlation can mislead if the true relationship is non-linear or dominated by a handful of outliers, and a scatter plot lets you check that visually.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="c1"># alpha=0.3 sets point transparency (0 = invisible, 1 = fully opaque). With tens of thousands of overlapping points, a low alpha lets you see density — darker regions are where more points stack on top of each other — instead of one solid blob.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Floor Area (sqm)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Resale Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Floor Area vs Resale Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8ee702be7421384f4d675736f41cc6b8b1c45e59d06a1e52860471ba2b856b43.png" src="../_images/8ee702be7421384f4d675736f41cc6b8b1c45e59d06a1e52860471ba2b856b43.png" />
+</div>
+</div>
+</section>
+<section id="comparison">
+<h3>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h3>
+<p>Compare average price across flat types.</p>
+<p><strong>What a bar chart tells you:</strong> it compares a single summary value (here, average price) across discrete categories (flat types). Unlike a histogram, which shows the distribution of one continuous variable, a bar chart shows one number per category — use it once you’ve already aggregated (e.g. via <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code>), not on raw row-level data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_price_by_flat_type</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># .plot(kind=&quot;bar&quot;) is a pandas convenience wrapper around matplotlib — plots each row&#39;s value as a bar, using the Series&#39; index (flat_type) as the x-axis labels.</span>
+<span class="c1"># [&quot;mean&quot;] selects just the mean column from the earlier .agg([&quot;mean&quot;, &quot;median&quot;, &quot;count&quot;]) result, since we only want to plot this one stat.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Average Resale Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average Resale Price by Flat Type&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bdfe07ca0c75017d71fdc0a8079ddecc5b0f0bc086a853f6a0522f3fbb099e7e.png" src="../_images/bdfe07ca0c75017d71fdc0a8079ddecc5b0f0bc086a853f6a0522f3fbb099e7e.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="seaborn">
+<h2>SEABORN<a class="headerlink" href="#seaborn" title="Link to this heading">#</a></h2>
+<section id="heatmap">
+<h3>Heatmap<a class="headerlink" href="#heatmap" title="Link to this heading">#</a></h3>
+<p>Visualize the correlation matrix — same logic you’ll reuse on SECOM’s 591 features later.</p>
+<p><strong>What a heatmap adds over the raw numbers:</strong> it colors each cell by value, so patterns across a large matrix (e.g. hundreds of features later on) jump out visually — strong correlations (near ±1) stand out as vivid colors, weak ones (near 0) fade to a neutral/light color — without having to scan every individual number in the table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+<span class="c1"># annot=True prints the actual correlation value inside each cell on top of the color — useful for small matrices where exact values matter; set annot=False for very large matrices where the text would overlap and become unreadable.</span>
+<span class="c1"># cmap=&quot;coolwarm&quot; sets the color scale: blue for negative correlations, red for positive, and a neutral/white tone near 0 — makes direction (not just strength) visible at a glance.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Correlation Heatmap&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/052f6a4ff490780d5a8bb5090ca0224d7f7bf57457da63d287ad3d2da53b684c.png" src="../_images/052f6a4ff490780d5a8bb5090ca0224d7f7bf57457da63d287ad3d2da53b684c.png" />
+</div>
+</div>
+</section>
+<section id="boxplot">
+<h3>Boxplot<a class="headerlink" href="#boxplot" title="Link to this heading">#</a></h3>
+<p>Compare price distribution across towns to spot spread and outliers.</p>
+<p><strong>How to read a boxplot:</strong></p>
+<ul class="simple">
+<li><p>The box spans the interquartile range (IQR) — from the 25th percentile (bottom edge) to the 75th percentile (top edge) — so it contains the middle 50% of the data.</p></li>
+<li><p>The line inside the box is the median (50th percentile).</p></li>
+<li><p>The whiskers extend to the smallest/largest values still within 1.5×IQR of the box edges.</p></li>
+<li><p>Points plotted beyond the whiskers are individual outliers.</p></li>
+</ul>
+<p><strong>When to use it:</strong> to compare the spread, central tendency, and outliers of a numeric variable across several categories at once (here, <code class="docutils literal notranslate"><span class="pre">resale_price</span></code> per town) — more compact than overlaying multiple histograms, though it hides finer distribution shape (e.g. multiple peaks) that a histogram would reveal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;town&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;resale_price&quot;</span><span class="p">)</span>
+<span class="c1"># Passing data=df with x/y column names (rather than raw arrays) lets seaborn automatically group resale_price by each unique value of town and draw one box per group.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="c1"># Rotates x-axis tick labels 90° — town names would otherwise overlap and be unreadable with this many categories.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Resale Price Distribution by Town&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/715040d31c9d62794f24bbdb1554dbb5b7be88fa3f535b05231fdc55af2694b5.png" src="../_images/715040d31c9d62794f24bbdb1554dbb5b7be88fa3f535b05231fdc55af2694b5.png" />
+</div>
+</div>
+</section>
+<section id="pairplot">
+<h3>Pairplot<a class="headerlink" href="#pairplot" title="Link to this heading">#</a></h3>
+<p>Look at pairwise relationships across key numeric features at once.</p>
+<p><strong>What a pairplot shows:</strong> a grid of scatter plots for every pair of the given numeric columns, plus a histogram (or density curve) on the diagonal for each column’s own distribution. It’s a fast way to eyeball every pairwise relationship and every individual distribution in one image, instead of building each scatter plot and histogram separately by hand — most useful early in EDA, or later with SECOM’s many features (in smaller batches, since an N×N grid gets unwieldy fast as N grows).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;resale_price&quot;</span><span class="p">,</span> <span class="s2">&quot;floor_area_sqm&quot;</span><span class="p">,</span> <span class="s2">&quot;remaining_lease&quot;</span><span class="p">]])</span>
+<span class="c1"># Pass a DataFrame containing only the columns you want plotted — pairplot uses every numeric column it&#39;s given, so subsetting first (rather than passing the full df) keeps the grid readable and fast.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/57f2bc174e6bf292e1b1abe09b1c17d060eee26bc154644a485f8669a192dbf1.png" src="../_images/57f2bc174e6bf292e1b1abe09b1c17d060eee26bc154644a485f8669a192dbf1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week1_python_pandas_viz"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python Refresh</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-level-functions-vs-methods-applies-to-any-library">Module-level functions vs. methods (applies to any library)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">NumPy</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-array">Creating an array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-attributes">Array attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndim">.ndim</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#size">.size</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-basic-array">Creating a basic array</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros">.zeros()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ones">.ones()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empty">.empty()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrange">.arrange()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linspace">.linspace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-empty-vs-np-zeros">np.empty vs np.zeros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-arrange-vs-np-linspace">np.arrange vs np.linspace</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-removing-and-sorting-elements">Adding, removing, and sorting elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-sort-a-axis-1-kind-none-order-none-stable-none-descending">np.sort(a, axis=-1, kind=None, order=None, *, stable=None, descending=<no value="">)</no></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-argsort-a-axis-1-kind-none-order-none">np.argsort(a, axis=-1, kind=None, order=None)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#np-concatenate">np.concatenate()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-with-index">DataFrame with Index</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series">Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-files">Reading Data Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-remaining-lease">Cleaning <code class="docutils literal notranslate"><span class="pre">remaining_lease</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hdb-resale-eda-cheatsheet-pandas-matplotlib-seaborn">HDB Resale EDA Cheatsheet — Pandas, Matplotlib, Seaborn</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">PANDAS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-inspect">Load &amp; Inspect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-selection">Filtering / Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">Aggregation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-data-only-if-using-multiple-data-gov-sg-tables">Combining Data (only if using multiple data.gov.sg tables)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">MATPLOTLIB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution">Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship">Relationship</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">SEABORN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">Heatmap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot">Pairplot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Zakir Haziq
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

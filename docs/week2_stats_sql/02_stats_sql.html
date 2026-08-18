@@ -1,0 +1,1701 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Setup: selected sensor features &#8212; DS Sprint — July 2026</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=db28d5d2" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week2_stats_sql/02_stats_sql';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/custom.js?v=56810fcd"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">DS Sprint — July 2026</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../projects/projects1_hdb/project1.html">Project 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/project3.html">Project 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference / Cheatsheets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml_cheatsheet.html">Classical ML Cheatsheet — GF Digital Manufacturing Prep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml_pipelines.html">End-to-End ML Pipelines — Reference Notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../dataviz_cheatsheet.html">Data Visualisation &amp; Diagnostics Cheatsheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Q&amp;A</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../week3_ml_core/QnA.html">My Stupid Questions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/week2_stats_sql/02_stats_sql.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Setup: selected sensor features</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Setup: selected sensor features</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#probability">1. Probability</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-marginal-probabilities-from-the-label-distribution">1a. Marginal probabilities from the label distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-conditional-probability-p-fail-sensor-above-threshold">1b. Conditional probability: P(fail | sensor above threshold)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2. Descriptive statistics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distributions">3. Distributions</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-histograms-kde-for-each-selected-feature">3a. Histograms + KDE for each selected feature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-q-q-plots-visual-normality-check">3b. Q-Q plots (visual normality check)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-shapiro-wilk-normality-test">3c. Shapiro-Wilk normality test</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-the-central-limit-theorem">4. Sampling &amp; the Central Limit Theorem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#confidence-intervals">5. Confidence intervals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-eda-plot-types-for-high-dimensional-tabular-data">6. More EDA plot types for high-dimensional tabular data</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sns-violinplot-spread-shape-across-the-pass-fail-target">6a. <code class="docutils literal notranslate"><span class="pre">sns.violinplot</span></code> — spread + shape across the pass/fail target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-sns-scatterplot-sns-regplot-bivariate-sensor-relationships">6b. <code class="docutils literal notranslate"><span class="pre">sns.scatterplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.regplot</span></code> — bivariate sensor relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-sns-countplot-sns-barplot-class-balance-and-grouped-summary-stats">6c. <code class="docutils literal notranslate"><span class="pre">sns.countplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.barplot</span></code> — class balance and grouped summary stats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-sns-catplot-sns-facetgrid-small-multiples-across-many-sensors">6d. <code class="docutils literal notranslate"><span class="pre">sns.catplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid</span></code> — small multiples across many sensors</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>  <span class="c1"># consistent styling for every plot below, seaborn or plain matplotlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">secom</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ds-sprint-july/projects/projects2_secom/uci-secom.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">secom</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>...</th>
+      <th>581</th>
+      <th>582</th>
+      <th>583</th>
+      <th>584</th>
+      <th>585</th>
+      <th>586</th>
+      <th>587</th>
+      <th>588</th>
+      <th>589</th>
+      <th>Pass/Fail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2008-07-19 11:55:00</td>
+      <td>3030.93</td>
+      <td>2564.00</td>
+      <td>2187.7333</td>
+      <td>1411.1265</td>
+      <td>1.3602</td>
+      <td>100.0</td>
+      <td>97.6133</td>
+      <td>0.1242</td>
+      <td>1.5005</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>0.5005</td>
+      <td>0.0118</td>
+      <td>0.0035</td>
+      <td>2.3630</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2008-07-19 12:32:00</td>
+      <td>3095.78</td>
+      <td>2465.14</td>
+      <td>2230.4222</td>
+      <td>1463.6606</td>
+      <td>0.8294</td>
+      <td>100.0</td>
+      <td>102.3433</td>
+      <td>0.1247</td>
+      <td>1.4966</td>
+      <td>...</td>
+      <td>208.2045</td>
+      <td>0.5019</td>
+      <td>0.0223</td>
+      <td>0.0055</td>
+      <td>4.4447</td>
+      <td>0.0096</td>
+      <td>0.0201</td>
+      <td>0.0060</td>
+      <td>208.2045</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2008-07-19 13:17:00</td>
+      <td>2932.61</td>
+      <td>2559.94</td>
+      <td>2186.4111</td>
+      <td>1698.0172</td>
+      <td>1.5102</td>
+      <td>100.0</td>
+      <td>95.4878</td>
+      <td>0.1241</td>
+      <td>1.4436</td>
+      <td>...</td>
+      <td>82.8602</td>
+      <td>0.4958</td>
+      <td>0.0157</td>
+      <td>0.0039</td>
+      <td>3.1745</td>
+      <td>0.0584</td>
+      <td>0.0484</td>
+      <td>0.0148</td>
+      <td>82.8602</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2008-07-19 14:43:00</td>
+      <td>2988.72</td>
+      <td>2479.90</td>
+      <td>2199.0333</td>
+      <td>909.7926</td>
+      <td>1.3204</td>
+      <td>100.0</td>
+      <td>104.2367</td>
+      <td>0.1217</td>
+      <td>1.4882</td>
+      <td>...</td>
+      <td>73.8432</td>
+      <td>0.4990</td>
+      <td>0.0103</td>
+      <td>0.0025</td>
+      <td>2.0544</td>
+      <td>0.0202</td>
+      <td>0.0149</td>
+      <td>0.0044</td>
+      <td>73.8432</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2008-07-19 15:22:00</td>
+      <td>3032.24</td>
+      <td>2502.87</td>
+      <td>2233.3667</td>
+      <td>1326.5200</td>
+      <td>1.5334</td>
+      <td>100.0</td>
+      <td>100.3967</td>
+      <td>0.1235</td>
+      <td>1.5031</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>0.4800</td>
+      <td>0.4766</td>
+      <td>0.1045</td>
+      <td>99.3032</td>
+      <td>0.0202</td>
+      <td>0.0149</td>
+      <td>0.0044</td>
+      <td>73.8432</td>
+      <td>-1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 592 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">secom</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>581</th>
+      <th>582</th>
+      <th>583</th>
+      <th>584</th>
+      <th>585</th>
+      <th>586</th>
+      <th>587</th>
+      <th>588</th>
+      <th>589</th>
+      <th>Pass/Fail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1561.000000</td>
+      <td>1560.000000</td>
+      <td>1553.000000</td>
+      <td>1553.000000</td>
+      <td>1553.000000</td>
+      <td>1553.0</td>
+      <td>1553.000000</td>
+      <td>1558.000000</td>
+      <td>1565.000000</td>
+      <td>1565.000000</td>
+      <td>...</td>
+      <td>618.000000</td>
+      <td>1566.000000</td>
+      <td>1566.000000</td>
+      <td>1566.000000</td>
+      <td>1566.000000</td>
+      <td>1566.000000</td>
+      <td>1566.000000</td>
+      <td>1566.000000</td>
+      <td>1566.000000</td>
+      <td>1567.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3014.452896</td>
+      <td>2495.850231</td>
+      <td>2200.547318</td>
+      <td>1396.376627</td>
+      <td>4.197013</td>
+      <td>100.0</td>
+      <td>101.112908</td>
+      <td>0.121822</td>
+      <td>1.462862</td>
+      <td>-0.000841</td>
+      <td>...</td>
+      <td>97.934373</td>
+      <td>0.500096</td>
+      <td>0.015318</td>
+      <td>0.003847</td>
+      <td>3.067826</td>
+      <td>0.021458</td>
+      <td>0.016475</td>
+      <td>0.005283</td>
+      <td>99.670066</td>
+      <td>-0.867262</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>73.621787</td>
+      <td>80.407705</td>
+      <td>29.513152</td>
+      <td>441.691640</td>
+      <td>56.355540</td>
+      <td>0.0</td>
+      <td>6.237214</td>
+      <td>0.008961</td>
+      <td>0.073897</td>
+      <td>0.015116</td>
+      <td>...</td>
+      <td>87.520966</td>
+      <td>0.003404</td>
+      <td>0.017180</td>
+      <td>0.003720</td>
+      <td>3.578033</td>
+      <td>0.012358</td>
+      <td>0.008808</td>
+      <td>0.002867</td>
+      <td>93.891919</td>
+      <td>0.498010</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2743.240000</td>
+      <td>2158.750000</td>
+      <td>2060.660000</td>
+      <td>0.000000</td>
+      <td>0.681500</td>
+      <td>100.0</td>
+      <td>82.131100</td>
+      <td>0.000000</td>
+      <td>1.191000</td>
+      <td>-0.053400</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.477800</td>
+      <td>0.006000</td>
+      <td>0.001700</td>
+      <td>1.197500</td>
+      <td>-0.016900</td>
+      <td>0.003200</td>
+      <td>0.001000</td>
+      <td>0.000000</td>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2966.260000</td>
+      <td>2452.247500</td>
+      <td>2181.044400</td>
+      <td>1081.875800</td>
+      <td>1.017700</td>
+      <td>100.0</td>
+      <td>97.920000</td>
+      <td>0.121100</td>
+      <td>1.411200</td>
+      <td>-0.010800</td>
+      <td>...</td>
+      <td>46.184900</td>
+      <td>0.497900</td>
+      <td>0.011600</td>
+      <td>0.003100</td>
+      <td>2.306500</td>
+      <td>0.013425</td>
+      <td>0.010600</td>
+      <td>0.003300</td>
+      <td>44.368600</td>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3011.490000</td>
+      <td>2499.405000</td>
+      <td>2201.066700</td>
+      <td>1285.214400</td>
+      <td>1.316800</td>
+      <td>100.0</td>
+      <td>101.512200</td>
+      <td>0.122400</td>
+      <td>1.461600</td>
+      <td>-0.001300</td>
+      <td>...</td>
+      <td>72.288900</td>
+      <td>0.500200</td>
+      <td>0.013800</td>
+      <td>0.003600</td>
+      <td>2.757650</td>
+      <td>0.020500</td>
+      <td>0.014800</td>
+      <td>0.004600</td>
+      <td>71.900500</td>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3056.650000</td>
+      <td>2538.822500</td>
+      <td>2218.055500</td>
+      <td>1591.223500</td>
+      <td>1.525700</td>
+      <td>100.0</td>
+      <td>104.586700</td>
+      <td>0.123800</td>
+      <td>1.516900</td>
+      <td>0.008400</td>
+      <td>...</td>
+      <td>116.539150</td>
+      <td>0.502375</td>
+      <td>0.016500</td>
+      <td>0.004100</td>
+      <td>3.295175</td>
+      <td>0.027600</td>
+      <td>0.020300</td>
+      <td>0.006400</td>
+      <td>114.749700</td>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3356.350000</td>
+      <td>2846.440000</td>
+      <td>2315.266700</td>
+      <td>3715.041700</td>
+      <td>1114.536600</td>
+      <td>100.0</td>
+      <td>129.252200</td>
+      <td>0.128600</td>
+      <td>1.656400</td>
+      <td>0.074900</td>
+      <td>...</td>
+      <td>737.304800</td>
+      <td>0.509800</td>
+      <td>0.476600</td>
+      <td>0.104500</td>
+      <td>99.303200</td>
+      <td>0.102800</td>
+      <td>0.079900</td>
+      <td>0.028600</td>
+      <td>737.304800</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 591 columns</p>
+</div></div></div>
+</div>
+<section id="setup-selected-sensor-features">
+<h1>Setup: selected sensor features<a class="headerlink" href="#setup-selected-sensor-features" title="Link to this heading">#</a></h1>
+<p>We’re working with 5 of the 591 sensor columns instead of all of them, for two reasons:</p>
+<ul class="simple">
+<li><p><strong>Readability</strong> — tables/plots for 591 features are not something you can actually read or reason about by eye.</p></li>
+<li><p><strong>Clean computation</strong> — <code class="docutils literal notranslate"><span class="pre">skew</span></code>, <code class="docutils literal notranslate"><span class="pre">kurtosis</span></code>, and <code class="docutils literal notranslate"><span class="pre">shapiro</span></code> don’t tolerate <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s gracefully, so picking columns with <strong>zero missing values</strong> avoids having to decide on an imputation/dropna strategy before we’ve even started the stats practice.</p></li>
+</ul>
+<p>Columns picked for a spread of shapes (checked via <code class="docutils literal notranslate"><span class="pre">.skew()</span></code> beforehand):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">393</span></code> — near-symmetric (|skew| ~ 0.1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">390</span></code> — strong positive skew / heavy right tail</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">570</span></code> — negative skew</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">255</span></code> — moderate positive skew</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">86</span></code> — moderate positive skew, small scale</p></li>
+</ul>
+<p>Swap <code class="docutils literal notranslate"><span class="pre">SELECTED_FEATURES</span></code> for other column indices any time — everything below is written to work off that list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SELECTED_FEATURES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;393&#39;</span><span class="p">,</span> <span class="s1">&#39;390&#39;</span><span class="p">,</span> <span class="s1">&#39;570&#39;</span><span class="p">,</span> <span class="s1">&#39;255&#39;</span><span class="p">,</span> <span class="s1">&#39;86&#39;</span><span class="p">]</span>
+<span class="n">LABEL_COL</span> <span class="o">=</span> <span class="s1">&#39;Pass/Fail&#39;</span>
+
+<span class="c1"># Pass/Fail is coded -1 = pass, 1 = fail in the raw data</span>
+<span class="n">secom</span><span class="p">[</span><span class="n">SELECTED_FEATURES</span><span class="p">]</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">SELECTED_FEATURES</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">secom</span><span class="p">[</span><span class="n">SELECTED_FEATURES</span> <span class="o">+</span> <span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>393          0
+390          0
+570          0
+255          0
+86           0
+Pass/Fail    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="probability">
+<h1>1. Probability<a class="headerlink" href="#probability" title="Link to this heading">#</a></h1>
+<p><strong>Concept.</strong> Probability here is the <em>frequentist/empirical</em> estimate: P(event) = (rows where the event is true) / (total rows). We’re treating the 1567 SECOM records as a sample from the underlying manufacturing process, so these are estimates of the true pass/fail rate, not the true rate itself.</p>
+<section id="a-marginal-probabilities-from-the-label-distribution">
+<h2>1a. Marginal probabilities from the label distribution<a class="headerlink" href="#a-marginal-probabilities-from-the-label-distribution" title="Link to this heading">#</a></h2>
+<p>“Marginal” means we’re looking at one variable (<code class="docutils literal notranslate"><span class="pre">Pass/Fail</span></code>) in isolation, ignoring every sensor reading. This gives you the baseline failure rate — the number every conditional probability in 1b gets compared against.</p>
+<p><strong>What to observe:</strong> how imbalanced the classes are. A large P(pass) vs. P(fail) gap is normal for manufacturing defect data (most units pass) and has implications later (Week 3) for how you’d evaluate a classifier — but that’s out of scope here, just note the imbalance.</p>
+<p><strong>Code walkthrough</strong> (<code class="docutils literal notranslate"><span class="pre">secom[LABEL_COL].value_counts()</span></code>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">Series</span></code> indexed by the distinct values found in the column, i.e. an index of <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code> mapped to how many times each occurs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label_counts.get(1,</span> <span class="pre">0)</span></code> — <code class="docutils literal notranslate"><span class="pre">.get(key,</span> <span class="pre">default)</span></code> is dict-style lookup: “give me the count where the index is <code class="docutils literal notranslate"><span class="pre">1</span></code>, or <code class="docutils literal notranslate"><span class="pre">0</span></code> if that value isn’t present at all.” The <code class="docutils literal notranslate"><span class="pre">default=0</span></code> guards against a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> if, say, a filtered subset happened to contain no failures.</p></li>
+<li><p>The values <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">-1</span></code> aren’t something we chose — they’re how this dataset encodes the label: <strong><code class="docutils literal notranslate"><span class="pre">1</span></code> = fail, <code class="docutils literal notranslate"><span class="pre">-1</span></code> = pass</strong>. Always check a dataset’s own encoding before assuming 1/0 or True/False.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label_counts</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">n_total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">secom</span><span class="p">)</span>
+
+<span class="n">n_fail</span> <span class="o">=</span> <span class="n">label_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">n_pass</span> <span class="o">=</span> <span class="n">label_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">p_fail</span> <span class="o">=</span> <span class="n">n_fail</span> <span class="o">/</span> <span class="n">n_total</span>
+<span class="n">p_pass</span> <span class="o">=</span> <span class="n">n_pass</span> <span class="o">/</span> <span class="n">n_total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_total = </span><span class="si">{</span><span class="n">n_total</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_fail  = </span><span class="si">{</span><span class="n">n_fail</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_pass  = </span><span class="si">{</span><span class="n">n_pass</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P(fail) = </span><span class="si">{</span><span class="n">p_fail</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P(pass) = </span><span class="si">{</span><span class="n">p_pass</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n_total = 1567
+n_fail  = 104
+n_pass  = 1463
+P(fail) = 0.0664
+P(pass) = 0.9336
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">n_pass</span><span class="p">,</span> <span class="n">n_fail</span><span class="p">],</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Pass (</span><span class="si">{</span><span class="n">p_pass</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Fail (</span><span class="si">{</span><span class="n">p_fail</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">],</span>
+    <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#4C72B0&#39;</span><span class="p">,</span> <span class="s1">&#39;#C44E52&#39;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;P(pass) vs P(fail) — marginal distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2e2fd196c9b2c2fd9f6ae9a43964c4490c57daa8cbc0d9262fef577a2d06959f.png" src="../_images/2e2fd196c9b2c2fd9f6ae9a43964c4490c57daa8cbc0d9262fef577a2d06959f.png" />
+</div>
+</div>
+</section>
+<section id="b-conditional-probability-p-fail-sensor-above-threshold">
+<h2>1b. Conditional probability: P(fail | sensor above threshold)<a class="headerlink" href="#b-conditional-probability-p-fail-sensor-above-threshold" title="Link to this heading">#</a></h2>
+<p><strong>Concept.</strong> Conditional probability P(A | B) = P(A and B) / P(B) — “given that B happened, what’s the chance A also happened?” Here, B = “sensor reading is above some threshold” and A = “unit failed.”</p>
+<p>We split the data into two groups by a threshold on one sensor (e.g. its 75th percentile), then compute P(fail) <em>within each group</em> separately.</p>
+<p><strong>What to observe:</strong> compare P(fail | above), P(fail | at-or-below), and the overall P(fail) from 1a.</p>
+<ul class="simple">
+<li><p>If they’re all roughly equal → the sensor and the outcome look independent (knowing the sensor value doesn’t change your belief about failure).</p></li>
+<li><p>If they differ noticeably → the sensor and outcome look dependent, i.e. this sensor might carry information about failure risk.
+This is descriptive, not a formal test — with only ~104 failures spread across 1567 rows, differences can arise from small-sample noise. A hypothesis test (e.g. chi-square test of independence) would be the rigorous version, which isn’t covered in this notebook.</p></li>
+</ul>
+<p><strong>Code walkthrough:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">secom[COND_FEATURE].quantile(THRESHOLD_QUANTILE)</span></code> computes the value below which <code class="docutils literal notranslate"><span class="pre">THRESHOLD_QUANTILE</span></code> (e.g. 0.75 → 75%) of the readings fall — this becomes the split point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secom[secom[COND_FEATURE]</span> <span class="pre">&gt;</span> <span class="pre">threshold]</span></code> is boolean-mask filtering: the inner comparison produces a <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code> Series the same length as <code class="docutils literal notranslate"><span class="pre">secom</span></code>, and indexing with it keeps only the <code class="docutils literal notranslate"><span class="pre">True</span></code> rows.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(above[LABEL_COL]</span> <span class="pre">==</span> <span class="pre">1).mean()</span></code> — <code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">1</span></code> turns the label column into a <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code> Series (<code class="docutils literal notranslate"><span class="pre">True</span></code> where it’s a failure), and <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> on a boolean Series is the fraction of <code class="docutils literal notranslate"><span class="pre">True</span></code> values, i.e. exactly the conditional probability estimate.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">COND_FEATURE</span> <span class="o">=</span> <span class="s1">&#39;390&#39;</span>
+<span class="n">THRESHOLD_QUANTILE</span> <span class="o">=</span> <span class="mf">0.75</span>
+
+<span class="n">threshold</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">COND_FEATURE</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">THRESHOLD_QUANTILE</span><span class="p">)</span>
+
+<span class="n">above</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">secom</span><span class="p">[</span><span class="n">COND_FEATURE</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]</span>
+<span class="n">below_eq</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">secom</span><span class="p">[</span><span class="n">COND_FEATURE</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">]</span>
+
+<span class="n">p_fail_given_above</span> <span class="o">=</span> <span class="p">(</span><span class="n">above</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">p_fail_given_below_eq</span> <span class="o">=</span> <span class="p">(</span><span class="n">below_eq</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Feature: </span><span class="si">{</span><span class="n">COND_FEATURE</span><span class="si">}</span><span class="s2">, threshold (q=</span><span class="si">{</span><span class="n">THRESHOLD_QUANTILE</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">threshold</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n above threshold    = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">above</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n at/below threshold = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">below_eq</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P(fail)                        = </span><span class="si">{</span><span class="n">p_fail</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P(fail | </span><span class="si">{</span><span class="n">COND_FEATURE</span><span class="si">}</span><span class="s2"> &gt; thr)        = </span><span class="si">{</span><span class="n">p_fail_given_above</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P(fail | </span><span class="si">{</span><span class="n">COND_FEATURE</span><span class="si">}</span><span class="s2"> &lt;= thr)       = </span><span class="si">{</span><span class="n">p_fail_given_below_eq</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature: 390, threshold (q=0.75) = 1.1482
+n above threshold    = 392
+n at/below threshold = 1175
+
+P(fail)                        = 0.0664
+P(fail | 390 &gt; thr)        = 0.0587
+P(fail | 390 &lt;= thr)       = 0.0689
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A Venn diagram is the natural picture for &quot;overlap between two sets,&quot; but it isn&#39;t the clearest way to show</span>
+<span class="c1"># a *conditional* comparison across three probabilities. A bar chart puts P(fail) side-by-side with the two</span>
+<span class="c1"># conditional versions; a contingency-table heatmap shows the underlying joint counts (the same information a</span>
+<span class="c1"># Venn diagram would encode, but exact and readable for a 2x2 split).</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P(fail)</span><span class="se">\n</span><span class="s1">(overall)&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;P(fail |</span><span class="se">\n</span><span class="si">{</span><span class="n">COND_FEATURE</span><span class="si">}</span><span class="s1"> &gt; thr)&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;P(fail |</span><span class="se">\n</span><span class="si">{</span><span class="n">COND_FEATURE</span><span class="si">}</span><span class="s1"> &lt;= thr)&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">p_fail</span><span class="p">,</span> <span class="n">p_fail_given_above</span><span class="p">,</span> <span class="n">p_fail_given_below_eq</span><span class="p">]</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;#C44E52&#39;</span><span class="p">,</span> <span class="s1">&#39;#4C72B0&#39;</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Overall vs. conditional P(fail)&#39;</span><span class="p">)</span>
+
+<span class="n">group</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">secom</span><span class="p">[</span><span class="n">COND_FEATURE</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;&gt; </span><span class="si">{</span><span class="n">THRESHOLD_QUANTILE</span><span class="si">:</span><span class="s1">.0%</span><span class="si">}</span><span class="s1"> quantile&#39;</span><span class="p">,</span> <span class="s1">&#39;at/below&#39;</span><span class="p">)</span>
+<span class="n">contingency</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">secom</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">}))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">contingency</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Joint counts: </span><span class="si">{</span><span class="n">COND_FEATURE</span><span class="si">}</span><span class="s1"> threshold group vs. outcome&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">contingency</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/502aeff8cb9810da1319a81c05cdc463310fc2039f401da5ac3df3c6a6b996ab.png" src="../_images/502aeff8cb9810da1319a81c05cdc463310fc2039f401da5ac3df3c6a6b996ab.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Pass/Fail</th>
+      <th>fail</th>
+      <th>pass</th>
+    </tr>
+    <tr>
+      <th>row_0</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>&gt; 75% quantile</th>
+      <td>23</td>
+      <td>369</td>
+    </tr>
+    <tr>
+      <th>at/below</th>
+      <td>81</td>
+      <td>1094</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="descriptive-statistics">
+<h1>2. Descriptive statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h1>
+<p>Six summary numbers per feature, each capturing a different aspect of the distribution’s shape:</p>
+<ul class="simple">
+<li><p><strong>Mean</strong> — the arithmetic average; sensitive to outliers/skew (a few huge values pull it a long way).</p></li>
+<li><p><strong>Median</strong> — the middle value when sorted; robust to outliers. Comparing mean vs. median is itself a cheap skew check: if mean &gt;&gt; median, the distribution has a right tail dragging the average up (and vice versa).</p></li>
+<li><p><strong>Variance</strong> — average of the squared deviations from the mean; the “amount of spread,” in squared units of the original feature (hard to interpret directly because of the squaring).</p></li>
+<li><p><strong>Standard deviation</strong> — square root of variance, back in the original units; the go-to spread measure.</p></li>
+<li><p><strong>Skewness</strong> — asymmetry of the distribution. ~0 is symmetric, positive means a longer right tail, negative means a longer left tail.</p></li>
+<li><p><strong>Kurtosis</strong> (excess, Fisher definition) — “tailedness” relative to a normal distribution. 0 = normal-like tails, positive = heavier tails / more extreme outliers than normal, negative = lighter/thinner tails.</p></li>
+</ul>
+<p><strong>When to use this section:</strong> as a first-pass numeric summary before plotting anything — it tells you which features are worth a closer look (e.g. very high |skew| or kurtosis) before you spend time on the distribution plots in Section 3.</p>
+<p><strong>Code walkthrough:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vals.var(ddof=1)</span></code> / <code class="docutils literal notranslate"><span class="pre">vals.std(ddof=1)</span></code> — <code class="docutils literal notranslate"><span class="pre">ddof</span></code> = “delta degrees of freedom.” <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> divides by <code class="docutils literal notranslate"><span class="pre">n-1</span></code> instead of <code class="docutils literal notranslate"><span class="pre">n</span></code> (Bessel’s correction), which gives an unbiased estimate of the <em>population</em> variance/std from a <em>sample</em>. This matters most for small <code class="docutils literal notranslate"><span class="pre">n</span></code>; with ~1500+ rows here the <code class="docutils literal notranslate"><span class="pre">n</span></code> vs <code class="docutils literal notranslate"><span class="pre">n-1</span></code> difference is tiny, but <code class="docutils literal notranslate"><span class="pre">n-1</span></code> is the statistically correct default for sample data (pandas’ <code class="docutils literal notranslate"><span class="pre">.var()</span></code>/<code class="docutils literal notranslate"><span class="pre">.std()</span></code> already default to <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>, it’s written explicitly here for clarity).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.skew</span></code> / <code class="docutils literal notranslate"><span class="pre">kurtosis</span></code> — used instead of a pandas built-in because they let you be explicit about the bias correction and definition (Fisher vs. Pearson) being used; <code class="docutils literal notranslate"><span class="pre">kurtosis(...)</span></code> here returns <em>excess</em> kurtosis (normal distribution = 0), which is the more common convention than “raw” kurtosis (normal = 3).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurtosis</span>
+
+<span class="n">desc_rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">SELECTED_FEATURES</span><span class="p">:</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">desc_rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;feature&#39;</span><span class="p">:</span> <span class="n">feat</span><span class="p">,</span>
+        <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="n">vals</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span>
+        <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">vals</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;median&#39;</span><span class="p">:</span> <span class="n">vals</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+        <span class="s1">&#39;variance&#39;</span><span class="p">:</span> <span class="n">vals</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s1">&#39;std_dev&#39;</span><span class="p">:</span> <span class="n">vals</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="s1">&#39;skewness&#39;</span><span class="p">:</span> <span class="n">skew</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span>
+        <span class="s1">&#39;kurtosis_excess&#39;</span><span class="p">:</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">vals</span><span class="p">),</span>  <span class="c1"># Fisher definition, normal = 0</span>
+    <span class="p">})</span>
+
+<span class="n">desc_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">desc_rows</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;feature&#39;</span><span class="p">)</span>
+<span class="n">desc_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>variance</th>
+      <th>std_dev</th>
+      <th>skewness</th>
+      <th>kurtosis_excess</th>
+    </tr>
+    <tr>
+      <th>feature</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>393</th>
+      <td>1567</td>
+      <td>0.133990</td>
+      <td>0.1339</td>
+      <td>0.001475</td>
+      <td>0.038408</td>
+      <td>0.102791</td>
+      <td>-0.513248</td>
+    </tr>
+    <tr>
+      <th>390</th>
+      <td>1567</td>
+      <td>1.431868</td>
+      <td>0.8773</td>
+      <td>413.163152</td>
+      <td>20.326415</td>
+      <td>39.524898</td>
+      <td>1560.809446</td>
+    </tr>
+    <tr>
+      <th>570</th>
+      <td>1567</td>
+      <td>530.523623</td>
+      <td>532.3982</td>
+      <td>306.240761</td>
+      <td>17.499736</td>
+      <td>-8.650636</td>
+      <td>86.577321</td>
+    </tr>
+    <tr>
+      <th>255</th>
+      <td>1567</td>
+      <td>0.403848</td>
+      <td>0.4051</td>
+      <td>0.014480</td>
+      <td>0.120334</td>
+      <td>0.210027</td>
+      <td>-0.365871</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>1567</td>
+      <td>2.401872</td>
+      <td>2.4039</td>
+      <td>0.001394</td>
+      <td>0.037332</td>
+      <td>-0.334234</td>
+      <td>1.081122</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="distributions">
+<h1>3. Distributions<a class="headerlink" href="#distributions" title="Link to this heading">#</a></h1>
+<section id="a-histograms-kde-for-each-selected-feature">
+<h2>3a. Histograms + KDE for each selected feature<a class="headerlink" href="#a-histograms-kde-for-each-selected-feature" title="Link to this heading">#</a></h2>
+<p><strong>Histogram</strong> — bins the feature’s range into intervals and counts how many observations fall in each bin, drawn as bars. It’s the most direct picture of “where do the values pile up.” Bin count/width matters: too few bins hides structure, too many makes it noisy — <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>/<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> pick a reasonable default automatically.</p>
+<p><strong>KDE (Kernel Density Estimate)</strong> — a smoothed, continuous curve estimating the underlying probability density, built by summing a small “bump” (kernel) centered at every data point. It’s essentially a smoothed histogram that doesn’t depend on bin edges, which makes shape comparisons (skew, modality) easier to read at a glance.</p>
+<p><strong>When to use which:</strong> histograms show you the actual data granularity (useful for spotting things like rounding artifacts or hard floors/ceilings); KDE is better for judging overall shape (is it unimodal? symmetric? long-tailed?). Plotting both together (<code class="docutils literal notranslate"><span class="pre">kde=True</span></code>) gives both views at once.</p>
+<p><strong>What to observe:</strong> number of humps (modality — one hump = unimodal, two = bimodal and possibly a mix of two underlying processes), symmetry vs. skew, and whether the shape looks bell-like at all — this is the visual counterpart to the skewness/kurtosis numbers from Section 2, and sets up the normality checks in 3b/3c.</p>
+<p><strong>Code walkthrough:</strong> <code class="docutils literal notranslate"><span class="pre">sns.histplot(secom[feat].dropna(),</span> <span class="pre">kde=True,</span> <span class="pre">ax=ax)</span></code> — <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> removes any missing values before plotting (matplotlib/seaborn can’t plot <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s), and <code class="docutils literal notranslate"><span class="pre">kde=True</span></code> overlays the smoothed density curve on top of the histogram bars in the same call.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">SELECTED_FEATURES</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">SELECTED_FEATURES</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">feat</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">SELECTED_FEATURES</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">secom</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature </span><span class="si">{</span><span class="n">feat</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5b94f3dd0e587ac6f18a4bf4bf4df2ef12b1f9f6580286308e7b8a91c58ba56f.png" src="../_images/5b94f3dd0e587ac6f18a4bf4bf4df2ef12b1f9f6580286308e7b8a91c58ba56f.png" />
+</div>
+</div>
+</section>
+<section id="b-q-q-plots-visual-normality-check">
+<h2>3b. Q-Q plots (visual normality check)<a class="headerlink" href="#b-q-q-plots-visual-normality-check" title="Link to this heading">#</a></h2>
+<p><strong>What it is.</strong> A Q-Q (quantile-quantile) plot sorts your sample and plots each observed value against the value a perfect normal distribution <em>would</em> have at that same quantile/rank. If your data were exactly normal, every point would fall on the diagonal reference line.</p>
+<p><strong>How to read it:</strong></p>
+<ul class="simple">
+<li><p>Points hugging the diagonal → consistent with normality.</p></li>
+<li><p>An S-shaped curve → skew (bending one way at the low end and the other way at the high end).</p></li>
+<li><p>Points curving away from the line at both ends → heavier tails than normal (more extreme values than a normal distribution would produce) — ties back to the kurtosis number from Section 2.</p></li>
+</ul>
+<p><strong>When to use it over a histogram:</strong> Q-Q plots are much more sensitive to departures from normality, especially in the tails, than eyeballing a histogram shape — small sample sizes can still look “bell-ish” in a histogram while showing a clear bend in a Q-Q plot.</p>
+<p><strong>Code walkthrough:</strong> <code class="docutils literal notranslate"><span class="pre">scipy.stats.probplot(vals,</span> <span class="pre">dist='norm',</span> <span class="pre">plot=ax)</span></code> computes the ordered sample quantiles and the matching theoretical quantiles from the distribution named in <code class="docutils literal notranslate"><span class="pre">dist</span></code> (here, <code class="docutils literal notranslate"><span class="pre">'norm'</span></code> = normal), fits a reference line, and draws both directly onto the given <code class="docutils literal notranslate"><span class="pre">ax</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">sps</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">SELECTED_FEATURES</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">SELECTED_FEATURES</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">feat</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">SELECTED_FEATURES</span><span class="p">):</span>
+    <span class="n">sps</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">secom</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">dist</span><span class="o">=</span><span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature </span><span class="si">{</span><span class="n">feat</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e9dfcc875a58f6c411bd473fff290b49170fcfbb338fce70f5cc71b216b951fd.png" src="../_images/e9dfcc875a58f6c411bd473fff290b49170fcfbb338fce70f5cc71b216b951fd.png" />
+</div>
+</div>
+</section>
+<section id="c-shapiro-wilk-normality-test">
+<h2>3c. Shapiro-Wilk normality test<a class="headerlink" href="#c-shapiro-wilk-normality-test" title="Link to this heading">#</a></h2>
+<p><strong>What it is.</strong> A formal hypothesis test, not just a visual — it converts “does this look normal?” into a number you can threshold. It gives you a test statistic <code class="docutils literal notranslate"><span class="pre">W</span></code> (how well the data’s shape matches a normal distribution — closer to 1 is more normal-like) and a <code class="docutils literal notranslate"><span class="pre">p-value</span></code>.</p>
+<p><strong>Hypotheses:</strong></p>
+<ul class="simple">
+<li><p>H0 (null): the sample was drawn from a normal distribution.</p></li>
+<li><p>H1 (alternative): it was not.</p></li>
+</ul>
+<p><strong>How to use the p-value:</strong> pick a significance threshold (conventionally α = 0.05) <em>before</em> looking at the result. If p-value &lt; α, reject H0 (evidence against normality); if p-value ≥ α, you fail to reject H0 (no evidence against normality — not the same as proving it’s normal).</p>
+<p><strong>Caveat worth knowing:</strong> Shapiro-Wilk’s power to detect non-normality grows with sample size. With ~1500 rows, even small, practically-irrelevant deviations from normality can produce a very small p-value — so treat this as one more piece of evidence alongside the histogram/Q-Q plot, not a single source of truth.</p>
+<p><strong>Code walkthrough:</strong> <code class="docutils literal notranslate"><span class="pre">scipy.stats.shapiro(vals)</span></code> returns a <code class="docutils literal notranslate"><span class="pre">(statistic,</span> <span class="pre">p_value)</span></code> tuple, unpacked directly into <code class="docutils literal notranslate"><span class="pre">stat,</span> <span class="pre">p_value</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shapiro_rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">SELECTED_FEATURES</span><span class="p">:</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">sps</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+    <span class="n">shapiro_rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;feature&#39;</span><span class="p">:</span> <span class="n">feat</span><span class="p">,</span> <span class="s1">&#39;W_statistic&#39;</span><span class="p">:</span> <span class="n">stat</span><span class="p">,</span> <span class="s1">&#39;p_value&#39;</span><span class="p">:</span> <span class="n">p_value</span><span class="p">})</span>
+
+<span class="n">shapiro_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">shapiro_rows</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;feature&#39;</span><span class="p">)</span>
+<span class="n">shapiro_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>W_statistic</th>
+      <th>p_value</th>
+    </tr>
+    <tr>
+      <th>feature</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>393</th>
+      <td>0.987310</td>
+      <td>1.752237e-10</td>
+    </tr>
+    <tr>
+      <th>390</th>
+      <td>0.011343</td>
+      <td>5.258422e-67</td>
+    </tr>
+    <tr>
+      <th>570</th>
+      <td>0.259445</td>
+      <td>1.207464e-61</td>
+    </tr>
+    <tr>
+      <th>255</th>
+      <td>0.986943</td>
+      <td>1.101380e-10</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>0.985224</td>
+      <td>1.385752e-11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="sampling-the-central-limit-theorem">
+<h1>4. Sampling &amp; the Central Limit Theorem<a class="headerlink" href="#sampling-the-central-limit-theorem" title="Link to this heading">#</a></h1>
+<p><strong>Concept.</strong> The Central Limit Theorem says: if you repeatedly draw random samples of size <code class="docutils literal notranslate"><span class="pre">n</span></code> from <em>any</em> distribution (normal or not) and compute the mean of each sample, the distribution of those <em>sample means</em> approaches a normal distribution as <code class="docutils literal notranslate"><span class="pre">n</span></code> grows — regardless of the shape of the original population. This is why so much of inferential statistics (including the confidence interval in Section 5) can lean on normal/t-distribution theory even when the raw data itself isn’t normal.</p>
+<p><strong>What we’re doing:</strong> picking one sensor (try both a skewed one and a near-symmetric one), repeatedly drawing random subsamples of size <code class="docutils literal notranslate"><span class="pre">SAMPLE_SIZE</span></code>, computing the mean of each subsample, and plotting the distribution of those means next to the original feature’s distribution.</p>
+<p><strong>What to observe:</strong> the <em>original</em> distribution keeps whatever shape it has (skewed stays skewed), but the distribution of <em>sample means</em> should look progressively more bell-shaped and much narrower than the original, even when <code class="docutils literal notranslate"><span class="pre">CLT_FEATURE</span></code> is heavily skewed.</p>
+<p><strong>Code walkthrough:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.random.default_rng(42)</span></code> creates a seeded random number generator — the seed (<code class="docutils literal notranslate"><span class="pre">42</span></code>) makes the “random” draws reproducible; rerunning the cell gives identical results.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rng.choice(population,</span> <span class="pre">size=SAMPLE_SIZE,</span> <span class="pre">replace=True)</span></code> draws <code class="docutils literal notranslate"><span class="pre">SAMPLE_SIZE</span></code> values at random from the full population array. <code class="docutils literal notranslate"><span class="pre">replace=True</span></code> means sampling <em>with</em> replacement — the same original data point can be picked more than once in a given subsample, which is the standard way to simulate “repeated random samples from the population” from a single finite dataset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[...</span> <span class="pre">for</span> <span class="pre">_</span> <span class="pre">in</span> <span class="pre">range(N_SAMPLES)]</span></code> is a list comprehension: repeat the draw-and-average step <code class="docutils literal notranslate"><span class="pre">N_SAMPLES</span></code> times, collecting one mean per iteration; <code class="docutils literal notranslate"><span class="pre">np.array(...)</span></code> wraps the resulting list of means for easy stats/plotting.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLT_FEATURE</span> <span class="o">=</span> <span class="s1">&#39;390&#39;</span>  <span class="c1"># try swapping for a skewed one vs. a near-normal one</span>
+<span class="n">SAMPLE_SIZE</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">N_SAMPLES</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">CLT_FEATURE</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">sample_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SAMPLE_SIZE</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_SAMPLES</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Population: n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)</span><span class="si">}</span><span class="s2">, mean=</span><span class="si">{</span><span class="n">population</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, std=</span><span class="si">{</span><span class="n">population</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sample means: n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_means</span><span class="p">)</span><span class="si">}</span><span class="s2">, mean=</span><span class="si">{</span><span class="n">sample_means</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, std=</span><span class="si">{</span><span class="n">sample_means</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Population: n=1567, mean=1.4319, std=20.3264
+Sample means: n=2000, mean=1.3880, std=3.5174
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Original distribution: feature </span><span class="si">{</span><span class="n">CLT_FEATURE</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribution of sample means (n=</span><span class="si">{</span><span class="n">SAMPLE_SIZE</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">N_SAMPLES</span><span class="si">}</span><span class="s1"> draws)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e3c261aacabe72d069aa187f39b1a8afc6253400ec6fb4f675cff5833ced0ec5.png" src="../_images/e3c261aacabe72d069aa187f39b1a8afc6253400ec6fb4f675cff5833ced0ec5.png" />
+</div>
+</div>
+<p><strong>Try it:</strong> vary <code class="docutils literal notranslate"><span class="pre">SAMPLE_SIZE</span></code> (e.g. 5, 30, 100) and re-run the two cells above.</p>
+<p>Two things to watch for as <code class="docutils literal notranslate"><span class="pre">SAMPLE_SIZE</span></code> increases:</p>
+<ol class="arabic simple">
+<li><p><strong>Shape</strong> — the sample-means histogram should look more normal, faster, for less-skewed features; heavily skewed features (like <code class="docutils literal notranslate"><span class="pre">390</span></code>) typically need a larger <code class="docutils literal notranslate"><span class="pre">SAMPLE_SIZE</span></code> before the sample-means distribution looks convincingly bell-shaped (a common rule of thumb is n ≥ 30, but that’s just a rule of thumb, not a hard rule).</p></li>
+<li><p><strong>Spread</strong> — the standard deviation of the sample means should shrink as <code class="docutils literal notranslate"><span class="pre">SAMPLE_SIZE</span></code> grows. This is the standard error relationship: SE = population std / sqrt(n) — larger samples give a more precise (less variable) estimate of the mean, which is exactly the quantity used in the confidence interval in Section 5.</p></li>
+</ol>
+</section>
+<section id="confidence-intervals">
+<h1>5. Confidence intervals<a class="headerlink" href="#confidence-intervals" title="Link to this heading">#</a></h1>
+<p><strong>Concept.</strong> A confidence interval gives a range of plausible values for the true population mean, built from a single sample. A 95% CI means: if you repeated this sampling-and-interval-construction process many times, about 95% of the resulting intervals would contain the true population mean. It is <strong>not</strong> “there’s a 95% chance the true mean is in this specific interval” — the true mean is fixed, only the interval is random.</p>
+<p><strong>Why the t-distribution instead of z (normal)?</strong> The standard CI formula needs the <em>population</em> standard deviation, which we don’t have — we only have the <em>sample</em> standard deviation as an estimate of it. Substituting an estimated std dev introduces extra uncertainty, which the t-distribution accounts for via wider tails than the normal distribution. The t-distribution converges to the normal distribution as sample size grows (degrees of freedom go up), so the correction matters most for small <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p><strong>The formula, matching the steps below:</strong></p>
+<p>CI = sample mean ± (t-critical × standard error), where standard error = sample std dev / sqrt(n)</p>
+<p><strong>Code/step walkthrough:</strong></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_mean</span></code> — the point estimate of the population mean.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_std</span> <span class="pre">=</span> <span class="pre">ci_vals.std(ddof=1)</span></code> — sample standard deviation using <code class="docutils literal notranslate"><span class="pre">n-1</span></code> (see Section 2 for why <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">standard_error</span> <span class="pre">=</span> <span class="pre">sample_std</span> <span class="pre">/</span> <span class="pre">np.sqrt(n)</span></code> — how much the <em>sample mean</em> itself is expected to vary from sample to sample (this is the same quantity the CLT section demonstrated shrinking as <code class="docutils literal notranslate"><span class="pre">n</span></code> grows).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">t_critical</span> <span class="pre">=</span> <span class="pre">sps.t.ppf(1</span> <span class="pre">-</span> <span class="pre">alpha/2,</span> <span class="pre">df)</span></code> — <code class="docutils literal notranslate"><span class="pre">.ppf</span></code> (percent point function) is the inverse of the CDF: it answers “what t-value has this much probability to its left?” Using <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">alpha/2</span></code> (rather than <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">alpha</span></code>) accounts for a <strong>two-tailed</strong> interval — leaving <code class="docutils literal notranslate"><span class="pre">alpha/2</span></code> probability in each tail so the total excluded probability is <code class="docutils literal notranslate"><span class="pre">alpha</span></code> (e.g. 0.05 total → 0.025 per tail for a 95% CI).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin_of_error</span> <span class="pre">=</span> <span class="pre">t_critical</span> <span class="pre">*</span> <span class="pre">standard_error</span></code>, then <code class="docutils literal notranslate"><span class="pre">sample_mean</span> <span class="pre">±</span> <span class="pre">margin_of_error</span></code> gives the final <code class="docutils literal notranslate"><span class="pre">(ci_lower,</span> <span class="pre">ci_upper)</span></code> interval.</p></li>
+</ol>
+<p><strong>What to observe:</strong> how the interval width changes if you swap <code class="docutils literal notranslate"><span class="pre">CI_FEATURE</span></code> for one with a much larger std dev, or if you go back and manually try a smaller <code class="docutils literal notranslate"><span class="pre">n</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">ci_vals.sample(30)</span></code>) — narrower samples produce wider, less precise intervals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CI_FEATURE</span> <span class="o">=</span> <span class="s1">&#39;393&#39;</span>
+<span class="n">CONFIDENCE_LEVEL</span> <span class="o">=</span> <span class="mf">0.95</span>
+
+<span class="n">ci_vals</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">CI_FEATURE</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ci_vals</span><span class="p">)</span>
+
+<span class="c1"># Step 1: sample mean</span>
+<span class="n">sample_mean</span> <span class="o">=</span> <span class="n">ci_vals</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Step 2: sample standard deviation (ddof=1 -&gt; divides by n-1)</span>
+<span class="n">sample_std</span> <span class="o">=</span> <span class="n">ci_vals</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Step 3: standard error of the mean</span>
+<span class="n">standard_error</span> <span class="o">=</span> <span class="n">sample_std</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Step 4: critical t-value for the given confidence level, df = n-1</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">CONFIDENCE_LEVEL</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">t_critical</span> <span class="o">=</span> <span class="n">sps</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Step 5: margin of error and final interval</span>
+<span class="n">margin_of_error</span> <span class="o">=</span> <span class="n">t_critical</span> <span class="o">*</span> <span class="n">standard_error</span>
+<span class="n">ci_lower</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="o">-</span> <span class="n">margin_of_error</span>
+<span class="n">ci_upper</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="o">+</span> <span class="n">margin_of_error</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Feature: </span><span class="si">{</span><span class="n">CI_FEATURE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n              = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sample mean    = </span><span class="si">{</span><span class="n">sample_mean</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sample std     = </span><span class="si">{</span><span class="n">sample_std</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;standard error = </span><span class="si">{</span><span class="n">standard_error</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;df             = </span><span class="si">{</span><span class="n">df</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t_critical     = </span><span class="si">{</span><span class="n">t_critical</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;margin of error= </span><span class="si">{</span><span class="n">margin_of_error</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">CONFIDENCE_LEVEL</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% CI = (</span><span class="si">{</span><span class="n">ci_lower</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ci_upper</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature: 393
+n              = 1567
+sample mean    = 0.1340
+sample std     = 0.0384
+standard error = 0.0010
+df             = 1566
+t_critical     = 1.9615
+margin of error= 0.0019
+95% CI = (0.1321, 0.1359)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-eda-plot-types-for-high-dimensional-tabular-data">
+<h1>6. More EDA plot types for high-dimensional tabular data<a class="headerlink" href="#more-eda-plot-types-for-high-dimensional-tabular-data" title="Link to this heading">#</a></h1>
+<p>The plots in Sections 1-5 covered <code class="docutils literal notranslate"><span class="pre">histplot</span></code>+<code class="docutils literal notranslate"><span class="pre">kdeplot</span></code>, <code class="docutils literal notranslate"><span class="pre">boxplot</span></code>, <code class="docutils literal notranslate"><span class="pre">heatmap</span></code>+<code class="docutils literal notranslate"><span class="pre">corr()</span></code>, <code class="docutils literal notranslate"><span class="pre">pairplot</span></code>, and grid layouts via <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code>. This section fills in the remaining common EDA plot types — comparing a feature across the pass/fail target, checking bivariate sensor relationships, class balance, and small multiples across many sensors at once.</p>
+<section id="a-sns-violinplot-spread-shape-across-the-pass-fail-target">
+<h2>6a. <code class="docutils literal notranslate"><span class="pre">sns.violinplot</span></code> — spread + shape across the pass/fail target<a class="headerlink" href="#a-sns-violinplot-spread-shape-across-the-pass-fail-target" title="Link to this heading">#</a></h2>
+<p><strong>Concept.</strong> A boxplot (already used in week1) shows the five-number summary and flags outliers, but collapses the actual shape of the distribution down to a box. A violin plot mirrors a KDE on each side of the same axis, so <strong>bimodality</strong> is visible — e.g. if a sensor’s failing units split into two distinct sub-populations rather than one shifted blob, a boxplot would hide that entirely while a violin plot shows it directly. Reach for it when comparing a continuous feature across a <strong>small number of groups</strong> — here, the binary <code class="docutils literal notranslate"><span class="pre">Pass/Fail</span></code> target.</p>
+<p><strong>Signature (key params):</strong> <code class="docutils literal notranslate"><span class="pre">sns.violinplot(data=df,</span> <span class="pre">x=...,</span> <span class="pre">y=...,</span> <span class="pre">inner='quartile')</span></code> — <code class="docutils literal notranslate"><span class="pre">inner</span></code> controls what’s drawn inside each violin (<code class="docutils literal notranslate"><span class="pre">'quartile'</span></code> = quartile lines, <code class="docutils literal notranslate"><span class="pre">'box'</span></code> = a mini-boxplot, <code class="docutils literal notranslate"><span class="pre">'stick'</span></code> = raw points, <code class="docutils literal notranslate"><span class="pre">None</span></code> = nothing).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">VIOLIN_FEATURE</span> <span class="o">=</span> <span class="s1">&#39;390&#39;</span>
+
+<span class="n">plot_df</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[[</span><span class="n">VIOLIN_FEATURE</span><span class="p">,</span> <span class="n">LABEL_COL</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">plot_df</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot_df</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">plot_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">LABEL_COL</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">VIOLIN_FEATURE</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s1">&#39;quartile&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature </span><span class="si">{</span><span class="n">VIOLIN_FEATURE</span><span class="si">}</span><span class="s1"> distribution by outcome&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/235bb2ae863af86a49a54bcf11d4d9c45d50ec859f8cbf7a5c55d3d3180a039c.png" src="../_images/235bb2ae863af86a49a54bcf11d4d9c45d50ec859f8cbf7a5c55d3d3180a039c.png" />
+</div>
+</div>
+</section>
+<section id="b-sns-scatterplot-sns-regplot-bivariate-sensor-relationships">
+<h2>6b. <code class="docutils literal notranslate"><span class="pre">sns.scatterplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.regplot</span></code> — bivariate sensor relationships<a class="headerlink" href="#b-sns-scatterplot-sns-regplot-bivariate-sensor-relationships" title="Link to this heading">#</a></h2>
+<p><strong>Concept.</strong> With 591 sensor columns, some are near-duplicates of each other (redundant instrumentation, derived readings) — spotting that visually before modeling avoids feeding a model collinear features unnecessarily. <code class="docutils literal notranslate"><span class="pre">sns.scatterplot</span></code> adds a <code class="docutils literal notranslate"><span class="pre">hue</span></code> mapping straight from a DataFrame column (e.g. color points by <code class="docutils literal notranslate"><span class="pre">Pass/Fail</span></code> to see if failures cluster in a particular region of two-sensor space), which plain <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> can’t do without manually looping/masking. <code class="docutils literal notranslate"><span class="pre">sns.regplot</span></code> overlays a fitted linear trend line with a confidence band, useful for judging whether two sensors move together roughly linearly.</p>
+<p><strong>Signature (key params):</strong> <code class="docutils literal notranslate"><span class="pre">sns.scatterplot(data=df,</span> <span class="pre">x=,</span> <span class="pre">y=,</span> <span class="pre">hue=,</span> <span class="pre">alpha=)</span></code> — <code class="docutils literal notranslate"><span class="pre">alpha</span></code> controls point transparency, essential once points start overlapping heavily. <code class="docutils literal notranslate"><span class="pre">sns.regplot(data=df,</span> <span class="pre">x=,</span> <span class="pre">y=,</span> <span class="pre">scatter_kws=,</span> <span class="pre">ci=95)</span></code> — <code class="docutils literal notranslate"><span class="pre">ci</span></code> sets the confidence band width around the trend line (<code class="docutils literal notranslate"><span class="pre">ci=None</span></code> skips it, faster on large data); <code class="docutils literal notranslate"><span class="pre">regplot</span></code> has no <code class="docutils literal notranslate"><span class="pre">hue</span></code> of its own — <code class="docutils literal notranslate"><span class="pre">sns.lmplot</span></code> is the hue-aware, figure-level version.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SCATTER_X</span><span class="p">,</span> <span class="n">SCATTER_Y</span> <span class="o">=</span> <span class="s1">&#39;393&#39;</span><span class="p">,</span> <span class="s1">&#39;570&#39;</span>
+
+<span class="n">scatter_df</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[[</span><span class="n">SCATTER_X</span><span class="p">,</span> <span class="n">SCATTER_Y</span><span class="p">,</span> <span class="n">LABEL_COL</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">scatter_df</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span> <span class="o">=</span> <span class="n">scatter_df</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">scatter_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">SCATTER_X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">SCATTER_Y</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">LABEL_COL</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Colored by outcome&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">scatter_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">SCATTER_X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">SCATTER_Y</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">},</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">},</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;With fitted trend line&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8a7be1f53e14e61d40b9142e30c77fc78aba00fc0af10aabdc48b0ba3d5c46f0.png" src="../_images/8a7be1f53e14e61d40b9142e30c77fc78aba00fc0af10aabdc48b0ba3d5c46f0.png" />
+</div>
+</div>
+</section>
+<section id="c-sns-countplot-sns-barplot-class-balance-and-grouped-summary-stats">
+<h2>6c. <code class="docutils literal notranslate"><span class="pre">sns.countplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.barplot</span></code> — class balance and grouped summary stats<a class="headerlink" href="#c-sns-countplot-sns-barplot-class-balance-and-grouped-summary-stats" title="Link to this heading">#</a></h2>
+<p><strong>Concept.</strong> Section 1 computed P(fail)/P(pass) numerically and plotted them as a pie chart. <code class="docutils literal notranslate"><span class="pre">sns.countplot</span></code> is the direct bar-chart version of a class-balance check: give it raw rows and a categorical column, it counts occurrences per category itself (no manual <code class="docutils literal notranslate"><span class="pre">.value_counts()</span></code> step first). <code class="docutils literal notranslate"><span class="pre">sns.barplot</span></code> is for a <em>summary statistic</em> per category rather than a count — e.g. the mean of a sensor within each pass/fail group — and it draws a confidence-interval error bar automatically.</p>
+<p><strong>Signature (key params):</strong> <code class="docutils literal notranslate"><span class="pre">sns.countplot(data=df,</span> <span class="pre">x=)</span></code> — just needs the categorical column, it aggregates internally. <code class="docutils literal notranslate"><span class="pre">sns.barplot(data=df,</span> <span class="pre">x=,</span> <span class="pre">y=,</span> <span class="pre">estimator='mean',</span> <span class="pre">errorbar='ci')</span></code> — <code class="docutils literal notranslate"><span class="pre">estimator</span></code> is the aggregation function per group (swap for <code class="docutils literal notranslate"><span class="pre">'median'</span></code>, etc.); <code class="docutils literal notranslate"><span class="pre">errorbar=None</span></code> drops the confidence-interval whiskers if not needed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BAR_FEATURE</span> <span class="o">=</span> <span class="s1">&#39;390&#39;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">plot_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">LABEL_COL</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Class balance: Pass/Fail counts&#39;</span><span class="p">)</span>
+
+<span class="n">bar_df</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[[</span><span class="n">BAR_FEATURE</span><span class="p">,</span> <span class="n">LABEL_COL</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">bar_df</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span> <span class="o">=</span> <span class="n">bar_df</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">bar_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">LABEL_COL</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">BAR_FEATURE</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="s1">&#39;ci&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean of feature </span><span class="si">{</span><span class="n">BAR_FEATURE</span><span class="si">}</span><span class="s1"> by outcome (95% CI)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3f6d22bd6be43608fb8209661c81b252a073a1ca1e7da5e78b57c047bab6f14e.png" src="../_images/3f6d22bd6be43608fb8209661c81b252a073a1ca1e7da5e78b57c047bab6f14e.png" />
+</div>
+</div>
+</section>
+<section id="d-sns-catplot-sns-facetgrid-small-multiples-across-many-sensors">
+<h2>6d. <code class="docutils literal notranslate"><span class="pre">sns.catplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid</span></code> — small multiples across many sensors<a class="headerlink" href="#d-sns-catplot-sns-facetgrid-small-multiples-across-many-sensors" title="Link to this heading">#</a></h2>
+<p><strong>Concept.</strong> With hundreds of sensor columns, looking at one plot per feature one cell at a time doesn’t scale. Faceting draws a grid of subplots, one per category, from a single call. <code class="docutils literal notranslate"><span class="pre">sns.catplot</span></code> is the figure-level wrapper around categorical plot kinds (<code class="docutils literal notranslate"><span class="pre">kind='box'</span></code>, <code class="docutils literal notranslate"><span class="pre">'violin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'bar'</span></code>, …); <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid</span></code> is the lower-level version you <code class="docutils literal notranslate"><span class="pre">.map()</span></code> any plotting function onto. Both need the data reshaped so the thing you’re faceting by (sensor name) is itself a column — done here with <code class="docutils literal notranslate"><span class="pre">pd.melt</span></code>, turning the wide <code class="docutils literal notranslate"><span class="pre">SELECTED_FEATURES</span></code> columns into a single <code class="docutils literal notranslate"><span class="pre">sensor</span></code>/<code class="docutils literal notranslate"><span class="pre">value</span></code> pair of columns.</p>
+<p><strong>Signature (key params):</strong> <code class="docutils literal notranslate"><span class="pre">sns.catplot(data=,</span> <span class="pre">x=,</span> <span class="pre">y=,</span> <span class="pre">col=,</span> <span class="pre">col_wrap=,</span> <span class="pre">kind=,</span> <span class="pre">sharey=)</span></code> — <code class="docutils literal notranslate"><span class="pre">col</span></code> picks the faceting column, <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> wraps the grid after N columns instead of one long row, <code class="docutils literal notranslate"><span class="pre">sharey=False</span></code> lets each facet use its own y-axis scale (important here since raw sensor ranges differ by orders of magnitude — this is the <code class="docutils literal notranslate"><span class="pre">sharex</span></code>/<code class="docutils literal notranslate"><span class="pre">sharey</span></code> behavior <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code> grids elsewhere in this notebook haven’t needed to set explicitly).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">facet_long</span> <span class="o">=</span> <span class="n">secom</span><span class="p">[</span><span class="n">SELECTED_FEATURES</span> <span class="o">+</span> <span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+    <span class="n">id_vars</span><span class="o">=</span><span class="n">LABEL_COL</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;sensor&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;value&#39;</span>
+<span class="p">)</span>
+<span class="n">facet_long</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span> <span class="o">=</span> <span class="n">facet_long</span><span class="p">[</span><span class="n">LABEL_COL</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">})</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">facet_long</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">LABEL_COL</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;sensor&#39;</span><span class="p">,</span>
+    <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Selected sensors by outcome, independent y-axes&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1271f4e16a1a335cbe2dd7af163d86a1b9ae4a3e11e557fd9880ab5c479976de.png" src="../_images/1271f4e16a1a335cbe2dd7af163d86a1b9ae4a3e11e557fd9880ab5c479976de.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week2_stats_sql"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Setup: selected sensor features</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#probability">1. Probability</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-marginal-probabilities-from-the-label-distribution">1a. Marginal probabilities from the label distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-conditional-probability-p-fail-sensor-above-threshold">1b. Conditional probability: P(fail | sensor above threshold)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">2. Descriptive statistics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distributions">3. Distributions</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-histograms-kde-for-each-selected-feature">3a. Histograms + KDE for each selected feature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-q-q-plots-visual-normality-check">3b. Q-Q plots (visual normality check)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-shapiro-wilk-normality-test">3c. Shapiro-Wilk normality test</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-the-central-limit-theorem">4. Sampling &amp; the Central Limit Theorem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#confidence-intervals">5. Confidence intervals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-eda-plot-types-for-high-dimensional-tabular-data">6. More EDA plot types for high-dimensional tabular data</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-sns-violinplot-spread-shape-across-the-pass-fail-target">6a. <code class="docutils literal notranslate"><span class="pre">sns.violinplot</span></code> — spread + shape across the pass/fail target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-sns-scatterplot-sns-regplot-bivariate-sensor-relationships">6b. <code class="docutils literal notranslate"><span class="pre">sns.scatterplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.regplot</span></code> — bivariate sensor relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-sns-countplot-sns-barplot-class-balance-and-grouped-summary-stats">6c. <code class="docutils literal notranslate"><span class="pre">sns.countplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.barplot</span></code> — class balance and grouped summary stats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-sns-catplot-sns-facetgrid-small-multiples-across-many-sensors">6d. <code class="docutils literal notranslate"><span class="pre">sns.catplot</span></code> / <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid</span></code> — small multiples across many sensors</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Zakir Haziq
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

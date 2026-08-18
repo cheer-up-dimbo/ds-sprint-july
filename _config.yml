@@ -1,0 +1,26 @@
+title: DS Sprint — July 2026
+author: Zakir Haziq
+logo: ""
+copyright: "2026"
+
+# Notebooks already contain their outputs — don't re-run them at build time
+# (several depend on local datasets/paths that aren't part of this repo).
+execute:
+  execute_notebooks: "off"
+
+html:
+  use_repository_button: true
+  use_issues_button: false
+
+repository:
+  url: https://github.com/cheer-up-dimbo/ds-sprint-july
+  branch: main
+
+sphinx:
+  config:
+    html_show_copyright: false
+    html_theme_options:
+      show_prev_next: false
+    html_static_path: ["_static"]
+    html_css_files: ["custom.css"]
+    html_js_files: ["custom.js"]

@@ -1,0 +1,25 @@
+/* Hide the primary/secondary sidebar toggle buttons in the navbar */
+.primary-toggle,
+.secondary-toggle {
+  display: none !important;
+}
+
+/* Home button injected by custom.js */
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.3em 0.7em;
+  margin-right: 0.5em;
+  border-radius: 0.4em;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  color: var(--pst-color-text-base);
+  background: var(--pst-color-surface);
+  border: 1px solid var(--pst-color-border);
+}
+
+.home-button:hover {
+  background: var(--pst-color-surface-hover, var(--pst-color-background));
+}

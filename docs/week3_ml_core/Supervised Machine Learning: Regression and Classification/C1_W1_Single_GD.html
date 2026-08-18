@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Notation &#8212; DS Sprint — July 2026</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=db28d5d2" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week3_ml_core/Supervised Machine Learning: Regression and Classification/C1_W1_Single_GD';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../_static/custom.js?v=56810fcd"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">DS Sprint — July 2026</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../projects/projects1_hdb/project1.html">Project 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/project3.html">Project 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference / Cheatsheets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ml_cheatsheet.html">Classical ML Cheatsheet — GF Digital Manufacturing Prep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ml_pipelines.html">End-to-End ML Pipelines — Reference Notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../dataviz_cheatsheet.html">Data Visualisation &amp; Diagnostics Cheatsheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Q&amp;A</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../QnA.html">My Stupid Questions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/week3_ml_core/Supervised Machine Learning: Regression and Classification/C1_W1_Single_GD.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Notation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-gradient">compute_gradient</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-gradient-descent">Implement Gradient Descent</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">Gradient Descent</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="notation">
+<h1>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h1>
+<p>Here is a summary of some of the notation you will encounter.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>General <img width=70/> <br />  Notation  <img width=70/></p></th>
+<th class="head text-left"><p>Description<img width=350/></p></th>
+<th class="head text-left"><p>Python (if applicable)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td class="text-left"><p>scalar, non bold</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{a}\)</span></p></td>
+<td class="text-left"><p>vector, bold</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Regression</strong></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p></td>
+<td class="text-left"><p>Training Example feature values (in this lab - Size (1000 sqft))</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">x_train</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{y}\)</span></p></td>
+<td class="text-left"><p>Training Example  targets (in this lab Price (1000s of dollars))</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">y_train</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(x^{(i)}\)</span>, <span class="math notranslate nohighlight">\(y^{(i)}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(i_{th}\)</span>Training Example</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">x_i</span></code>, <code class="docutils literal notranslate"><span class="pre">y_i</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>m</p></td>
+<td class="text-left"><p>Number of training examples</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">m</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(w\)</span></p></td>
+<td class="text-left"><p>parameter: weight</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">w</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(b\)</span></p></td>
+<td class="text-left"><p>parameter: bias</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(f_{w,b}(x^{(i)})\)</span></p></td>
+<td class="text-left"><p>The result of the model evaluation at <span class="math notranslate nohighlight">\(x^{(i)}\)</span> parameterized by <span class="math notranslate nohighlight">\(w,b\)</span>: <span class="math notranslate nohighlight">\(f_{w,b}(x^{(i)}) = wx^{(i)}+b\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">f_wb</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;/Users/cheerupdimbo/Documents/ds-sprint-july/ds-sprint-july/week3_ml_core/deeplearning.mplstyle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x_train is the input variable</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+
+<span class="c1"># y_train is the target</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">300.0</span><span class="p">,</span> <span class="mf">500.0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># m is the number of training example</span>
+<span class="c1">## using .shape</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">## using len()</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of training examples is </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of training examples is 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># scatter plot where x_train is the input variable and y_train is the target, </span>
+<span class="c1"># marker is &#39;x&#39; and color is red</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Housing Prices&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&#39;Size (1000 sqft)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price (1000s of dollars)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/11e4869e82d48f7ef8f6b5ca59f008d868d2b04479d6d349e60ed189fe73bb14.png" src="../../_images/11e4869e82d48f7ef8f6b5ca59f008d868d2b04479d6d349e60ed189fe73bb14.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_model_output</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">f_wb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">f_wb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">f_wb</span>
+
+<span class="n">temp_f_wb</span> <span class="o">=</span> <span class="n">compute_model_output</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">temp_f_wb</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Our Prediction&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f_wb: </span><span class="si">{</span><span class="n">temp_f_wb</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Actual Values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Housing Prices&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Size (1000 sqft)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Price (1000s of dollars)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f_wb: [200. 300.]
+</pre></div>
+</div>
+<img alt="../../_images/21ce9acfe86609f3754e9a90084aec0a53101dda2258c4c41c70c53104b2cf5c.png" src="../../_images/21ce9acfe86609f3754e9a90084aec0a53101dda2258c4c41c70c53104b2cf5c.png" />
+</div>
+</div>
+<p>In linear regression, you utilize input training data to fit the parameters <span class="math notranslate nohighlight">\(w\)</span>,<span class="math notranslate nohighlight">\(b\)</span> by minimizing a measure of the error between our predictions <span class="math notranslate nohighlight">\(f_{w,b}(x^{(i)})\)</span> and the actual data <span class="math notranslate nohighlight">\(y^{(i)}\)</span>. The measure is called the <span class="math notranslate nohighlight">\(cost\)</span>, <span class="math notranslate nohighlight">\(J(w,b)\)</span>. In training you measure the cost over all of our training samples <span class="math notranslate nohighlight">\(x^{(i)},y^{(i)}\)</span></p>
+<div class="math notranslate nohighlight">
+\[J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">f_wb_i</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="n">cost</span> <span class="o">+=</span> <span class="p">(</span><span class="n">f_wb_i</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">total_cost</span> <span class="o">=</span> <span class="n">cost</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">total_cost</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">copy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The gradient is defined as:
+$<span class="math notranslate nohighlight">\(
+\begin{align*}
+\frac{\partial J(w,b)}{\partial w}  &amp;= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})x^{(i)} \\
+\frac{\partial J(w,b)}{\partial b}  &amp;= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})
+\end{align*}
+\)</span>$ (4)(5)</p>
+<p>Here <em>simultaniously</em> means that you calculate the partial derivatives for all the parameters before updating any of the parameters.</p>
+<p><a name="toc_40291_2.3"></a></p>
+<section id="compute-gradient">
+<h2>compute_gradient<a class="headerlink" href="#compute-gradient" title="Link to this heading">#</a></h2>
+<p><a name='ex-01'></a>
+<code class="docutils literal notranslate"><span class="pre">compute_gradient</span></code>  implements (4) and (5) above and returns <span class="math notranslate nohighlight">\(\frac{\partial J(w,b)}{\partial w}\)</span>,<span class="math notranslate nohighlight">\(\frac{\partial J(w,b)}{\partial b}\)</span>. The embedded comments describe the operations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_gradient</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>          <span class="c1"># m = number of training examples</span>
+    <span class="n">dj_dw</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># will accumulate sum_i (f_wb - y_i) * x_i</span>
+    <span class="n">dj_db</span> <span class="o">=</span> <span class="mi">0</span>                <span class="c1"># will accumulate sum_i (f_wb - y_i)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">f_wb</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span>              <span class="c1"># f_wb = model prediction, f_{w,b}(x^(i)) = w*x^(i) + b</span>
+
+        <span class="n">dj_dw_i</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_wb</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>   <span class="c1"># &lt;- check this line against the formula above.</span>
+                                          <span class="c1">#    is this computing (f_wb - y_i) * x_i,</span>
+                                          <span class="c1">#    or f_wb - (y_i * x_i)? does that match dJ/dw?</span>
+
+        <span class="n">dj_db_i</span> <span class="o">=</span> <span class="n">f_wb</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>            <span class="c1"># error term: (f_wb - y_i), matches dJ/db summand exactly</span>
+
+        <span class="n">dj_db</span> <span class="o">+=</span> <span class="n">dj_db_i</span>                 <span class="c1"># accumulate sum_i (f_wb - y_i)</span>
+        <span class="n">dj_dw</span> <span class="o">+=</span> <span class="n">dj_dw_i</span>                 <span class="c1"># accumulate sum_i (...)</span>
+
+    <span class="n">dj_dw</span> <span class="o">=</span> <span class="n">dj_dw</span> <span class="o">/</span> <span class="n">m</span>                    <span class="c1"># divide by m -&gt; average -&gt; completes dJ/dw</span>
+    <span class="n">dj_db</span> <span class="o">=</span> <span class="n">dj_db</span> <span class="o">/</span> <span class="n">m</span>                    <span class="c1"># divide by m -&gt; average -&gt; completes dJ/db</span>
+
+    <span class="k">return</span> <span class="n">dj_dw</span><span class="p">,</span> <span class="n">dj_db</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="implement-gradient-descent">
+<h1>Implement Gradient Descent<a class="headerlink" href="#implement-gradient-descent" title="Link to this heading">#</a></h1>
+<p>You will implement gradient descent algorithm for one feature. You will need three functions.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_gradient</span></code> implementing equation (4) and (5) above</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_cost</span></code> implementing equation (2) above (code from previous lab)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gradient_descent</span></code>, utilizing compute_gradient and compute_cost</p></li>
+</ul>
+<p><a name="toc_40291_2.5"></a></p>
+<section id="gradient-descent">
+<h2>Gradient Descent<a class="headerlink" href="#gradient-descent" title="Link to this heading">#</a></h2>
+<p>Now that gradients can be computed,  gradient descent, described in equation (3) above can be implemented below in <code class="docutils literal notranslate"><span class="pre">gradient_descent</span></code>. The details of the implementation are described in the comments. Below, you will utilize this function to find optimal values of <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(b\)</span> on the training data.</p>
+<p>In lecture, <em>gradient descent</em> was described as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align*} \text{repeat}&amp;\text{ until convergence:} \; \lbrace \newline
+\;  w &amp;= w -  \alpha \frac{\partial J(w,b)}{\partial w} \tag{3}  \; \newline 
+ b &amp;= b -  \alpha \frac{\partial J(w,b)}{\partial b}  \newline \rbrace
+\end{align*}\]</div>
+<p>where, parameters <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(b\)</span> are updated simultaneously.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_in</span><span class="p">,</span> <span class="n">b_in</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">num_iters</span><span class="p">,</span> <span class="n">cost_function</span><span class="p">,</span> <span class="n">gradient_function</span><span class="p">):</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs gradient descent to fit w,b. Updates w,b by taking </span>
+<span class="sd">    num_iters gradient steps with learning rate alpha</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">      x (ndarray (m,))  : Data, m examples </span>
+<span class="sd">      y (ndarray (m,))  : target values</span>
+<span class="sd">      w_in,b_in (scalar): initial values of model parameters  </span>
+<span class="sd">      alpha (float):     Learning rate</span>
+<span class="sd">      num_iters (int):   number of iterations to run gradient descent</span>
+<span class="sd">      cost_function:     function to call to produce cost</span>
+<span class="sd">      gradient_function: function to call to produce gradient</span>
+<span class="sd">      </span>
+<span class="sd">    Returns:</span>
+<span class="sd">      w (scalar): Updated value of parameter after running gradient descent</span>
+<span class="sd">      b (scalar): Updated value of parameter after running gradient descent</span>
+<span class="sd">      J_history (List): History of cost values</span>
+<span class="sd">      p_history (list): History of parameters [w,b] </span>
+<span class="sd">      &quot;&quot;&quot;</span>
+    
+    <span class="c1"># An array to store cost J and w&#39;s at each iteration primarily for graphing later</span>
+    <span class="n">J_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">p_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">b_in</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">w_in</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iters</span><span class="p">):</span>
+        <span class="c1"># Calculate the gradient and update the parameters using gradient_function</span>
+        <span class="n">dj_dw</span><span class="p">,</span> <span class="n">dj_db</span> <span class="o">=</span> <span class="n">gradient_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span> <span class="p">,</span> <span class="n">b</span><span class="p">)</span>     
+
+        <span class="c1"># Update Parameters using equation (3) above</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">dj_db</span>                            
+        <span class="n">w</span> <span class="o">=</span> <span class="n">w</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">dj_dw</span>                            
+
+        <span class="c1"># Save cost J at each iteration</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100000</span><span class="p">:</span>      <span class="c1"># prevent resource exhaustion </span>
+            <span class="n">J_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">cost_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span> <span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+            <span class="n">p_history</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">])</span>
+        <span class="c1"># Print cost every at intervals 10 times or as many iterations if &lt; 10</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">%</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">num_iters</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iteration </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">4</span><span class="si">}</span><span class="s2">: Cost </span><span class="si">{</span><span class="n">J_history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">0.2e</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span>
+                  <span class="sa">f</span><span class="s2">&quot;dj_dw: </span><span class="si">{</span><span class="n">dj_dw</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">, dj_db: </span><span class="si">{</span><span class="n">dj_db</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">  &quot;</span><span class="p">,</span>
+                  <span class="sa">f</span><span class="s2">&quot;w: </span><span class="si">{</span><span class="n">w</span><span class="si">:</span><span class="s2"> 0.3e</span><span class="si">}</span><span class="s2">, b:</span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2"> 0.5e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+ 
+    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">J_history</span><span class="p">,</span> <span class="n">p_history</span> <span class="c1">#return w and J,w history for graphing</span>
+
+<span class="c1"># initialize parameters</span>
+<span class="n">w_init</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b_init</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># some gradient descent settings</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">tmp_alpha</span> <span class="o">=</span> <span class="mf">1.0e-2</span>
+<span class="c1"># run gradient descent</span>
+<span class="n">w_final</span><span class="p">,</span> <span class="n">b_final</span><span class="p">,</span> <span class="n">J_hist</span><span class="p">,</span> <span class="n">p_hist</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">x_train</span> <span class="p">,</span><span class="n">y_train</span><span class="p">,</span> <span class="n">w_init</span><span class="p">,</span> <span class="n">b_init</span><span class="p">,</span> <span class="n">tmp_alpha</span><span class="p">,</span> 
+                                                    <span class="n">iterations</span><span class="p">,</span> <span class="n">compute_cost</span><span class="p">,</span> <span class="n">compute_gradient</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(w,b) found by gradient descent: (</span><span class="si">{</span><span class="n">w_final</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">b_final</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration    0: Cost 7.93e+04  dj_dw: -6.500e+02, dj_db: -4.000e+02   w:  6.500e+00, b: 4.00000e+00
+Iteration 1000: Cost 1.42e+05  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  1.221e+03, b:-1.28150e+03
+Iteration 2000: Cost 5.22e+05  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  2.221e+03, b:-2.78150e+03
+Iteration 3000: Cost 1.15e+06  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  3.221e+03, b:-4.28150e+03
+Iteration 4000: Cost 2.03e+06  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  4.221e+03, b:-5.78150e+03
+Iteration 5000: Cost 3.16e+06  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  5.221e+03, b:-7.28150e+03
+Iteration 6000: Cost 4.54e+06  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  6.221e+03, b:-8.78150e+03
+Iteration 7000: Cost 6.17e+06  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  7.221e+03, b:-1.02815e+04
+Iteration 8000: Cost 8.05e+06  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  8.221e+03, b:-1.17815e+04
+Iteration 9000: Cost 1.02e+07  dj_dw: -1.000e+02, dj_db:  1.500e+02   w:  9.221e+03, b:-1.32815e+04
+(w,b) found by gradient descent: (10220.0000,-14780.0000)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot cost versus iteration  </span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">J_hist</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">J_hist</span><span class="p">[</span><span class="mi">1000</span><span class="p">:])),</span> <span class="n">J_hist</span><span class="p">[</span><span class="mi">1000</span><span class="p">:])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cost vs. iteration(start)&quot;</span><span class="p">);</span>  <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cost vs. iteration (end)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cost&#39;</span><span class="p">)</span>            <span class="p">;</span>  <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cost&#39;</span><span class="p">)</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iteration step&#39;</span><span class="p">)</span>  <span class="p">;</span>  <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iteration step&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9f08c7061f7e82dbbf1d3803cf1249ed59f16eaf4656d4f7e9bb8e77e3b10787.png" src="../../_images/9f08c7061f7e82dbbf1d3803cf1249ed59f16eaf4656d4f7e9bb8e77e3b10787.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1000 sqft house prediction </span><span class="si">{</span><span class="n">w_final</span><span class="o">*</span><span class="mf">1.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b_final</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> Thousand dollars&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1200 sqft house prediction </span><span class="si">{</span><span class="n">w_final</span><span class="o">*</span><span class="mf">1.2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b_final</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> Thousand dollars&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;2000 sqft house prediction </span><span class="si">{</span><span class="n">w_final</span><span class="o">*</span><span class="mf">2.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b_final</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2"> Thousand dollars&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000 sqft house prediction -4560.0 Thousand dollars
+1200 sqft house prediction -2516.0 Thousand dollars
+2000 sqft house prediction 5660.0 Thousand dollars
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize parameters</span>
+<span class="n">w_init</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b_init</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># set alpha to a large value</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">tmp_alpha</span> <span class="o">=</span> <span class="mf">8.0e-1</span>
+<span class="c1"># run gradient descent</span>
+<span class="n">w_final</span><span class="p">,</span> <span class="n">b_final</span><span class="p">,</span> <span class="n">J_hist</span><span class="p">,</span> <span class="n">p_hist</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">x_train</span> <span class="p">,</span><span class="n">y_train</span><span class="p">,</span> <span class="n">w_init</span><span class="p">,</span> <span class="n">b_init</span><span class="p">,</span> <span class="n">tmp_alpha</span><span class="p">,</span> 
+                                                    <span class="n">iterations</span><span class="p">,</span> <span class="n">compute_cost</span><span class="p">,</span> <span class="n">compute_gradient</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration    0: Cost 2.58e+05  dj_dw: -6.500e+02, dj_db: -4.000e+02   w:  5.200e+02, b: 3.20000e+02
+Iteration    1: Cost 8.02e+04  dj_dw:  4.500e+02, dj_db:  7.000e+02   w:  1.600e+02, b:-2.40000e+02
+Iteration    2: Cost 2.74e+05  dj_dw: -6.500e+02, dj_db: -4.000e+02   w:  6.800e+02, b: 8.00000e+01
+Iteration    3: Cost 8.18e+04  dj_dw:  4.500e+02, dj_db:  7.000e+02   w:  3.200e+02, b:-4.80000e+02
+Iteration    4: Cost 2.96e+05  dj_dw: -6.500e+02, dj_db: -4.000e+02   w:  8.400e+02, b:-1.60000e+02
+Iteration    5: Cost 8.98e+04  dj_dw:  4.500e+02, dj_db:  7.000e+02   w:  4.800e+02, b:-7.20000e+02
+Iteration    6: Cost 3.25e+05  dj_dw: -6.500e+02, dj_db: -4.000e+02   w:  1.000e+03, b:-4.00000e+02
+Iteration    7: Cost 1.04e+05  dj_dw:  4.500e+02, dj_db:  7.000e+02   w:  6.400e+02, b:-9.60000e+02
+Iteration    8: Cost 3.60e+05  dj_dw: -6.500e+02, dj_db: -4.000e+02   w:  1.160e+03, b:-6.40000e+02
+Iteration    9: Cost 1.25e+05  dj_dw:  4.500e+02, dj_db:  7.000e+02   w:  8.000e+02, b:-1.20000e+03
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week3_ml_core/Supervised Machine Learning: Regression and Classification"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-gradient">compute_gradient</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-gradient-descent">Implement Gradient Descent</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">Gradient Descent</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Zakir Haziq
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

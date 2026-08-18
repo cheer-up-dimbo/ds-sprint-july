@@ -1,0 +1,948 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Multiple Variable Linear Regression &#8212; DS Sprint — July 2026</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=db28d5d2" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week3_ml_core/Supervised Machine Learning: Regression and Classification/C1_W2_Multiple_Variable_GD';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../_static/custom.js?v=56810fcd"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">DS Sprint — July 2026</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../projects/projects1_hdb/project1.html">Project 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/project3.html">Project 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference / Cheatsheets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ml_cheatsheet.html">Classical ML Cheatsheet — GF Digital Manufacturing Prep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ml_pipelines.html">End-to-End ML Pipelines — Reference Notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../dataviz_cheatsheet.html">Data Visualisation &amp; Diagnostics Cheatsheet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Q&amp;A</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../QnA.html">My Stupid Questions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/week3_ml_core/Supervised Machine Learning: Regression and Classification/C1_W2_Multiple_Variable_GD.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Multiple Variable Linear Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Multiple Variable Linear Regression</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#role-of-alpha-learning-rate-in-gradient-descent">Role of Alpha (Learning Rate) in Gradient Descent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-size-of-alpha-matters">Why the size of alpha matters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-alpha-is-typically-chosen-in-practice">How alpha is typically chosen in practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-feature-scaling">Connection to feature scaling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">1.3 Notation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-prediction-with-multiple-variables">3 Model Prediction With Multiple Variables</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-cost-with-multiple-variables">4 Compute Cost With Multiple Variables</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-with-multiple-variables">5 Gradient Descent With Multiple Variables</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-gradient-with-multiple-variables">5.1 Compute Gradient with Multiple Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorized-gradient-computation-worked-example">Vectorized Gradient Computation — Worked Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-error-vector-err-x-w-b-y">Step 1 — Error vector: <code class="docutils literal notranslate"><span class="pre">err</span> <span class="pre">=</span> <span class="pre">X</span> <span class="pre">@</span> <span class="pre">w</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">-</span> <span class="pre">y</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-gradient-w-r-t-w-dj-dw-x-t-err-m">Step 2 — Gradient w.r.t. w: <code class="docutils literal notranslate"><span class="pre">dj_dw</span> <span class="pre">=</span> <span class="pre">(X.T</span> <span class="pre">@</span> <span class="pre">err)</span> <span class="pre">/</span> <span class="pre">m</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-gradient-w-r-t-b-dj-db-sum-err-m">Step 3 — Gradient w.r.t. b: <code class="docutils literal notranslate"><span class="pre">dj_db</span> <span class="pre">=</span> <span class="pre">sum(err)</span> <span class="pre">/</span> <span class="pre">m</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-summary">Shape Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.2 Gradient Descent With Multiple Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-explained"><code class="docutils literal notranslate"><span class="pre">gradient_descent</span></code> — Explained</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="multiple-variable-linear-regression">
+<h1>Multiple Variable Linear Regression<a class="headerlink" href="#multiple-variable-linear-regression" title="Link to this heading">#</a></h1>
+<p>In this lab, you will extend the data structures and previously developed routines to support multiple features. Several routines are updated making the lab appear lengthy, but it makes minor adjustments to previous routines making it quick to review.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span><span class="o">,</span><span class="w"> </span><span class="nn">math</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;/Users/cheerupdimbo/Documents/ds-sprint-july/ds-sprint-july/week3_ml_core/deeplearning.mplstyle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="role-of-alpha-learning-rate-in-gradient-descent">
+<h2>Role of Alpha (Learning Rate) in Gradient Descent<a class="headerlink" href="#role-of-alpha-learning-rate-in-gradient-descent" title="Link to this heading">#</a></h2>
+<p>Alpha (<span class="math notranslate nohighlight">\(\alpha\)</span>) controls the <strong>step size</strong> in each gradient descent update:</p>
+<div class="math notranslate nohighlight">
+\[w_j \leftarrow w_j - \alpha \frac{\partial J(\mathbf{w},b)}{\partial w_j} \qquad b \leftarrow b - \alpha \frac{\partial J(\mathbf{w},b)}{\partial b}\]</div>
+<p>The gradient <span class="math notranslate nohighlight">\(\frac{\partial J}{\partial w_j}\)</span> tells you the <strong>direction</strong> to move (specifically, the direction of steepest <em>increase</em> in cost — which is why you subtract it, to move toward the minimum). Alpha tells you <strong>how far</strong> to move in that direction on each step.</p>
+<section id="why-the-size-of-alpha-matters">
+<h3>Why the size of alpha matters<a class="headerlink" href="#why-the-size-of-alpha-matters" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Too small</strong>: gradient descent still converges to the minimum, but takes a very large number of iterations to get there — slow, but safe.</p></li>
+<li><p><strong>Too large</strong>: each step overshoots the minimum. Instead of converging, cost can oscillate or diverge (increase every iteration instead of decreasing) — the algorithm fails to find the minimum at all.</p></li>
+<li><p><strong>Well-tuned</strong>: cost decreases smoothly and reasonably quickly toward the minimum, iteration after iteration.</p></li>
+</ul>
+</section>
+<section id="how-alpha-is-typically-chosen-in-practice">
+<h3>How alpha is typically chosen in practice<a class="headerlink" href="#how-alpha-is-typically-chosen-in-practice" title="Link to this heading">#</a></h3>
+<p>There’s no formula that gives you the “correct” alpha in advance — it depends on the shape of <span class="math notranslate nohighlight">\(J(\mathbf{w},b)\)</span>, which depends on your specific data and features. The standard approach:</p>
+<ol class="arabic simple">
+<li><p>Try a range of values, often scaled by ~3x each step: <code class="docutils literal notranslate"><span class="pre">0.001,</span> <span class="pre">0.003,</span> <span class="pre">0.01,</span> <span class="pre">0.03,</span> <span class="pre">0.1,</span> <span class="pre">0.3,</span> <span class="pre">1</span></code></p></li>
+<li><p>For each, run a small number of iterations and plot cost vs. iteration number</p></li>
+<li><p>Pick the largest alpha where cost decreases smoothly and quickly, without oscillating or increasing</p></li>
+</ol>
+</section>
+<section id="connection-to-feature-scaling">
+<h3>Connection to feature scaling<a class="headerlink" href="#connection-to-feature-scaling" title="Link to this heading">#</a></h3>
+<p>Alpha interacts with the <em>scale</em> of your features. If features have very different ranges (e.g. one feature 0-1, another 0-1000), the cost function becomes elongated/skewed, and a single alpha that works well for one dimension may be too large or too small for another — which is why feature scaling (normalization/standardization) is typically done before gradient descent, so a single alpha can work reasonably well across all features.</p>
+<p><a name="toc_15456_1.3"></a></p>
+</section>
+</section>
+<section id="notation">
+<h2>1.3 Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h2>
+<p>Here is a summary of some of the notation you will encounter, updated for multiple features.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>General <br /> Notation</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Python (if applicable)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td class="text-left"><p>scalar, non bold</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{a}\)</span></p></td>
+<td class="text-left"><p>vector, bold</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{A}\)</span></p></td>
+<td class="text-left"><p>matrix, bold capital</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Regression</strong></p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{X}\)</span></p></td>
+<td class="text-left"><p>training example matrix</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">X_train</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{y}\)</span></p></td>
+<td class="text-left"><p>training example targets</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">y_train</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{x}^{(i)}\)</span>, <span class="math notranslate nohighlight">\(y^{(i)}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(i_{th}\)</span> Training Example</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">X[i]</span></code>, <code class="docutils literal notranslate"><span class="pre">y[i]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>m</p></td>
+<td class="text-left"><p>number of training examples</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">m</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>n</p></td>
+<td class="text-left"><p>number of features in each example</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{w}\)</span></p></td>
+<td class="text-left"><p>parameter: weight</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">w</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(b\)</span></p></td>
+<td class="text-left"><p>parameter: bias</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(f_{\mathbf{w},b}(\mathbf{x}^{(i)})\)</span></p></td>
+<td class="text-left"><p>The result of the model evaluation at <span class="math notranslate nohighlight">\(\mathbf{x^{(i)}}\)</span> parameterized by <span class="math notranslate nohighlight">\(\mathbf{w},b\)</span>: <span class="math notranslate nohighlight">\(f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot \mathbf{x}^{(i)}+b\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">f_wb</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2104</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="p">[</span><span class="mi">1416</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">852</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">35</span><span class="p">]])</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">460</span><span class="p">,</span> <span class="mi">232</span><span class="p">,</span> <span class="mi">178</span><span class="p">])</span>
+
+<span class="c1"># data is stored in numpy array/matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X Shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, X Type:</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y Shape: </span><span class="si">{</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, y Type:</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X Shape: (3, 4), X Type:&lt;class &#39;numpy.ndarray&#39;&gt;)
+[[2104    5    1   45]
+ [1416    3    2   40]
+ [ 852    2    1   35]]
+y Shape: (3,), y Type:&lt;class &#39;numpy.ndarray&#39;&gt;)
+[460 232 178]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_init</span> <span class="o">=</span> <span class="mf">785.1811367994083</span>
+<span class="n">w_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.39133535</span><span class="p">,</span> <span class="mf">18.75376741</span><span class="p">,</span> <span class="o">-</span><span class="mf">53.36032453</span><span class="p">,</span> <span class="o">-</span><span class="mf">26.42131618</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;w_init shape: </span><span class="si">{</span><span class="n">w_init</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, b_init type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">b_init</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w_init shape: (4,), b_init type: &lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><a name="toc_15456_3"></a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="model-prediction-with-multiple-variables">
+<h1>3 Model Prediction With Multiple Variables<a class="headerlink" href="#model-prediction-with-multiple-variables" title="Link to this heading">#</a></h1>
+<p>The model’s prediction with multiple variables is given by the linear model:</p>
+<p><em>(1)</em>:
+$<span class="math notranslate nohighlight">\(f_{\mathbf{w},b}(\mathbf{x}) = w_0x_0 + w_1x_1 + ... + w_{n-1}x_{n-1} + b\)</span>$</p>
+<p>or in vector notation:</p>
+<p><em>(2)</em>:
+$<span class="math notranslate nohighlight">\(f_{\mathbf{w},b}(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b\)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(\cdot\)</span> is a vector <code class="docutils literal notranslate"><span class="pre">dot</span> <span class="pre">product</span></code></p>
+<p>To demonstrate the dot product, we will implement prediction using (1) and (2).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for equation 1</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">predict_sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+      <span class="n">p_i</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+      <span class="n">p</span> <span class="o">+=</span> <span class="n">p_i</span>
+    <span class="n">p</span> <span class="o">+=</span> <span class="n">b</span>
+
+<span class="c1"># for equation 2</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">predict_vector</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> 
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>     
+    <span class="k">return</span> <span class="n">p</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p><a name="toc_15456_4"></a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="compute-cost-with-multiple-variables">
+<h1>4 Compute Cost With Multiple Variables<a class="headerlink" href="#compute-cost-with-multiple-variables" title="Link to this heading">#</a></h1>
+<p>The equation for the cost function with multiple variables <span class="math notranslate nohighlight">\(J(\mathbf{w},b)\)</span> is:</p>
+<p><em>(3)</em>:
+$<span class="math notranslate nohighlight">\(J(\mathbf{w},b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})^2\)</span>$</p>
+<p>where:</p>
+<p><em>(4)</em>:
+$<span class="math notranslate nohighlight">\(f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot \mathbf{x}^{(i)} + b\)</span>$</p>
+<p>In contrast to previous labs, <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}^{(i)}\)</span> are vectors rather than scalars supporting multiple features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_cost</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="c1"># equation 4</span>
+        <span class="n">f_wb_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+
+        <span class="c1"># equation 3</span>
+        <span class="n">cost</span> <span class="o">+=</span>  <span class="p">(</span><span class="n">f_wb_i</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">cost</span> <span class="o">/=</span> <span class="mi">2</span><span class="o">*</span><span class="n">m</span> 
+    <span class="k">return</span> <span class="n">cost</span>
+
+<span class="n">cost</span> <span class="o">=</span> <span class="n">compute_cost</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">w_init</span><span class="p">,</span> <span class="n">b_init</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cost at optimal w: </span><span class="si">{</span><span class="n">cost</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cost at optimal w: 1.5578904880036537e-12
+</pre></div>
+</div>
+</div>
+</div>
+<p><a name="toc_15456_5"></a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gradient-descent-with-multiple-variables">
+<h1>5 Gradient Descent With Multiple Variables<a class="headerlink" href="#gradient-descent-with-multiple-variables" title="Link to this heading">#</a></h1>
+<p>Gradient descent for multiple variables:</p>
+<p><em>(5)</em>:
+$<span class="math notranslate nohighlight">\(\begin{align*} \text{repeat}&amp;\text{ until convergence:} \; \lbrace \newline\;
+&amp; w_j = w_j -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial w_j} \; &amp; \text{for j = 0..n-1}\newline
+&amp;b\ \ = b -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial b}  \newline \rbrace
+\end{align*}\)</span>$</p>
+<p>where, n is the number of features, parameters <span class="math notranslate nohighlight">\(w_j\)</span>,  <span class="math notranslate nohighlight">\(b\)</span>, are updated simultaneously and where</p>
+<p><em>(6)</em>:
+$<span class="math notranslate nohighlight">\(
+\begin{align*}
+\frac{\partial J(\mathbf{w},b)}{\partial w_j}  &amp;= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})x_{j}^{(i)}  \\
+\end{align*}
+\)</span><span class="math notranslate nohighlight">\(
+*(7)*:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{align*}
+\frac{\partial J(\mathbf{w},b)}{\partial b}  &amp;= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})
+\end{align*}
+\)</span>$</p>
+<ul class="simple">
+<li><p>m is the number of training examples in the data set</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{\mathbf{w},b}(\mathbf{x}^{(i)})\)</span> is the model’s prediction, while <span class="math notranslate nohighlight">\(y^{(i)}\)</span> is the target value</p></li>
+</ul>
+<p><a name="toc_15456_5.1"></a></p>
+<section id="compute-gradient-with-multiple-variables">
+<h2>5.1 Compute Gradient with Multiple Variables<a class="headerlink" href="#compute-gradient-with-multiple-variables" title="Link to this heading">#</a></h2>
+<p>An implementation for calculating the equations (6) and (7) is below. There are many ways to implement this. In this version, there is an</p>
+<ul class="simple">
+<li><p>outer loop over all m examples.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\frac{\partial J(\mathbf{w},b)}{\partial b}\)</span> for the example can be computed directly and accumulated</p></li>
+<li><p>in a second loop over all n features:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\frac{\partial J(\mathbf{w},b)}{\partial w_j}\)</span> is computed for each <span class="math notranslate nohighlight">\(w_j\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="vectorized-gradient-computation-worked-example">
+<h2>Vectorized Gradient Computation — Worked Example<a class="headerlink" href="#vectorized-gradient-computation-worked-example" title="Link to this heading">#</a></h2>
+<p>Concrete example with <code class="docutils literal notranslate"><span class="pre">m=3</span></code> examples, <code class="docutils literal notranslate"><span class="pre">n=2</span></code> features.</p>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}X = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \\ 5 &amp; 6 \end{bmatrix}_{(3\times2)} \quad \mathbf{w} = \begin{bmatrix} 0.1 \\ 0.2 \end{bmatrix}_{(2,)} \quad b = 0.5 \quad \mathbf{y} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}_{(3,)}\end{split}\]</div>
+</section>
+<section id="step-1-error-vector-err-x-w-b-y">
+<h3>Step 1 — Error vector: <code class="docutils literal notranslate"><span class="pre">err</span> <span class="pre">=</span> <span class="pre">X</span> <span class="pre">&#64;</span> <span class="pre">w</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">-</span> <span class="pre">y</span></code><a class="headerlink" href="#step-1-error-vector-err-x-w-b-y" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(X\mathbf{w}\)</span> (matrix-vector product, each row dotted with <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X\mathbf{w} = \begin{bmatrix} 1(0.1)+2(0.2) \\ 3(0.1)+4(0.2) \\ 5(0.1)+6(0.2) \end{bmatrix} = \begin{bmatrix} 0.5 \\ 1.1 \\ 1.7 \end{bmatrix}\end{split}\]</div>
+<p>Add <span class="math notranslate nohighlight">\(b\)</span>, subtract <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{err} = \begin{bmatrix} 0.5+0.5-1 \\ 1.1+0.5-2 \\ 1.7+0.5-3 \end{bmatrix} = \begin{bmatrix} 0.0 \\ -0.4 \\ -0.8 \end{bmatrix}_{(3,)}\end{split}\]</div>
+<p>This one array holds all 3 per-example errors — what the outer loop builds up one at a time.</p>
+</section>
+<section id="step-2-gradient-w-r-t-w-dj-dw-x-t-err-m">
+<h3>Step 2 — Gradient w.r.t. w: <code class="docutils literal notranslate"><span class="pre">dj_dw</span> <span class="pre">=</span> <span class="pre">(X.T</span> <span class="pre">&#64;</span> <span class="pre">err)</span> <span class="pre">/</span> <span class="pre">m</span></code><a class="headerlink" href="#step-2-gradient-w-r-t-w-dj-dw-x-t-err-m" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(X^T\)</span> flips <span class="math notranslate nohighlight">\(X\)</span> to <span class="math notranslate nohighlight">\((2\times3)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X^T = \begin{bmatrix} 1 &amp; 3 &amp; 5 \\ 2 &amp; 4 &amp; 6 \end{bmatrix}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(X^T\mathbf{err}\)</span> — each row of <span class="math notranslate nohighlight">\(X^T\)</span> dotted with <span class="math notranslate nohighlight">\(\mathbf{err}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X^T\mathbf{err} = \begin{bmatrix} 1(0.0)+3(-0.4)+5(-0.8) \\ 2(0.0)+4(-0.4)+6(-0.8) \end{bmatrix} = \begin{bmatrix} -5.2 \\ -6.4 \end{bmatrix}\end{split}\]</div>
+<p>Divide by <span class="math notranslate nohighlight">\(m=3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial J}{\partial \mathbf{w}} = \begin{bmatrix} -1.733 \\ -2.133 \end{bmatrix}_{(2,)}\end{split}\]</div>
+<p>The top entry, <span class="math notranslate nohighlight">\(-5.2\)</span>, is exactly <span class="math notranslate nohighlight">\(1(0.0) + 3(-0.4) + 5(-0.8)\)</span> — that’s <code class="docutils literal notranslate"><span class="pre">err[0]*X[0,0]</span> <span class="pre">+</span> <span class="pre">err[1]*X[1,0]</span> <span class="pre">+</span> <span class="pre">err[2]*X[2,0]</span></code>, which is precisely what the <strong>inner loop</strong> accumulates into <code class="docutils literal notranslate"><span class="pre">dj_dw[0]</span></code> across all 3 iterations of <code class="docutils literal notranslate"><span class="pre">i</span></code>, for <code class="docutils literal notranslate"><span class="pre">j=0</span></code>. The matrix multiply performs that same accumulation for both columns (<span class="math notranslate nohighlight">\(j=0\)</span> and <span class="math notranslate nohighlight">\(j=1\)</span>) in one shot.</p>
+</section>
+<section id="step-3-gradient-w-r-t-b-dj-db-sum-err-m">
+<h3>Step 3 — Gradient w.r.t. b: <code class="docutils literal notranslate"><span class="pre">dj_db</span> <span class="pre">=</span> <span class="pre">sum(err)</span> <span class="pre">/</span> <span class="pre">m</span></code><a class="headerlink" href="#step-3-gradient-w-r-t-b-dj-db-sum-err-m" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\frac{\partial J}{\partial b} = \frac{0.0 + (-0.4) + (-0.8)}{3} = -0.4\]</div>
+</section>
+<section id="shape-summary">
+<h3>Shape Summary<a class="headerlink" href="#shape-summary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quantity</p></th>
+<th class="head"><p>Shape</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathbf{err}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\((m,)\)</span></p></td>
+<td><p>one error per example</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(X^T\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\((n,m)\)</span></p></td>
+<td><p>features × examples</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(X^T\mathbf{err}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\((n,)\)</span></p></td>
+<td><p>one gradient value per feature; the <span class="math notranslate nohighlight">\(m\)</span> dimension is summed away by the matmul, so no explicit loop is needed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_gradient</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                    <span class="c1"># m = number of examples</span>
+
+    <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="o">-</span> <span class="n">y</span>        <span class="c1"># computes ALL m errors at once — see below</span>
+    <span class="n">dj_dw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span> <span class="o">/</span> <span class="n">m</span>      <span class="c1"># sums err against each feature column — see below</span>
+    <span class="n">dj_db</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">/</span> <span class="n">m</span>           <span class="c1"># np.sum literally adds up every element of err</span>
+
+    <span class="k">return</span> <span class="n">dj_db</span><span class="p">,</span> <span class="n">dj_dw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a name="toc_15456_5.2"></a></p>
+</section>
+</section>
+<section id="id1">
+<h2>5.2 Gradient Descent With Multiple Variables<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><em>(5)</em>:
+$<span class="math notranslate nohighlight">\(\begin{align*} \text{repeat}&amp;\text{ until convergence:} \; \lbrace \newline\;
+&amp; w_j = w_j -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial w_j} \; &amp; \text{for j = 0..n-1}\newline
+&amp;b\ \ = b -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial b}  \newline \rbrace
+\end{align*}\)</span>$</p>
+<p>The routine below implements equation (5) above.</p>
+<section id="gradient-descent-explained">
+<h3><code class="docutils literal notranslate"><span class="pre">gradient_descent</span></code> — Explained<a class="headerlink" href="#gradient-descent-explained" title="Link to this heading">#</a></h3>
+<p>Math being implemented (simultaneous update, repeated <code class="docutils literal notranslate"><span class="pre">num_iters</span></code> times):</p>
+<div class="math notranslate nohighlight">
+\[w_j \leftarrow w_j - \alpha \frac{\partial J(\mathbf{w},b)}{\partial w_j} \qquad b \leftarrow b - \alpha \frac{\partial J(\mathbf{w},b)}{\partial b}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_in</span><span class="p">,</span> <span class="n">b_in</span><span class="p">,</span> <span class="n">cost_function</span><span class="p">,</span> <span class="n">gradient_function</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">num_iters</span><span class="p">):</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs batch gradient descent to learn w and b. Updates w and b by taking </span>
+<span class="sd">    num_iters gradient steps with learning rate alpha</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">      X (ndarray (m,n))   : Data, m examples with n features</span>
+<span class="sd">      y (ndarray (m,))    : target values</span>
+<span class="sd">      w_in (ndarray (n,)) : initial model parameters  </span>
+<span class="sd">      b_in (scalar)       : initial model parameter</span>
+<span class="sd">      cost_function       : function to compute cost</span>
+<span class="sd">      gradient_function   : function to compute the gradient</span>
+<span class="sd">      alpha (float)       : Learning rate</span>
+<span class="sd">      num_iters (int)     : number of iterations to run gradient descent</span>
+<span class="sd">      </span>
+<span class="sd">    Returns:</span>
+<span class="sd">      w (ndarray (n,)) : Updated values of parameters </span>
+<span class="sd">      b (scalar)       : Updated value of parameter </span>
+<span class="sd">      &quot;&quot;&quot;</span>
+    
+    <span class="c1"># An array to store cost J and w&#39;s at each iteration primarily for graphing later</span>
+    <span class="n">J_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">w_in</span><span class="p">)</span>  <span class="c1">#avoid modifying global w within function</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">b_in</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iters</span><span class="p">):</span>
+
+        <span class="c1"># Calculate the gradient and update the parameters</span>
+        <span class="n">dj_db</span><span class="p">,</span><span class="n">dj_dw</span> <span class="o">=</span> <span class="n">gradient_function</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   
+
+        <span class="c1"># Update Parameters using w, b, alpha and gradient</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">w</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">dj_dw</span>               
+        <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">dj_db</span>               
+        
+    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="c1">#return final w,b </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize parameters</span>
+<span class="n">initial_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">w_init</span><span class="p">)</span>
+<span class="n">initial_b</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="c1"># some gradient descent settings</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">5.0e-7</span>
+
+<span class="n">w_final</span><span class="p">,</span> <span class="n">b_final</span><span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">initial_w</span><span class="p">,</span> <span class="n">initial_b</span><span class="p">,</span>
+                                                    <span class="n">compute_cost</span><span class="p">,</span> <span class="n">compute_gradient</span><span class="p">,</span> 
+                                                    <span class="n">alpha</span><span class="p">,</span> <span class="n">iterations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;b,w found by gradient descent: </span><span class="si">{</span><span class="n">b_final</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">w_final</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b,w found by gradient descent: -0.00,[ 0.20396569  0.00374919 -0.0112487  -0.0658614 ] 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./week3_ml_core/Supervised Machine Learning: Regression and Classification"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Multiple Variable Linear Regression</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#role-of-alpha-learning-rate-in-gradient-descent">Role of Alpha (Learning Rate) in Gradient Descent</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-size-of-alpha-matters">Why the size of alpha matters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-alpha-is-typically-chosen-in-practice">How alpha is typically chosen in practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-feature-scaling">Connection to feature scaling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">1.3 Notation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-prediction-with-multiple-variables">3 Model Prediction With Multiple Variables</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-cost-with-multiple-variables">4 Compute Cost With Multiple Variables</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-with-multiple-variables">5 Gradient Descent With Multiple Variables</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-gradient-with-multiple-variables">5.1 Compute Gradient with Multiple Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorized-gradient-computation-worked-example">Vectorized Gradient Computation — Worked Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-error-vector-err-x-w-b-y">Step 1 — Error vector: <code class="docutils literal notranslate"><span class="pre">err</span> <span class="pre">=</span> <span class="pre">X</span> <span class="pre">@</span> <span class="pre">w</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">-</span> <span class="pre">y</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-gradient-w-r-t-w-dj-dw-x-t-err-m">Step 2 — Gradient w.r.t. w: <code class="docutils literal notranslate"><span class="pre">dj_dw</span> <span class="pre">=</span> <span class="pre">(X.T</span> <span class="pre">@</span> <span class="pre">err)</span> <span class="pre">/</span> <span class="pre">m</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-gradient-w-r-t-b-dj-db-sum-err-m">Step 3 — Gradient w.r.t. b: <code class="docutils literal notranslate"><span class="pre">dj_db</span> <span class="pre">=</span> <span class="pre">sum(err)</span> <span class="pre">/</span> <span class="pre">m</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-summary">Shape Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.2 Gradient Descent With Multiple Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-explained"><code class="docutils literal notranslate"><span class="pre">gradient_descent</span></code> — Explained</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Zakir Haziq
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

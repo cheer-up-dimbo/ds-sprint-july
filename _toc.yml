@@ -1,0 +1,17 @@
+format: jb-book
+root: intro
+parts:
+  - caption: Projects
+    chapters:
+      - file: projects/projects1_hdb/project1
+      - file: projects/project3
+  - caption: Reference / Cheatsheets
+    chapters:
+      - file: ml_cheatsheet
+      - file: ml_pipelines
+      - file: dataviz_cheatsheet
+  - caption: Q&A
+    maxdepth: 1
+    titlesonly: true
+    chapters:
+      - file: week3_ml_core/QnA
